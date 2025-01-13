@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('pujas', function (Blueprint $table) {
             $table->id();
             $table->integer('puja');
-            $table->string('disponibilitatea');
-            $table->unSi
+            $table->unsignedBigInteger('gidaria_id');
+            $table->unsignedBigInteger('bezeroa_id');
             $table->timestamps();
+
+            $table->foreign('gidaria_id')->references('id')->on('gidariak')->onDelete('cascade');
+            $table->foreign('bezeroa_id')->references('id')->on('bezeroak')->onDelete('cascade');
         });
     }
 

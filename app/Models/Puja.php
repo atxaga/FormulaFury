@@ -10,14 +10,6 @@ class Puja extends Model
 
     protected $fillable = [
         'puja',
-        'izena',
-        'puntuak',
-        'kategoria',
-        'balorea',
-        'disponibilitatea',
     ];
 
-    public function bezeroa(){
-        return $this->belongsTo(Bezeroa::class);
-    }
 }
