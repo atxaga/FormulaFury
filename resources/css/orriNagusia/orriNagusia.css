@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../../js/fonts/horizon.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'MiFuente2';
+    src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+  }
+body {
+    margin: auto;
+    background-color: rgb(27, 25, 25);
+    font-family: 'MiFuente', sans-serif;
+}
+.argazkiak{
+    display: flex;
+    color: grey;
+    width: 100%;
+    text-align: center;
+
+}
+
+.argazkiak img{
+    width: 50%;
+}
+.argazkiak p {
+    color: rgb(69, 68, 68); /* Color inicial */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+.ligak p{
+    color: rgb(213, 7, 7);
+}
+  
+  /* Cambiar a rojo en hover, excepto en 'Ligak' */
+  .argazkiak div:not(.ligak):hover p {
+    color: red;
+  }
+  

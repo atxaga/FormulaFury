@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'MiFuente';
+  src: url('../../js/fonts/horizon.otf') format('truetype');
+}
+@font-face {
+  font-family: 'MiFuente2';
+  src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+}
+body {
+    margin: auto;
+    background-color: rgb(0, 0, 0);
+}
+.hurrengo{
+    margin-top: 3%;
+    color: gray;
+}
+.lasterketa{
+    
+}
+.lasterketa p{
+    font-size: 40px;
+}
+.datuak p{
+    font-size: 20px;
+    color: rgb(77, 76, 76);
+}
+.datuak{
+    margin-top: 9%;
+}
+.blanco{
+    display: flex;
+    background-color: white;
+    height: 300px;
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: space-between;
+
+}
+.circuito img{
+    margin-left: 40%;
+    margin-top: 5%;
+    width: 50%;
+}
+
+.blanco2{
+    text-align: center;
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 15%;
+}
+.kontaktatu{
+    margin-top: 3%;
+}
+.kontaktatu p{
+    color: gray;
+}
+.kontaktatu1{
+  margin-top: 3%;
+}
+.kontaktatu1 p{
+  color: gray;
+}
+
+.container1 {
+    background-color: #000000; /* Color de fondo claro */
+    padding: 10px 0; /* Espaciado interno */
+    box-shadow: 0 -9px 6px rgba(36, 36, 36, 0.4); /* Sombra en la parte superior del footer */
+    z-index: 1000; /* Prioridad sobre otros elementos */
+  }
+  .sozialak{
+    margin-top: 3%;
+    color: gray;
+  }
+  .blanco3{
+    text-align: center;
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20%;
+    height: 100px;
+
+  }
+  .imagenes{
+    display: flex;
+    margin-left: 20%;
+    margin-right: 9%;
+  }
+  .instagram img{
+    width: 40%;
+  }
+  .x img{
+    width: 20%;
+  }
+  
+  .tiktok img{
+
+    width: 20%;
+    margin-right: 25%;
+
+  }
+  button.sortuLiga a{
+    text-decoration: none;
+    color: white;
+  }
+
+ 
+
+  
+

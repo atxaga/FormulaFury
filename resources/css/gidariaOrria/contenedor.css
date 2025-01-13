@@ -1,0 +1,62 @@
+body{
+    background-color: black;
+}
+.main-gidaria {
+    transform: scale(0.8); /* Escalar todo al 80% */
+    transform-origin: top left; /* Punto de origen para la escala */
+    width: 125%; /* Compensa la escala */
+    height: 125%; /* Compensa la escala */
+    overflow: hidden; /* Evita desbordamientos */
+    position: relative;
+  }
+.info{
+    transform: scale(0.8); /* Escalar todo al 80% */
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    width: 120%;
+    margin: auto;
+    margin-left: -10%;
+    
+}
+.plantilla{
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.lasterketa{
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.balorea{
+    margin-left: 45%;
+    margin-top: 2%;
+}
+
+.plantillaLetra, .lasterketaLetra, .baloreaLetra{
+    font-size: 29px;
+    color: rgb(78, 77, 77);
+    font-family: 'MiFuente2';
+}
+.logoak{
+    display: flex;
+    justify-content: space-around;
+}
+.logoak img{
+    width: 15%;
+    height: 100px;
+}
+.totala, .eguna, .totalaBalorea{
+    font-family: 'MiFuente2';
+    font-size: 36px;
+    font-weight: 500;
+}
+.totalaBalorea img{
+    width: 400px;
+    height: 100px;
+}
+.totalaBalorea{
+    display: flex;
+    height: 20px;
+
+}

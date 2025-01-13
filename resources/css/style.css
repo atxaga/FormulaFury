@@ -1,0 +1,173 @@
+@font-face {
+  font-family: 'MiFuente';
+  src: url('../../js/fonts/horizon.otf') format('truetype');
+}
+@font-face {
+  font-family: 'MiFuente2';
+  src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+}
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+
+  }
+  
+  /* Contenedor principal */
+  .container {
+    
+    display: flex;
+    flex-direction: column; /* Alineación de logo y botones en columna */
+    justify-content: center; /* Centramos el contenido verticalmente */
+    align-items: center; /* Centramos horizontalmente */
+    height: 100vh; /* Altura completa de la ventana */
+    padding: 20px;
+    text-align: center; /* Aseguramos que el contenido dentro del contenedor esté centrado */
+  }
+  .logos img{
+    margin: auto;
+  }
+  
+  /* Logo */
+  .logo img {
+    margin-left: 4%;
+    width: 1000px;
+    height: auto;
+    margin-bottom: 20px; /* Separación entre el logo y los botones */
+  }
+  
+  /* Botón de Registrate */
+  button.registrar {
+    margin-top: 60%;
+    background-color: #ff0019; /* Rojo Danger */
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    border: 2px solid #ff0019; /* Borde para consistencia */
+    border-radius: 0; /* Borde recto */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+    width: 400px; /* Ancho fijo de los botones */
+    height: 40px;
+    text-align: center;
+    margin-bottom: 10px; /* Menos separación entre los botones */
+  }
+  
+  button.registrar:hover {
+    background-color: #000; /* Fondo negro en hover */
+    color: rgb(255, 0, 0); /* Texto blanco en hover */
+  }
+  
+  /* Botón de LOG IN */
+  button.login {
+    background: none;
+    margin-top: -5%;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    border-radius: 0; /* Borde recto */
+    border: 1px solid rgb(74, 74, 74);
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease; /* Transición solo de color y borde */
+    width: 200px; /* Ancho fijo de los botones */
+    text-align: center;
+    width: 400px; /* Ancho fijo de los botones */
+    height: 40px;
+    padding: 9px;
+
+
+    margin-bottom: 20%;
+    padding: 0;
+  }
+  
+  button.login:hover {
+    color: rgb(255, 255, 255); /* Texto blanco en hover */
+    border-color: white; /* Borde blanco en hover */
+  }
+  
+  /* Estilo del contenedor de botones */
+  .login {
+    display: flex;
+    flex-direction: column; /* Los botones se apilan uno debajo del otro */
+    align-items: center;
+    text-decoration: none;
+  }
+  .login a{
+    margin-top: 2%;
+    color: white;
+    text-decoration: none;
+  }
+  /* Estilo para el video de fondo */
+  .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  
+    /* Filtros más fuertes */
+    filter: grayscale(100%) brightness(30%) contrast(80%);
+    opacity: 0.5; /* Aún más transparente */
+  }
+/* Estilo para el contenido superpuesto */
+.content {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté por encima del video */
+  color: white;
+  text-align: center;
+  padding-top: 20vh; /* Baja el contenido un poco */
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para ajustar más el fondo si es necesario */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evita scroll si no es necesario */
+  height: 100%; /* Asegura que el contenedor ocupe toda la pantalla */
+}
+/* Botón mixto */
+button.mixed-button {
+  background: linear-gradient(120deg, #ff0019 50%, rgba(0, 0, 0, 0) 50%);
+  color: white;
+  font-weight: bolder;
+  font-size: 16px;
+  border: 1px solid rgb(74, 74, 74);
+  border-radius: 0; /* Borde recto */
+  cursor: pointer;
+  width: 400px; /* Ancho del botón */
+  height: 40px; /* Altura del botón */
+  text-align: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+  position: relative;
+  overflow: hidden;
+}
+
+button.mixed-button a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+button.mixed-button:hover {
+  background: linear-gradient(120deg, #000 50%, rgba(255, 255, 255, 0) 50%);
+  color: #ffffff;
+  border-color: white;
+}
+
+button.mixed-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid white; /* Línea divisoria */
+  transform: rotate(-30deg); /* Diagonal */
+  z-index: 0;
+}
+
+
+  

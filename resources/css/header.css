@@ -1,0 +1,221 @@
+@font-face {
+  font-family: 'MiFuente';
+  src: url('../../js/fonts/horizon.otf') format('truetype');
+}
+@font-face {
+  font-family: 'MiFuente2';
+  src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+}
+
+.header {
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    position: relative; /* Para posicionar el botón de hamburguesa */
+    padding: 10px 20px;
+    text-align: center;
+    margin: auto;
+    
+  }
+
+  .logo{
+    margin: auto;
+    margin-left: 45%;
+  } 
+  
+   
+  /* Botón de hamburguesa (a la izquierda) */
+  .hamburger {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white; /* Ajusta según tu tema */
+    position: absolute;
+    left: 20px; /* Posición fija a la izquierda */
+  }
+  .language-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 180px; /* Ajusta según el diseño */
+  }
+  
+  .language-select {
+    appearance: none; /* Oculta el estilo predeterminado del select */
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px 10px 8px 40px; /* Espacio a la izquierda para el icono */
+    color: white; /* Color del texto por defecto */
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    justify-content: space-around;
+  }
+  
+  .language-select:focus {
+    outline: none;
+    border-color: #ccc;
+  }
+  
+  /* Opciones del select desplegable */
+  .language-select option {
+    background-color: #333; /* Fondo oscuro para las opciones desplegables */
+    color: white; /* Texto blanco para visibilidad */
+  }
+  
+  .language-select-wrapper .globe-icon {
+    position: absolute;
+    left: 10px; /* Ajusta según el diseño */
+    width: 40px;
+    height: 20px;
+    pointer-events: none; /* Para que no interfiera con el clic */
+  }
+  
+  .globe-icon{
+    padding-right: 20px;
+  }
+  
+  /* Sidebar styles */
+.sidebar {
+  font-family: 'MiFuente2', sans-serif;
+  position: fixed;
+  top: 0;
+  left: -300px; /* Oculto inicialmente */
+  width: 290px;
+  height: 100%;
+  background-color: #191818; /* Gris oscuro */
+  color: white;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease;
+  padding: 20px;
+  z-index: 1000; /* Barra lateral encima de todo */
+}
+
+  
+  .sidebar.open {
+    left: 0; /* Visible cuando se abre */
+  }
+  
+  .sidebar .close-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  /* Fondo oscuro detrás de la barra lateral */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 180%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 999; /* Debe estar debajo de la barra pero encima del contenido */
+    display: none; /* Oculto inicialmente */
+  }
+  
+  .overlay.active {
+    display: block; /* Mostrar cuando la barra está activa */
+  }
+  .perfil{
+    margin-top: 8%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .perfil p{
+    font-family: 'MiFuente';
+    font-size: 12px;
+    margin-top: 5%;
+  }
+  .perfil img{
+    width: 20%;
+  }
+ 
+  li {
+    display: flex;
+    align-items: center; /* Asegura que el contenido esté alineado verticalmente */
+    padding-left: 4%;
+    padding-right: 4%;
+    color: gray;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  li img {
+    width: 16%;
+    margin-right: 10px; /* Espaciado entre la imagen y el texto */
+  }
+  
+  li p {
+    margin: 0;
+    text-align: left; /* Alinea el texto hacia la izquierda */
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+  }
+  .redes{
+    padding-top: 50%;
+    justify-content: center;
+       
+
+
+  }
+  .logout-button {
+    margin-top: 5%;
+    background-color: #ff0019; /* Rojo Danger */
+    color: rgb(255, 255, 255);
+    border: 2px solid #ff0019; /* Borde para consistencia */
+    border-radius: 0; /* Borde recto */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+    width: 200px; /* Ancho fijo de los botones */
+    text-align: center;
+    margin-bottom: 10px; /* Menos separación entre los botones */
+  }
+  
+  .logout-button:hover {
+    background-color: #000; /* Fondo negro en hover */
+    color: rgb(255, 0, 0); /* Texto blanco en hover */
+  }
+  .redes img{
+    height: 20px;
+    width: 20px;
+    margin: 10px;
+  }
+ .copyright p{
+  display: flex;
+  justify-content: center; 
+  font-size: 15px;  
+ }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .logo {
+    display: flex;
+    justify-content: center; /* Centra el logo horizontalmente */
+  }
+
+  .logo img {
+    height: 50px; /* Mantiene la proporción */
+    width: 150px !important;
+    }
+    .hamburger {
+      font-size: 20px;
+    }
+  }

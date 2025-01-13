@@ -1,0 +1,25 @@
+.pujakDiv{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(24, 23, 23);
+    width: 30%;
+    color: white;
+    font-size: 25px;
+    margin-top: 2%;
+    border-radius: 3px;
+
+}
+.pujakDiv img{
+    width: 8%;
+}
+.pujakDiv p{
+    margin-top: 2%;
+    text-align: center;
+    margin: auto;
+}
+h1{
+    text-align: center;
+    margin-top: 5%;
+    
+}

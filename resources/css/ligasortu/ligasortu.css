@@ -1,0 +1,191 @@
+.liga-sortu-container {
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    color: white;
+  }
+  
+  .liga-sortu-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .liga-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: 2px solid #313131;
+    background-color: rgba(128, 128, 128, 0.1);
+    font-size: 16px;
+  }
+  
+  .liga-input:focus {
+    outline: none;
+    border-bottom: 2px solid #5b9bd5;
+  }
+  
+  .liga-input-help-text {
+    font-size: 12px;
+    color: #888;
+    text-align: left;
+  }
+  
+  .liga-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 2px solid #888;
+    background-color: rgba(128, 128, 128, 0.1);
+    font-size: 16px;
+    resize: none;
+  }
+  
+  .liga-textarea:focus {
+    outline: none;
+    border-bottom: 2px solid #5b9bd5;
+  }
+  
+  .liga-textarea-help-text {
+    font-size: 12px;
+    color: #888;
+    text-align: left;
+  }
+  
+  .liga-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .liga-button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #5b9bd5;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .liga-button.on {
+    background-color: #007bff;
+  }
+  
+  .liga-button.off {
+    background-color: #6c757d;
+  }
+
+  button.sortu {
+    background-color: #ff0019; /* Rojo Danger */
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    border: 2px solid #ff0019; /* Borde para consistencia */
+    border-radius: 0; /* Borde recto */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+    width: 150px; /* Ancho fijo de los botones */
+    height: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin: auto;
+    margin-top: 2%;
+    font-size: 20px;    
+  }
+  button.sortu p{
+    color: white;
+    text-align: center;
+    margin: auto;
+  }
+  
+  button.sortu:hover {
+    background-color: #000; /* Fondo negro en hover */
+    color: rgb(255, 0, 0); /* Texto blanco en hover */
+  
+  }
+  .liga-button:hover {
+    opacity: 0.9;
+  }
+  /* Estilos para el contenedor del Klasulazo */
+.klasulazo-container {
+    background-color: #1d1d1d; /* Gris claro */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .klasulazo-header {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .klasulazo-header p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .klasulazo-description {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  /* Estilos para el interruptor */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #535151;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4CAF50; /* Verde cuando activado */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(14px); /* Mueve el círculo al otro lado */
+  }
+  
+  .slider.round {
+    border-radius: 50px;
+  }
+  

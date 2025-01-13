@@ -1,0 +1,143 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../../js/fonts/horizon.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'MiFuente2';
+    src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+  }
+  .cont{
+    background-color: rgb(11, 15, 27);
+}
+.dena{
+
+    font-family: 'MiFuente2';
+    display: flex;
+    text-align: center;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+}
+.header{
+
+    display: flex;
+    font-size: 40px;
+    color: white;
+    justify-content: space-around;
+
+}
+.f1{
+    color: red;
+    
+}
+
+.plus img{
+    width: 10%;
+}
+button.hamburger{
+    margin-left: 2%;
+}
+.sekzioak{
+    margin-top: 1%;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+}
+.sekzioak a{
+    font-size: 23px;
+    text-decoration: none;
+}
+
+.merkatuOr{
+    border-bottom: 4px solid red;
+    width: 30%;
+    
+
+}
+.merkatuOr a{
+    text-decoration: none;
+    font-size: 23px;
+    color: white;
+}
+.merkatuOr, .nire-op, .historikoa{
+    width: 20%;
+    text-align: center;
+}
+.nire-op, .historikoa{
+    color: gray;
+}
+.lupa{
+    color: white;
+    font-size: 30px;
+    margin-right: 2%;
+}
+/* Mantener el fondo del header intacto */
+.dena {
+    font-family: 'MiFuente2';
+    display: flex;
+    text-align: center;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background-color: rgb(11, 15, 27);
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  .f1 {
+    color: red;
+  }
+  
+  .hamburger {
+    margin-left: 2%;
+  }
+  
+  .lupa {
+    color: white;
+    font-size: 30px;
+    margin-right: 2%;
+    cursor: pointer;
+  }
+  
+  .sekzioak {
+    margin-top: 1%;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(11, 15, 27); /* Mantener el fondo del header */
+  }
+  
+  .search-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .search-input::placeholder {
+    color: gray;
+  }
+  
+  .close-search {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  

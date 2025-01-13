@@ -1,0 +1,94 @@
+.container1 {
+  background-color: black;
+  position: fixed;
+  width: 80%; /* Ajusta el ancho deseado */
+  bottom: 0; /* Fijo en la parte inferior */
+  z-index: 10; /* Por encima de otros elementos */
+  display: flex; /* Flexbox para estructurar */
+  justify-content: center; /* Centrar elementos horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  padding: 10px 0; /* Espaciado interno */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+  margin: auto; /* Centrar */
+  font-family: 'MiFuente'; /* Fuente personalizada */
+}
+.header{
+  text-align: center;
+  margin-left: 38%;
+}
+
+.argazkiak {
+  display: flex;
+  justify-content: space-around; /* Distribuir uniformemente */
+  align-items: center; /* Centrar verticalmente */
+  gap: 20px; /* Espaciado entre elementos */
+  width: 100%; /* Ocupa todo el ancho */
+  overflow: hidden; /* Prevenir desbordamientos */
+}
+
+.argazkiak > div {
+  flex: 1; /* Todos los elementos ocupan el mismo espacio */
+  text-align: center; /* Centrar contenido */
+  min-width: 80px; /* Establecer un ancho mínimo constante */
+}
+
+.argazkiak img {
+  max-width: 80px; /* Tamaño máximo estándar */
+  height: auto; /* Mantener proporción */
+  margin-left: 36%;
+}
+
+.taldeaInput img {
+  max-width: 200px; /* Imagen más grande para taldeaInput */
+  height: auto; /* Mantener proporción */
+  margin-left: -1%;
+
+}
+
+.argazkiak div {
+  position: relative; /* Permite posicionamiento de elementos internos */
+}
+
+.taldeaInput img {
+  position: absolute; /* Posicionar la imagen dentro del contenedor */
+  top: 50%; /* Centrar verticalmente */
+  left: 50%; /* Centrar horizontalmente */
+  transform: translate(-50%, -50%) scale(1.5); /* Ajustar tamaño y centrar */
+}
+.taldeaInput {
+    display: flex; /* Usar flexbox para organizar contenido */
+    flex-direction: column; /* Organizar en columna */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    position: relative; /* Necesario para la posición interna */
+  }
+  
+  .taldeaInput img {
+    max-width: 200px; /* Tamaño máximo de la imagen */
+    height: auto; /* Mantener proporción */
+  }
+  
+  .taldeaInput a {
+    margin: 80px 0 0 0; /* Espacio superior específico */
+    padding: 0; /* Asegurar que no hay padding adicional */
+    font-size: 14px; /* Ajustar tamaño del texto */
+    text-align: center; /* Centrar texto */
+    text-decoration: none;
+  }
+  
+.klasifikazioa a,.taldea a, .ligak a{
+    text-decoration: none;
+}
+.klasifikazioa a{
+  color: red;
+}
+
+.argazkiak p, a {
+  font-size: 12px; /* Tamaño del texto */
+  color: gray; /* Color inicial */
+}
+
+.argazkiak div:hover p,
+.argazkiak div:hover a {
+  color: red; /* Cambiar el color al pasar el cursor */
+}

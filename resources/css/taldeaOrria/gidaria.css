@@ -1,0 +1,50 @@
+
+.gidariaDiv{
+    margin-top: 2%;
+    background-color: rgb(24, 23, 23);
+    width: 50%;
+    margin-left: 13%;
+}
+
+.foto{
+    padding: 0;
+    padding-bottom: 1%;
+    
+
+}
+.foto img{
+    width: 50%;
+    height: 200px;
+    margin-left: 20%;
+}
+.egoera IMG{
+    margin-top: -20%;
+    width: 300px;
+    height: 50px;
+}
+.datof1{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+}
+.izena{
+    font-family: 'MiFuente2';
+    font-size: 25px;
+    color: black;
+    width: 200vh;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 1.5%;
+}
+.escuderia{
+    margin-top: 45%;
+}
+.escuderia img{
+    width: 100%;
+    height: 290px;
+
+}
+
+.taldea img{
+}

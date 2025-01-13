@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../../js/fonts/horizon.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'MiFuente2';
+    src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+  }
+  body {
+      margin: 0;
+      background-color: black;
+      color: white;
+  
+    }
+    .dena{
+      margin-left: 13%;
+    }
+    
+    /* Contenedor principal */
+    .container {
+      
+      display: flex;
+      flex-direction: column; /* Alineación de logo y botones en columna */
+      justify-content: center; /* Centramos el contenido verticalmente */
+      align-items: center; /* Centramos horizontalmente */
+      height: 100vh; /* Altura completa de la ventana */
+      padding: 20px;
+      text-align: center;
+      margin: auto;
+      
+    }
+    .logos{
+        
+    }
+    /* Logo */
+    .logos img {
+      width: 55%;
+      height: auto;
+      margin-bottom: 20px; /* Separación entre el logo y los botones */
+    }
+    
+    /* Botón de Registrate */
+    button.sartu {
+      background-color: #ff0019; /* Rojo Danger */
+      color: rgb(255, 255, 255);
+      font-weight: bolder;
+      border: 2px solid #ff0019; /* Borde para consistencia */
+      border-radius: 0; /* Borde recto */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+      width: 400px; /* Ancho fijo de los botones */
+      height: 40px;
+      text-align: center;
+      margin-bottom: 10px; /* Menos separación entre los botones */
+    }
+    
+    button.sartu:hover {
+      background-color: #000; /* Fondo negro en hover */
+      color: rgb(255, 0, 0); /* Texto blanco en hover */
+    }
+    
+   
+    /* Estilo para el video de fondo */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    
+      /* Filtros más fuertes */
+      filter: grayscale(100%) brightness(30%) contrast(80%);
+      opacity: 0.3; /* Aún más transparente */
+    }
+    .login-form {
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+      }
+      
+      .login-input {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid white;
+        background-color: #333;
+        color: white;
+        outline: none;
+      }
+      
+      .login-input::placeholder {
+        color: #bbb;
+      }
+      
+      .forgot-password, .account-link {
+        color: white;
+        margin-bottom: 10px;
+        text-decoration: none;
+      }
+      
+      .sesioa{
+        text-align: left;
+        width: 100%;
+        margin-bottom: 2%;
+        
+      }
+      .sesioa p{
+        font-size: 35px;
+      }
+      .sesioa img{
+        width: 7%;
+        height: 20px;
+      }
+      .atzeraDiv{
+        width: 60%;
+        display: flex;
+        color: gray;
+      }
+      p.atzera{
+        margin-top: 4%;
+        font-size: 17px;
+      }
+      .onartu{
+        display: flex;
+      }
+      .black-checkbox {
+        accent-color: black;
+      }
+      
+      .circular-checkbox {
+        width: 20px; /* Ajusta el tamaño */
+        height: 20px;
+        border-radius: 50%; /* Hace que sea circular */
+        display: inline-block;
+        appearance: none; /* Remueve el estilo predeterminado */
+        background-color: gray; /* Fondo inicial */
+        border: 2px solid black; /* Borde negro */
+        cursor: pointer;
+      }
+      
+      .circular-checkbox:checked {
+        background-color: black; /* Fondo negro cuando está seleccionado */
+      }
+      .onartu a{
+        color: rgb(11, 87, 61);
+      }
+      p.onarpena{
+        margin-bottom: 4%;
+      }
+      
+      
+  /* Estilo para el contenido superpuesto */
+
+  
+    
