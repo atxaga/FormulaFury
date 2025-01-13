@@ -10,7 +10,9 @@ class Liga extends Model
 
     protected $fillable = [
         'izena',
-        'partaideak',
+        'kodea',
+        'deskribapena',
+        'klausulak'
     ];
 
     public function bezeroak() {
@@ -27,6 +29,6 @@ class Liga extends Model
         return $this->belongsToMany(Gidaria::class)
                     ->using(LigaGidari::class)
                     ->withPivot('erabilgarritasuna', 'erositako_prezioa', 'saldutako_prezioa')
-                    ->withTimestamps();
+                    ->withTimestamps();                                                                                                                   
     }
 }

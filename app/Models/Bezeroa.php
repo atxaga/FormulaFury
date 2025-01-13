@@ -20,7 +20,7 @@ class Bezeroa extends Model
 
     public function grandprix() {
         
-        return $this->belongsToMany(Bezeroa::class)
+        return $this->belongsToMany(GrandPrix::class)
                     ->using(BezeroakGrandPrix::class)
                     ->withPivot('puntuak')
                     ->withTimestamps();
@@ -46,6 +46,14 @@ class Bezeroa extends Model
                     ->withPivot('puntuak')
                     ->withTimestamps();
                     
+    }
+
+    public function puja() {
+
+        return $this->belongsToMany(Gidaria::class)
+                    ->using(Puja::class)
+                    ->withPivot('puja')
+                    ->withTimestamps();
     }
 
 

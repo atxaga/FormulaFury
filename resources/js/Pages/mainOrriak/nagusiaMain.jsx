@@ -14,7 +14,6 @@ return(
     <Header />
       <Nagusia />
       <Lasterketa/>
-    <Footer />
   </>
 );
 }

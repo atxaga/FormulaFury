@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import '../../../css/merkatuaOrria/gidaria.css';
 import dispo from '../../../images/tick.png';
 import f1 from '../../../images/f1.png';
 import f2 from '../../../images/f2.png';

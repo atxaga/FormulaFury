@@ -5,6 +5,7 @@ import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
 import { useForm } from '@inertiajs/react';
 import { useRef } from 'react';
+import '@/../css/profila/profila.css'
 
 export default function UpdatePasswordForm({ className = '' }) {
     const passwordInput = useRef();
@@ -47,21 +48,21 @@ export default function UpdatePasswordForm({ className = '' }) {
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-gray-900">
-                    Update Password
+                <h2 className="text-lg font-medium text-white">
+                    Pasahitza aktualizatu
                 </h2>
 
                 <p className="mt-1 text-sm text-gray-600">
-                    Ensure your account is using a long, random password to stay
-                    secure.
+                    Zure kontuak pasahitz luze eta segurua duela konprobatu.
                 </p>
             </header>
 
             <form onSubmit={updatePassword} className="mt-6 space-y-6">
                 <div>
                     <InputLabel
+                        className='inputXuri'
                         htmlFor="current_password"
-                        value="Current Password"
+                        value="Oraingo pasahitza"
                     />
 
                     <TextInput
@@ -72,7 +73,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                             setData('current_password', e.target.value)
                         }
                         type="password"
-                        className="mt-1 block w-full"
+                        className="select mt-1 block w-full"
                         autoComplete="current-password"
                     />
 
@@ -83,7 +84,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                 </div>
 
                 <div>
-                    <InputLabel htmlFor="password" value="New Password" />
+                    <InputLabel className='inputXuri' htmlFor="password" value="Pasahitz berria   " />
 
                     <TextInput
                         id="password"
@@ -91,7 +92,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         value={data.password}
                         onChange={(e) => setData('password', e.target.value)}
                         type="password"
-                        className="mt-1 block w-full"
+                        className="select mt-1 block w-full"
                         autoComplete="new-password"
                     />
 
@@ -100,8 +101,9 @@ export default function UpdatePasswordForm({ className = '' }) {
 
                 <div>
                     <InputLabel
+                        className='inputXuri'
                         htmlFor="password_confirmation"
-                        value="Confirm Password"
+                        value="Pasahitza konfirmatu"
                     />
 
                     <TextInput
@@ -111,7 +113,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                             setData('password_confirmation', e.target.value)
                         }
                         type="password"
-                        className="mt-1 block w-full"
+                        className="select mt-1 block w-full"
                         autoComplete="new-password"
                     />
 
@@ -122,7 +124,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
+                    <PrimaryButton disabled={processing}>GORDE</PrimaryButton>
 
                     <Transition
                         show={recentlySuccessful}
@@ -132,7 +134,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         leaveTo="opacity-0"
                     >
                         <p className="text-sm text-gray-600">
-                            Saved.
+                            Gordeta.
                         </p>
                     </Transition>
                 </div>

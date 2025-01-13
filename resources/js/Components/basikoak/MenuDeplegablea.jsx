@@ -118,10 +118,13 @@ function Menua() {
               <img src={bajakImg} alt="Bajak" />
               <p>{translations.header.bajak}</p>
             </li>
+            <a href="/profile">
             <li>
               <img src={perfilaImg} alt="Profila" />
               <p>{translations.header.profila}</p>
             </li>
+            </a>
+
             <li>
               <img src={laguntzaImg} alt="Laguntza" />
               <p>{translations.header.laguntza}</p>

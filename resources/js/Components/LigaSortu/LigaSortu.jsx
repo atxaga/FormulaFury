@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import '../../../css/ligasortu/ligasortu.css';
-import { Inertia } from '@inertiajs/inertia'; // Importar Inertia
+import { Inertia } from '@inertiajs/inertia'; 
 
 
 function LigaSortu() {

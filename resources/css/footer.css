@@ -3,7 +3,6 @@
   position: fixed;
   width: 69%; /* Ajusta el ancho deseado */
   bottom: 0; /* Fijo en la parte inferior */
-  z-index: 10; /* Por encima de otros elementos */
   display: flex; /* Flexbox para estructurar */
   justify-content: center; /* Centrar elementos horizontalmente */
   align-items: center; /* Centrar verticalmente */

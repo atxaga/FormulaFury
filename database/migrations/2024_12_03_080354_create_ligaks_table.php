@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('ligak', function (Blueprint $table) {
             $table->id();
             $table->string('izena');
-            $table->json('partaideak');
+            $table->string('kodea');
             $table->string('deskribapena')->nullable();
+            $table->boolean('klausulak');
             $table->timestamps();
         });
     }

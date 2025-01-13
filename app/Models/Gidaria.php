@@ -34,5 +34,13 @@ class Gidaria extends Model
         return $this->hasMany(PuntuakGidaria::class);
     }
 
+    public function puja() {
+
+        return $this->belongsToMany(Bezeroa::class)
+                    ->using(Puja::class)
+                    ->withPivot('puja')
+                    ->withTimestamps();
+    }
+
 
 }

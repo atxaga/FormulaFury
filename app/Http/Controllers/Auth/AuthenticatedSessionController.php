@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('nagusia', absolute: false));
+        return redirect()->intended(route('ligak.index', absolute: false));
     }
 
     /**

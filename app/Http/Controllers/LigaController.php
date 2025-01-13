@@ -15,22 +15,42 @@ class LigaController extends Controller
     return Inertia::render('mainOrriak/nagusiaMain', [
         'ligak' => $ligak,]);
 }
-    public function store(Request $request)
-    {
-        $request->validate([
-            'izena' => 'required|min:5|max:30', 
-            'deskribapena' => 'nullable|max:255', 
-        ]);
+public function store(Request $request)
+{
+    
+    $request->validate([
+        'izena' => 'required|min:5|max:30', 
+        'deskribapena' => 'nullable|max:255', 
+    ]);
 
-        $liga = Liga::create([
-            'izena' => $request->input('izena'),
-            'partaideak' => 0,
-            'deskribapena' => $request->input('deskribapena'),
+    
+    do {
+        $kodea = strtoupper(substr(bin2hex(random_bytes(3)), 0, 6)); 
+    } while (Liga::where('kodea', $kodea)->exists());
 
-        ]);
+   
+    $liga = Liga::create([
+        'izena' => $request->input('izena'),
+        'partaideak' => 0,
+        'deskribapena' => $request->input('deskribapena'),
+        'kodea' => $kodea,
+        'klausulak' => $request->input('klasulazo'),
+    ]);
 
-        return redirect()->route('ligak.index')->with('success', 'Liga sortu da!');
-    }
+    
+    $bezeroa = $request->user()->bezeroa;
+
+    \Illuminate\Support\Facades\DB::table('bezeroa_liga')->insert([
+    'puntuak' => 0,
+    'bezeroa_id' => $bezeroa->id,
+    'liga_id' => $liga->id,
+]);
+
+
+    
+    return redirect()->route('ligak.index')->with('success', 'Liga sortu da! Kodedea: ' . $kodea);
+}
+
 
     
 }

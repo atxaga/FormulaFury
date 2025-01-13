@@ -48,7 +48,6 @@ Route::post('/pujaezabatu', [PujaController::class, 'destroy'])->name('puja.dest
 
 Route::get('/nireoperazioak', [PujaController::class, 'pujatutakoGidari']);
 
-Route::get("/bilatzailea", [MerkatuaController::class, 'gidariGuztiak']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -6,7 +6,9 @@
   font-family: 'MiFuente2';
   src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
 }
-
+.container{
+  margin: auto;
+}
 .header {
     display: flex;
     align-items: center; /* Centra el contenido verticalmente */

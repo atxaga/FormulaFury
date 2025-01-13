@@ -11,10 +11,6 @@ function Header() {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
 
-  // Filtra los pilotos por nombre basado en el término de búsqueda
-  const filteredPilots = pilots.filter(pilot =>
-    pilot.izena.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   const toggleSearchModal = () => {
     setShowSearchModal(!showSearchModal);
@@ -32,7 +28,6 @@ function Header() {
           ☰
         </button>
 
-        {/* Modal de búsqueda */}
         {showSearchModal && (
           <div className="search-modal">
             <div className="search-bar">
@@ -49,8 +44,8 @@ function Header() {
             </div>
 
             <div className="search-results">
-              {filteredPilots.length > 0 ? (
-                filteredPilots.map((pilot) => (
+              {pilots.length > 0 ? (
+                pilots.map((pilot) => (
                   <Gidaria key={pilot.id} pilot={pilot} />
                 ))
               ) : (
@@ -61,7 +56,6 @@ function Header() {
         )}
       </div>
 
-      {/* Las otras secciones del Header */}
       <div className="sekzioak">
         <div className="merkatuOr">
           <a href="merkatua">Merkatua</a>
