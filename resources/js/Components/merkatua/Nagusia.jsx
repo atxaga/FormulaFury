@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { usePage } from '@inertiajs/react';
 import '../../../css/merkatuaOrria/nagusia.css';
-import Footer from '@/Components/taldeaOrria/Footer';
+import Footer from './Footer';
 import Header from './Header';
 import Gidaria from './Gidaria';
 
@@ -76,7 +76,9 @@ function Nagusia() {
           -
         </div>
       </div>
+      <div className='merkatuaFooter'>
       <Footer />
+      </div>
     </>
   );
 }

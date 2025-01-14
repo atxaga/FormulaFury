@@ -48,7 +48,7 @@ export default function UpdatePasswordForm({ className = '' }) {
     return (
         <section className={className}>
             <header>
-                <h2 className="text-lg font-medium text-white">
+                <h2 className="infor text-lg font-medium text-white">
                     Pasahitza aktualizatu
                 </h2>
 
@@ -133,7 +133,7 @@ export default function UpdatePasswordForm({ className = '' }) {
                         leave="transition ease-in-out"
                         leaveTo="opacity-0"
                     >
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-green-500">
                             Gordeta.
                         </p>
                     </Transition>

@@ -18,6 +18,10 @@ class Bezeroa extends Model
         'user_id' 
     ];
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
     public function grandprix() {
         
         return $this->belongsToMany(GrandPrix::class)
@@ -41,7 +45,7 @@ class Bezeroa extends Model
 
     public function ligak() {
 
-        return $this->belongsToMany(Liga::class)
+        return $this->belongsToMany(Liga::class, 'bezeroa_liga', 'bezeroa_id', 'liga_id')
                     ->using(BezeroLiga::class)
                     ->withPivot('puntuak')
                     ->withTimestamps();

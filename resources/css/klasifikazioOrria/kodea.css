@@ -1,0 +1,35 @@
+.modal-content{
+    background-color: rgb(31, 82, 235);
+}
+.kodea{
+    display: flex;
+}
+.titulo{
+    font-size: 30px;
+    color: white;
+}
+.azpi{
+    color: gray;
+}
+.sarbideKodea{
+    justify-content: center;
+    margin: auto;
+    margin-top: 4%;
+}
+.sarbideKodea p{
+    text-align: center;
+    color: white;
+}
+.kodea img{
+    width: 38%;
+    height: 50px;
+}
+.kodea p{
+    font-size: 35px;
+}
+.input{
+    background-color: transparent;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+}

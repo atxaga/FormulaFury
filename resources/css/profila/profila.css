@@ -1,11 +1,4 @@
-@font-face {
-    font-family: 'MiFuente';
-    src: url('../../js/fonts/horizon.otf') format('truetype');
-  }
-  @font-face {
-    font-family: 'MiFuente2';
-    src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
-  }
+
 .profileDiv{
     background-color: rgb(0, 0, 0);
 }
@@ -15,9 +8,13 @@
 }
 .profilaText{
     color: white;
+    font-size: 28px;
 }
 .perfilInfor{
     background-color: rgb(34, 34, 34);
+}
+.infor{
+    font-size: 25px;
 }
 .xuria{
     color: white;

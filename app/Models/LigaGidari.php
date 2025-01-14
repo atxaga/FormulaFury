@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class LigaGidari extends Model
+class LigaGidari extends Pivot
 {
-    protected $table = 'ligak_gidariak';
+    protected $table = 'gidaria_liga';
 
     protected $fillable = [
         'liga',

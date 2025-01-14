@@ -38,12 +38,13 @@ function Footer() {
             </a>
           </div>
           <div className='merkatua'>
+            <a href="/merkatua">
             <div className='img'>
               <img src={merkatuaImg} alt="Merkatua" />
             </div>
-            <p>
               {translations.footer.merkatua}
-            </p>
+            </a>
+
           </div>
           <div className='aktibitatea'>
             <div className='img'>

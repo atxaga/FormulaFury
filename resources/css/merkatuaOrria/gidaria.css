@@ -81,12 +81,13 @@ button.fitxatu {
   .modal-content {
     background-color: rgb(11, 13, 17);
     color: white;
-    padding: 30px;
     border-radius: 10px;
-    width: 30%; /* Hacer el modal más grande */
     text-align: center;
     position: relative;
     height: 800px;
+    padding: 1.5rem;
+    max-width: 70rem; 
+    margin: 0 auto;
   }
   
   .modal-content h2 {

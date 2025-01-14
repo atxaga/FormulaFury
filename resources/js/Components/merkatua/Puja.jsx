@@ -11,11 +11,7 @@ function Puja({ pilot, pujaInicial, onPujaUpdate }) {
 
     const pujaBerria = {
       puja: puja,
-      izena: pilot?.izena,
-      disponibilitatea: pilot?.disponibilitatea,
-      kategoria: pilot?.kategoria,
-      balorea: pilot?.balioa,
-      puntuak: pilot?.puntuak,
+      gidaria_id: pilot?.id,
     };
 
     Inertia.post('/pujatu', pujaBerria);

@@ -76,7 +76,9 @@
 .klasifikazioa a,.ligak a{
     text-decoration: none;
 }
-
+.merkatua a{
+  text-decoration: none;
+}
 .argazkiak p, a {
   font-size: 12px; /* Tamaño del texto */
   color: gray; /* Color inicial */

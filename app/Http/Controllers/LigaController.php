@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bezeroa;
+use App\Models\Gidaria;
 use App\Models\Liga;
+use App\Models\LigaGidari;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class LigaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
 {
-    $ligak = Liga::all();
+    $bezeroa = $request->user()->bezeroa;
 
+    $ligak = $bezeroa->ligak;
+    
     return Inertia::render('mainOrriak/nagusiaMain', [
         'ligak' => $ligak,]);
 }
@@ -40,15 +45,41 @@ public function store(Request $request)
     
     $bezeroa = $request->user()->bezeroa;
 
-    \Illuminate\Support\Facades\DB::table('bezeroa_liga')->insert([
-    'puntuak' => 0,
-    'bezeroa_id' => $bezeroa->id,
-    'liga_id' => $liga->id,
-]);
+    $liga->bezeroak()->attach($bezeroa->id, ['puntuak' => 0]);
 
+    $gidariak = Gidaria::all();
 
-    
+    $pivotData = $gidariak->mapWithKeys(function ($gidariak) {
+        return [
+            $gidariak->id => [
+                'erabilgarritasuna' => 1, 
+                'erositako_prezioa' => 0,
+                'saldutako_prezioa' => 0,
+            ]
+        ];
+    })->toArray();
+
+    $liga->gidariak()->attach($pivotData);
+
     return redirect()->route('ligak.index')->with('success', 'Liga sortu da! Kodedea: ' . $kodea);
+}
+
+public function sartu(Request $request) {
+
+    $request->validate([
+        'kodea' => 'required|string|max:6',
+    ]);
+
+    $bezeroa = $request->user()->bezeroa;
+
+    $liga = Liga::where('kodea', '=', $request->input('kodea'))->first();
+
+    \Illuminate\Support\Facades\DB::table('bezeroa_liga')->insert([
+        'puntuak' => 0,
+        'bezeroa_id' => $bezeroa->id,
+        'liga_id' => $liga->id,
+    ]);
+
 }
 
 

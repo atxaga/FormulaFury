@@ -3,6 +3,8 @@ import '../../../css/orriNagusia/nagusia.css';
 import cascorojo from '../../../images/cascorojo.png';
 import trespuntos from '../../../images/trespuntos.png';
 import euro from '../../../images/euro.png';
+import { redirect } from 'react-router-dom';
+import { Inertia } from '@inertiajs/inertia'; 
 
 function Ligak({ ligak }) {
   const [ligas, setLigas] = useState(ligak);
@@ -17,10 +19,15 @@ function Ligak({ ligak }) {
     setShowRemoveInput(showRemoveInput === id ? null : id); 
   };
 
+  const redirectKlasifikazioa = (id) => {
+
+    Inertia.get(`/klasifikazioa/${id}`)
+  }
+
   return (
     <>
       {ligas.map((liga) => (
-        <div className="blanco-liga" key={liga.id}>
+        <div className="blanco-liga" key={liga.id} onClick={() => redirectKlasifikazioa(liga.id)}>
           <div className="ligak-info-ezker">
             <div className="team">
               <div className="team2">
@@ -29,7 +36,6 @@ function Ligak({ ligak }) {
               </div>
             </div>
             <div className="puntuak">
-              <p>Partaideak: {liga.partaideak}</p> 
               <p>150 PFRY</p> 
             </div>
           </div>

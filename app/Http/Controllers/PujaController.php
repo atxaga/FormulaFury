@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gidaria;
 use App\Models\Puja;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -10,32 +11,36 @@ use IntlChar;
 class PujaController extends Controller
 {
     public function store(Request $request)
-    {
-        
+{
     $request->validate([
         'puja' => 'required|numeric',
-        'izena' => 'required|string',
-        'disponibilitatea' => 'required|string',
-        'kategoria' => 'required|string',
-        'balorea' => 'required|numeric',
-        'puntuak' => 'required|numeric',
+        'gidaria_id' => 'required|numeric',
     ]);
+
+    $bezeroa = $request->user()->bezeroa;
+
     $existingPuja = Puja::where([
-        ['izena', '=', $request->izena],
+        ['gidaria_id', '=', $request->gidaria_id],
+        ['bezeroa_id', '=', $bezeroa->id], 
     ])->first();
 
     if ($existingPuja) {
         $existingPuja->delete();
-    }    
-    
-        $puja = Puja::create($request->all());
-
-        return redirect()->route('merkatua.index');
     }
+
+    Puja::create([
+        'puja' => $request->puja,
+        'gidaria_id' => $request->gidaria_id,
+        'bezeroa_id' => $bezeroa->id,
+    ]);
+
+    return redirect()->route('merkatua.index');
+}
+
     public function destroy(Request $request)
     {
         $existingPuja = Puja::where([
-            ['izena', '=', $request->izena],
+            ['gidaria_id', '=', $request->id],
         ])->first();
     
         if ($existingPuja) {
@@ -46,9 +51,13 @@ class PujaController extends Controller
     }
     public function pujatutakoGidari(){
         
-        $pilot = Puja::all();
+        $puja = Puja::all();
+        $gidariak = Gidaria::all();
 
-        return Inertia::render('mainOrriak/nireopMain', ['pilot'=> $pilot]);
+        return Inertia::render('mainOrriak/nireopMain', [
+            'puja'=> $puja,
+            'gidariak'=>$gidariak
+        ]);
 
     }
 

@@ -10,6 +10,8 @@ class Puja extends Model
 
     protected $fillable = [
         'puja',
+        'gidaria_id',
+        'bezeroa_id'
     ];
 
 }

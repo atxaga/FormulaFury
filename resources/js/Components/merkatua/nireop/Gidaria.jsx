@@ -45,8 +45,8 @@ function Gidaria({ pilot }) {
       setActionOptionsVisible(false);
         setPujaRealizada(null);
         localStorage.removeItem(`puja_${pilot?.id}`);
-        Inertia.post("/pujaezabatu", { izena: pilot.izena });
-    }
+        Inertia.post("/pujaezabatu", { id: pilot.id });
+      }
 };
 
 
@@ -85,7 +85,7 @@ function Gidaria({ pilot }) {
           <div className="media">
             <p className="mediaP">Prezioa</p>
             <p className="mediaValor">
-              {pilot.balorea}
+              {pilot.balioa}
             </p>
           </div>
           <div>

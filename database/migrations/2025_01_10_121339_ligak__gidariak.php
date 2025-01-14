@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ligak_gidariak', function (Blueprint $table) {
+        Schema::create('gidaria_liga', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('liga');
-            $table->unsignedBigInteger('gidaria');
+            $table->unsignedBigInteger('liga_id');
+            $table->unsignedBigInteger('gidaria_id');
             $table->boolean('erabilgarritasuna')->default(true);
             $table->integer('erositako_prezioa')->nullable();
             $table->integer('saldutako_prezioa')->nullable();
             $table->timestamps();
-            $table->foreign('liga')->references('id')->on('ligak')->onDelete('cascade');
-            $table->foreign('gidaria')->references('id')->on('gidariak')->onDelete('cascade');
+            $table->foreign('liga_id')->references('id')->on('ligak')->onDelete('cascade');
+            $table->foreign('gidaria_id')->references('id')->on('gidariak')->onDelete('cascade');
         });
     }
 

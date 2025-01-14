@@ -9,6 +9,9 @@
 body {
     margin: auto;
     background-color: rgb(0, 0, 0);
+    margin-bottom: 9%;
+
+
 }
 .blanco2-liga{
     font-family: 'MiFuente2', sans-serif;
@@ -20,6 +23,7 @@ body {
     border-radius: 5px;
     padding: 20px;
     justify-content: space-between;
+    margin-bottom: 0.5%;
 }
 .blanco-liga {
     background-color: white;
@@ -150,6 +154,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 .formula{
   margin-top: 4%;
   color: white;

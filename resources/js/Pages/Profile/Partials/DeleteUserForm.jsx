@@ -48,7 +48,7 @@ export default function DeleteUserForm({ className = '' }) {
     return (
         <section className={`space-y-6 ${className}`}>
             <header>
-                <h2 className="text-lg font-medium text-white">
+                <h2 className="infor text-lg font-medium text-white">
                     Kontua ezabatu
                 </h2>
 

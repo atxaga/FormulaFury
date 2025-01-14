@@ -6,7 +6,7 @@ import f2 from '../../../images/f2.png';
 import verstappen from '../../../images/verstappen.png';
 import Puja from './Puja';
 import { Inertia } from '@inertiajs/inertia';
-
+import Modal from '@/Components/Modal';
 
 function Gidaria({ pilot }) {
   const [showModal, setShowModal] = useState(false);
@@ -38,17 +38,15 @@ function Gidaria({ pilot }) {
 
   const handleActionOptionClick = (action) => {
     if (action === 'aldatu') {
-        handleModalOpen();
-        setActionOptionsVisible(false);
-
+      handleModalOpen();
+      setActionOptionsVisible(false);
     } else if (action === 'ezabatu') {
       setActionOptionsVisible(false);
-        setPujaRealizada(null);
-        localStorage.removeItem(`puja_${pilot?.id}`);
-        Inertia.post("/pujaezabatu", { izena: pilot.izena });
+      setPujaRealizada(null);
+      localStorage.removeItem(`puja_${pilot?.id}`);
+      Inertia.post("/pujaezabatu", { id: pilot.id });
     }
-};
-
+  };
 
   return (
     <>
@@ -84,9 +82,7 @@ function Gidaria({ pilot }) {
           </div>
           <div className="media">
             <p className="mediaP">Prezioa</p>
-            <p className="mediaValor">
-              {pilot.balioa}
-            </p>
+            <p className="mediaValor">{pilot.balioa}</p>
           </div>
           <div>
             {!pujaRealizada ? (
@@ -122,24 +118,22 @@ function Gidaria({ pilot }) {
         </div>
       </div>
 
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button onClick={handleModalClose} className="close-modal">
-              X
-            </button>
-            <h2>{pilot.izena}</h2>
-            <div className="pilot-photo">
-              <img src={verstappen} alt="pilot" />
-            </div>
-            <Puja
-              pilot={pilot}
-              pujaInicial={pujaRealizada}
-              onPujaUpdate={handlePujaUpdate}
-            />
+      <Modal show={showModal} onClose={handleModalClose} closeable={true}>
+        <div className="modal-content">
+          <button onClick={handleModalClose} className="close-modal">
+            X
+          </button>
+          <h2>{pilot.izena}</h2>
+          <div className="pilot-photo">
+            <img src={verstappen} alt="pilot" />
           </div>
+          <Puja
+            pilot={pilot}
+            pujaInicial={pujaRealizada}
+            onPujaUpdate={handlePujaUpdate}
+          />
         </div>
-      )}
+      </Modal>
     </>
   );
 }

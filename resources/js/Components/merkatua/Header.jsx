@@ -3,15 +3,20 @@ import '../../../css/merkatuaOrria/header.css';
 import '../../../css/header.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gidaria from '../bilatzailea/Gidaria';
+import Menua from '@/Components/basikoak/MenuDeplegablea'
 
 function Header({ guztiak  }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
 
   const toggleSearchModal = () => {
     setShowSearchModal(!showSearchModal);
   };
-
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   const filteredPilots = searchTerm
     ? guztiak.filter((pilot) => {
         if (!pilot.izena) {
@@ -30,13 +35,18 @@ function Header({ guztiak  }) {
           <p className="f1">F1 team</p>
         </div>
 
-        <button className="hamburger" onClick={toggleSearchModal}>
+        <button className="hamburger" onClick={toggleMenu}>
           ☰
         </button>
         <div className="lupa" onClick={toggleSearchModal}>
           <i className="bi bi-search"></i>
         </div>
-
+        <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
+         <button className="close-btn" onClick={toggleMenu}>
+            ×
+          </button>
+          <Menua/>
+        </div>
         {showSearchModal && (
   <>
     <div className="modal-overlay" onClick={toggleSearchModal}></div>

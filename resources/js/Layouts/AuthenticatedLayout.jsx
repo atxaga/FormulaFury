@@ -10,8 +10,6 @@ import Headera from '@/Components/basikoak/Header';
 import '@/../css/orriNagusia/lasterketa.css';
 import '@/../css/kontaktuaOrria/kontaktua.css'
 import '@/../css/orriNagusia/nagusia.css';
-import '@/../css/merkatuaOrria/header.css';
-import '@/../css/header.css'
 
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth.user;

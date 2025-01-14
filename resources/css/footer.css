@@ -9,7 +9,9 @@
   padding: 10px 0; /* Espaciado interno */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
   margin: auto; /* Centrar */
-  font-family: 'MiFuente'; /* Fuente personalizada */
+  font-family: 'MiFuente';
+  z-index: 0;
+   /* Fuente personalizada */
 }
 .header{
   text-align: center;

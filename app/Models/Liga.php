@@ -17,7 +17,7 @@ class Liga extends Model
 
     public function bezeroak() {
 
-        return $this->belongsToMany(Bezeroa::class)
+        return $this->belongsToMany(Bezeroa::class, 'bezeroa_liga', 'liga_id', 'bezeroa_id')
                     ->using(BezeroLiga::class)
                     ->withPivot('puntuak')
                     ->withTimestamps();

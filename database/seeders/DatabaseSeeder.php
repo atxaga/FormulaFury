@@ -134,7 +134,7 @@ class DatabaseSeeder extends Seeder
             'izena' => 'Charles Leclerc',
             'taldea' => 1,
             'puntuak' => '0',
-            'jabea' => 1,
+            'jabea' => null,
             'kategoria' => 'f1',
             'balioa' => 0,
             'disponibilitatea' => 'Disponible'

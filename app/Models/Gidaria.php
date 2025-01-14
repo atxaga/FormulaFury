@@ -42,5 +42,15 @@ class Gidaria extends Model
                     ->withTimestamps();
     }
 
+    public function ligak() {
+
+        return $this->belongsToMany(Liga::class)
+                    ->using(LigaGidari::class)
+                    ->withPivot('erabilgarritasuna','erositako_prezioa','saldutako_prezioa')
+                    ->withTimestamps();
+    }
+
+
+
 
 }

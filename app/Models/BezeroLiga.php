@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class BezeroLiga extends Model
+class BezeroLiga extends Pivot
 {
     protected $table = 'bezeroa_liga';
 
