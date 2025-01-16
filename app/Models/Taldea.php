@@ -31,4 +31,16 @@ class Taldea extends Model
 
         return $this->hasMany(PuntuakTaldea::class);
     }
+
+    public function ligak() {
+
+        return $this->belongsToMany(Liga::class)
+                    ->using(LigaTaldea::class)
+                    ->withPivot('erabilgarritasuna','erositako_prezioa','saldutako_prezioa')
+                    ->withTimestamps();
+    }
+    public function taldeaLiga() {
+
+        return $this->hasMany(LigaTaldea::class);
+    }
 }

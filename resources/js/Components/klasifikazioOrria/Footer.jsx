@@ -7,8 +7,14 @@ import aktibitatea  from '../../../images/aktibitatea.png';
 import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
 
-function Footer() {
+function Footer( { taldeaRoute } ) {
   const { translations } = usePage().props;
+
+  const redirectTaldea = (id) => {
+  
+    Inertia.get('taldea');
+    
+  }
   return (
     <>
       <div className='container1 text-center fixed-bottom'>
@@ -33,7 +39,7 @@ function Footer() {
         </div>
         
         <div className='taldeaInput'>
-        <a href="taldea">
+        <a href={taldeaRoute}>
           <img src={taldeaSelect}  />
           {translations.footer.taldea}
         </a>

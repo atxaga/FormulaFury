@@ -1,26 +1,23 @@
+import "../../../css/taldeaOrria/gidaria.css"
 import tick from '../../../images/tick.png';
-import fernando from '../../../images/fernando.png';
+import goatifi from '../../../images/goatifi.jpg';
+import perfil from '@/../images/perfilGidari.png'
 
-import "../../../css/taldeaOrria/gidaria.css";
-
-function F1gidaria() {
-    return (
+function F1gidaria(){
+    return(
         <>
-            <div className="gidariaDiv">
-                <div className="foto">
-                    <img src={fernando} alt="Fernando Alonso" />
-                </div>
-                <div className="datof1">
-                    <div className="izena">
-                        <p>Fernando Alonso</p>
-                    </div>
-                    <div className="egoera">
-                        <img src={tick} alt="Disponible" />
-                    </div>
-                </div>
+        <div className="gidariaDiv">
+            <div className="foto">
+                <img src={perfil} alt="" />
             </div>
+            <div className="datof1">
+            <div className="izena">
+            </div>
+            <div className="egoera">
+            </div>
+            </div>
+        </div>
         </>
     );
 }
-
 export default F1gidaria;

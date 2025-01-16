@@ -31,4 +31,12 @@ class Liga extends Model
                     ->withPivot('erabilgarritasuna', 'erositako_prezioa', 'saldutako_prezioa')
                     ->withTimestamps();                                                                                                                   
     }
+
+    public function taldeak() {
+
+        return $this->belongsToMany(Taldea::class)
+                    ->using(LigaTaldea::class)
+                    ->withPivot('erabilgarritasuna', 'erositako_prezioa', 'saldutako_prezioa')
+                    ->withTimestamps();                                                                                                                   
+    }
 }

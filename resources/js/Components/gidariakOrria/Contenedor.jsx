@@ -1,19 +1,23 @@
 import { useState } from 'react';
-import '../../../css/gidariaOrria/gidaria.css';
 import '../../../css/gidariaOrria/contenedor.css';
 
 import Footer from '@/Components/taldeaOrria/Footer';
 import Header from '../../Components/gidariakOrria/Header';
 import Gidaria from './Gidaria';
+import Taldea from './Taldea'; 
 import signoEuro from '../../../images/euroTaldea.png';
+import { usePage } from '@inertiajs/react';
 
-function Contenedor(){
-    return(
-        <>
+function Contenedor() {
+  const { gidariak = [] } = usePage().props;
+  const { taldea = null } = usePage().props; 
+
+  return (
+    <>
       <div className="main-gidaria">
         <Header />
         <div className='info'>
-        <div className="plantilla">
+          <div className="plantilla">
             <div className="plantillaLetra">
               <p>PLANTILLA</p>
             </div>
@@ -39,10 +43,25 @@ function Contenedor(){
             </div>
           </div>
         </div>
-        <Gidaria />
-        </div>
-      <Footer /> 
+
+        {gidariak.length > 0 ? (
+          gidariak.map((gidaria) => (
+            <Gidaria gidaria={gidaria} />
+          ))
+        ) : (
+          <p>Ez duzu gidaririk</p>
+        )}
+
+        {taldea ? (
+          <Taldea taldea={taldea} /> 
+        ) : (
+          <p>Ez duzu talderik</p>
+        )}
+
+      </div>
+      <Footer />
     </>
-    );
+  );
 }
+
 export default Contenedor;

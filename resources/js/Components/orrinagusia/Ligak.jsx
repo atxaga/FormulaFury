@@ -21,7 +21,8 @@ function Ligak({ ligak }) {
 
   const redirectKlasifikazioa = (id) => {
 
-    Inertia.get(`/klasifikazioa/${id}`)
+    Inertia.get(`/setLiga/${id}`);
+    
   }
 
   return (

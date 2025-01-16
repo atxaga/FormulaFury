@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gidaria from '../bilatzailea/Gidaria';
 import Menua from '@/Components/basikoak/MenuDeplegablea'
 
-function Header({ guztiak  }) {
+function Header({ guztiak, bezeroa  }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +45,7 @@ function Header({ guztiak  }) {
          <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua/>
+          <Menua bezeroa={bezeroa}/>
         </div>
         {showSearchModal && (
   <>

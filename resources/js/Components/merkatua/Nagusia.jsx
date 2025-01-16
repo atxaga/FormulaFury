@@ -7,7 +7,9 @@ import Gidaria from './Gidaria';
 
 function Nagusia() {
   const { pilots = [] } = usePage().props;
-  const {guztiak = []} = usePage().props;
+  const { guztiak = [] } = usePage().props;
+  const { bezeroa  } = usePage().props;
+  console.log(bezeroa);
 
   const storedPilots = JSON.parse(localStorage.getItem('pilots'));
   const lastSelectTime = parseInt(localStorage.getItem('lastSelectTime'), 10);
@@ -57,7 +59,7 @@ function Nagusia() {
   return (
     <>
       <div className="main-merkatua">
-        <Header guztiak = {guztiak}/>
+        <Header guztiak = {guztiak} bezeroa={bezeroa}/>
         <div className="countdown">
           <p className="countdown-text">Merkatu bukaera: {formatTime(timeLeft)}</p>
         </div>

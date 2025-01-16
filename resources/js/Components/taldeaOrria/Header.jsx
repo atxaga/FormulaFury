@@ -4,15 +4,13 @@ import Menua from '../../Components/basikoak/MenuDeplegablea';
 import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
 
-function Header() {
+function Header({bezeroa}) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [locale, setLocale] = useState(document.documentElement.lang);
   const { translations } = usePage().props;
   const [dynamicTranslations, setDynamicTranslations] = useState(translations);
- 
-  console.log(translations);
- 
+  console.log(bezeroa);
   const toggleMenu = () => {
      setMenuOpen(!menuOpen);
   };
@@ -79,7 +77,7 @@ function Header() {
             ×
           </button>
           
-          <Menua/>
+          <Menua bezeroa={bezeroa}/>
         </div>
         </div>
         <div className='sekzioak'>

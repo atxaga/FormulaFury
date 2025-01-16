@@ -13,6 +13,7 @@ function Header() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  const { bezeroa } = usePage().props;
   return (
     <>
 
@@ -33,7 +34,7 @@ function Header() {
          <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua/>
+          <Menua bezeroa={bezeroa}/>
         </div>
         
       </div>

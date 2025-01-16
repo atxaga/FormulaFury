@@ -6,11 +6,14 @@ import plus from '../../../images/plus.png';
 import Menua from '../../Components/basikoak/MenuDeplegablea';
 import Modal from '@/Components/ModalKodea';
 import Kodea from './Kodea';
+import { usePage } from '@inertiajs/react';
 
 function Header( { liga }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const {bezeroak} = usePage().props;
 
+  console.log(bezeroak, bezeroak[0].izena)
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -41,7 +44,7 @@ function Header( { liga }) {
             ×
           </button>
           
-          <Menua/>
+          <Menua bezeroa={bezeroak[0].izena}/>
         </div>
            <Modal show={showModal} onClose={CloseModal} closeable={true}>
            <div className="modal-content">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { usePage } from '@inertiajs/react';
 import '../../../css/header.css';
 import perfilImg from '../../../images/perfil.png';
@@ -19,10 +19,13 @@ import globeIcon from '../../../images/globe.png';
 
 
 
-function Menua() {
+function Menua({bezeroa}) {
   const [locale, setLocale] = useState(document.documentElement.lang);
   const { translations } = usePage().props;
   const [dynamicTranslations, setDynamicTranslations] = useState(translations);
+ 
+
+  console.log(bezeroa);
 
   console.log(translations);
 
@@ -91,7 +94,7 @@ function Menua() {
           <ul>
             <div className="perfil">
                 <img src={perfilImg} alt="Perfil" />
-                <p>macacopeleon</p>
+                <p>{bezeroa}</p>
             </div>
             <hr />
             <li>

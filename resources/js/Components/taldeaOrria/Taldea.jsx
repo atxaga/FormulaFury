@@ -17,10 +17,12 @@ import { usePage } from '@inertiajs/react';
 
 function Taldea() {
   const { translations } = usePage().props;
+  const { bezeroa } = usePage().props;
+  console.log(bezeroa);
   return (
     <>
       <div className="main-container">
-        <Header />
+        <Header bezeroa={bezeroa}/>
         <div className="talde">
           <div className="plantilla">
             <div className="plantillaLetra">

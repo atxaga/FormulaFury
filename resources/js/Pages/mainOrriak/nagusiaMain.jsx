@@ -7,8 +7,10 @@ import Lasterketa from '../../Components/orrinagusia/Lasterketa.jsx';
 import Nagusia from '../../Components/orrinagusia/Nagusia.jsx';
 import '../../../css/orriNagusia/lasterketa.css';
 import '../../../css/kontaktuaOrria/kontaktua.css';
+import { usePage } from '@inertiajs/react';
 
 function nagusiaMain(){
+  
 return(
   <>
     <Header />

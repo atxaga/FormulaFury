@@ -11,7 +11,11 @@ class KlasifikazioaController extends Controller
 {
     public function index(Request $request)
 {
-    $ligaId = $request->id;
+    $ligaId = session('aukeratutakoLiga'); 
+
+    if (!$ligaId) {
+        return redirect()->route('eligeLiga')->with('error', 'Aukeratu liga');
+    }
 
     $liga = Liga::find($ligaId);
 
@@ -28,7 +32,7 @@ class KlasifikazioaController extends Controller
     return Inertia::render('mainOrriak/klasifikazioaMain', [
         'liga' => $liga,
         'bezeroak' => $bezeroakData, 
-        
+        'taldeaRoute' => route('taldea'),
     ]);
 }
     

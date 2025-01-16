@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Bezeroa;
+use App\Models\BezeroLiga;
 use App\Models\Taldea;
 use App\Models\Gidaria;
+use App\Models\Liga;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,20 +17,61 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Crea un usuario
+
         User::create([
             'izena' => 'Iker Atxaga',
-            'email' => 'iachagaro22wg@ikzubirimanteo.com',
-            'password' => 'iachagaro22wg',
+            'email' => 'formulafury@gmail.com',
+            'password' => 'formulafury',
             'mota' => 'bezero',
         ]);
 
-        // Crea un registro en la tabla Bezeroa
+        User::create([
+            'izena' => 'Bittor',
+            'email' => 'btellecheael22wg@ikzubirimanteo.com',
+            'password' => 'btellecheael22wg',
+            'mota' => 'bezero',
+        ]);
+        
+        User::create([
+            'izena' => 'Bittor2',
+            'email' => 'bittortelletxea@gmail.com',
+            'password' => 'bittortelletxea',
+            'mota' => 'bezero',
+        ]);
+
+        Liga::create([
+            'izena' => 'proba1',
+            'kodea' => 'HGA6DG',
+            'deskribapena' => 'ghfdhfd',
+            'klausulak' => 1,
+        ]);
+
         Bezeroa::create([
             'puntuak' => 0,
             'premium' => 0,
             'dirua' => 100000000,
             'user_id' => 1
+        ]);
+
+        Bezeroa::create([
+            'puntuak' => 0,
+            'premium' => 0,
+            'dirua' => 100000000,
+            'user_id' => 2
+        ]);
+
+        Bezeroa::create([
+            'puntuak' => 0,
+            'premium' => 0,
+            'dirua' => 100000000,
+            'user_id' => 3
+        ]);
+
+
+        BezeroLiga::create([
+            'puntuak' => 0,
+            'bezeroa_id' => 1,
+            'liga_id' => 1,
         ]);
 
         Taldea::create([
@@ -590,6 +633,22 @@ class DatabaseSeeder extends Seeder
             'disponibilitatea' => 'No Disponible'
 
         ]);
+
+        $gidariak = Gidaria::all();
+
+        $pivotData = $gidariak->mapWithKeys(function ($gidariak) {
+            return [
+                $gidariak->id => [
+                    'erabilgarritasuna' => 1, 
+                    'erositako_prezioa' => 0,
+                    'saldutako_prezioa' => 0,
+                ]
+            ];
+        })->toArray();
+
+        $liga = Liga::find(1);
+
+        $liga->gidariak()->attach($pivotData);
 
 
 
