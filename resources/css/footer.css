@@ -1,7 +1,7 @@
 .container1 {
   background-color: black;
   position: fixed;
-  width: 69%; /* Ajusta el ancho deseado */
+  width: 100%; /* Ajusta el ancho deseado */
   bottom: 0; /* Fijo en la parte inferior */
   display: flex; /* Flexbox para estructurar */
   justify-content: center; /* Centrar elementos horizontalmente */

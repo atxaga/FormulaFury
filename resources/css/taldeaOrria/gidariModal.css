@@ -1,0 +1,168 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../../js/fonts/horizon.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'MiFuente2';
+    src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+  }
+body {
+    margin: auto;
+    background-color: rgb(0, 0, 0);
+}
+
+.main-gidari{
+    font-family: 'MiFuente2', sans-serif;
+    margin: auto;
+    display: flex;
+    background-color: rgb(36, 36, 36);
+    width: 100%;
+    max-width: 1400px;
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: space-between;
+}
+.main-gidari {
+    background-color: rgb(34, 32, 32);
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 1%;
+
+  }
+.datuak{
+    display: flex;
+}
+.datuak img{
+    width: 50%;
+    height: 200px;
+}
+.mota {
+    font-family: 'MiFuente';
+    background: linear-gradient(to right, rgb(0, 218, 247), rgb(0, 81, 255));
+    height: 40px;
+    width: 12%;
+    border-radius: 2px;
+    padding-left: 1.5%;
+  } 
+.taldeamota{
+    font-family: 'MiFuente';
+    background: linear-gradient(to right, rgb(157, 240, 118), rgb(38, 133, 0));
+    height: 40px;
+    width: 12%;
+    border-radius: 2px;
+    padding-left: 1.5%;
+}
+.mota p{
+    text-align: center;
+    font-size: 25px;
+}
+.taldeamota p{
+    text-align: center;
+    font-size: 25px;
+}
+.usuario{
+    display: flex;
+    font-family: 'MiFuente';
+    width: 1000px;
+    gap: 20px;
+}
+.usuarioIzena{
+    width: 72%;
+    font-size: 30px;  
+}
+.f1LogoGidari img{
+    width: 10%;
+    height: 80px;
+}
+.kategoria img{
+    height: 40px;
+    width: 5%;
+}
+.gidariEgoera{
+    display: flex;
+}
+.gidariEgoera img{
+    width: 5%;
+    height: 40px;
+}
+.gidariEgoera p{
+    font-size: 25px;
+}
+.gidariBalorea{
+    display: flex;
+}
+.gidariBalorea p{
+    font-size: 30px;
+}
+.gidariBalorea img{
+    margin-top: 1%;
+    width: 5%;
+    height: 25px;
+}
+.gidariPuntuak{
+    display: flex;
+}  
+.punto{
+    font-family: 'MiFuente2';
+    font-weight: 400;
+    color: gray;
+}
+.prfy{
+    font-family: 'MiFuente';
+    color: white;
+    font-size: 30px;
+}
+.prezioa{
+    display: flex;
+    }
+.prezioa p{
+    margin-right: 4%;
+}
+.numeroValor{
+    color: gray;
+    font-size: 29px;
+}
+.klausula{
+    display: flex;
+    margin-left: 6%;
+}
+.prezioa{
+    font-size: 29px;
+}
+
+.klausula img{
+    width: 8%;
+    margin-left: 55%;
+    margin-top: 4%;
+}
+.numeroPrecio{
+    margin-top: 2%;
+    font-size: 35px;
+
+}
+.media{
+    display: flex;
+}
+.mediaP{
+    margin-top: 4%;
+    color: gray;
+    font-weight: 400;
+
+}
+.mediaValor{
+    margin-left: 2%;
+    font-size: 28px;
+}
+
+.talde{
+    color: gray;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.talde a{
+    text-decoration: none;
+    font-size: 25px;
+}
+.foto{
+    height: 30;
+}

@@ -1,7 +1,7 @@
 import '../../../css/klasifikazioOrria/jokalaria.css';
 import perfil from "../../../images/perfil.png";
 
-function Jokalaria({ liga, bezeroak}) {
+function Jokalaria({bezeroak}) {
   return (
     <>
 

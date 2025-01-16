@@ -91,7 +91,7 @@
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
   transition: left 0.3s ease;
   padding: 20px;
-  z-index: 1000; /* Barra lateral encima de todo */
+  z-index: 10000; /* Barra lateral encima de todo */
 }
 
   

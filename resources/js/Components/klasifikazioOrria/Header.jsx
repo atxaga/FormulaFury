@@ -30,7 +30,6 @@ function Header( { liga }) {
     <div className='dena'>
     
       <div className='header'>
-        <p>FURY</p>
         <p className='f1'>{liga.izena}</p>
       </div>
       <div className='plus' onClick={OpenModal}>

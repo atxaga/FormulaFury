@@ -8,6 +8,7 @@ import Modal from '@/Components/Modal';
 import Footer from '../basikoak/Footer';
 import aston from '@/../images/astonLiga.png'
 import ferrari from '@/../images/ferrariLiga.png';
+import Header from '../basikoak/Header';
 import { Inertia } from '@inertiajs/inertia'; 
 
 
@@ -28,6 +29,7 @@ function Nagusia() {
 
   return (
     <>
+      <Header/>
       <div className="container">
         <div className="ligak-kudeatu">
           <div className="sortu">

@@ -5,12 +5,14 @@ import candadoRojo  from '../../../images/candadoRojo.png';
 import f1  from '../../../images/f1.png';
 import verstappen  from '../../../images/verstappen.png';
 import euro from '../../../images/euro.png';
+import { usePage } from '@inertiajs/react';
 
 
 
 
 
 function Taldea({taldea}) {
+ 
   return (
     <>
        <div className='main-gidari'>

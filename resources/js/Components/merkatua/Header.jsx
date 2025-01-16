@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gidaria from '../bilatzailea/Gidaria';
 import Menua from '@/Components/basikoak/MenuDeplegablea'
 
-function Header({ guztiak, bezeroa  }) {
+function Header({ guztiak, bezeroa, liga  }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ function Header({ guztiak, bezeroa  }) {
       <div className="dena">
         <div className="header">
           <p>FURY</p>
-          <p className="f1">F1 team</p>
+          <p className="f1">{" " + liga.izena}</p>
         </div>
 
         <button className="hamburger" onClick={toggleMenu}>

@@ -1,20 +1,19 @@
 import "../../../css/taldeaOrria/gidaria.css"
 import tick from '../../../images/tick.png';
 import bearman from '../../../images/bearman.png';
+import perfil from '@/../images/perfilGidari.png'
 
 function F2gidaria(){
     return(
         <>
         <div className="gidariaDiv">
             <div className="foto">
-                <img src={bearman} alt="" />
+                <img src={perfil} alt="" />
             </div>
             <div className="datof1">
             <div className="izena">
-                <p>Bearman</p>
             </div>
             <div className="egoera">
-                <img src={tick} alt="" />
             </div>
             </div>
         </div>

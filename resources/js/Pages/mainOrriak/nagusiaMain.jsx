@@ -13,7 +13,6 @@ function nagusiaMain(){
   
 return(
   <>
-    <Header />
       <Nagusia />
       <Lasterketa/>
   </>

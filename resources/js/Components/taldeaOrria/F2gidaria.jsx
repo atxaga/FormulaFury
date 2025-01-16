@@ -12,10 +12,8 @@ function F2gidaria(){
             </div>
             <div className="datof1">
             <div className="izena">
-                <p>Antonelli</p>
             </div>
             <div className="egoera">
-                <img src={tick} alt="" />
             </div>
             </div>
         </div>

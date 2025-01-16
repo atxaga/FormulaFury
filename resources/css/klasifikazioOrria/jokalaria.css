@@ -80,6 +80,7 @@ body {
   }
   .datuak{
     display: flex;
+    width: 100%;
   }
   .posizioa{
     display: flex;

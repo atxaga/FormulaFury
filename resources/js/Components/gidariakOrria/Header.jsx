@@ -4,7 +4,7 @@ import '../../../css/header.css';
 import Menua from '../../Components/basikoak/MenuDeplegablea';
 
 
-function Header() {
+function Header({liga}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -16,8 +16,7 @@ function Header() {
     <div className='dena'>
 
       <div className='header'>
-        <p>FURY</p>
-        <p className='f1'>F1 team </p>
+        <p className='f1'> {" " + liga.izena}</p>
       </div>
       
       <button className="hamburger" onClick={toggleMenu}>

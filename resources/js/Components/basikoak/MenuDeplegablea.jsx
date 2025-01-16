@@ -23,13 +23,7 @@ function Menua({bezeroa}) {
   const [locale, setLocale] = useState(document.documentElement.lang);
   const { translations } = usePage().props;
   const [dynamicTranslations, setDynamicTranslations] = useState(translations);
- 
 
-  console.log(bezeroa);
-
-  console.log(translations);
-
-  
 
   const logOut = async (event) => {
     event.preventDefault();

@@ -10,7 +10,7 @@ import '../../../css/klasifikazioOrria/header.css';
 import '../../../css/klasifikazioOrria/jokalaria.css';
 import '../../../css/orriNagusia/nagusia.css';
 
-import Footer from '../../Components/klasifikazioOrria/Footer.jsx';
+import Footer from '../../Components/basikoak/Footer.jsx';
 import { usePage } from '@inertiajs/react';
 
 

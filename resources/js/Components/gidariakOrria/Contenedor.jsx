@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { use, useState } from 'react';
 import '../../../css/gidariaOrria/contenedor.css';
 
 import Footer from '@/Components/taldeaOrria/Footer';
@@ -11,11 +11,12 @@ import { usePage } from '@inertiajs/react';
 function Contenedor() {
   const { gidariak = [] } = usePage().props;
   const { taldea = null } = usePage().props; 
+  const { liga } = usePage().props;
 
   return (
     <>
       <div className="main-gidaria">
-        <Header />
+        <Header liga={liga}/>
         <div className='info'>
           <div className="plantilla">
             <div className="plantillaLetra">

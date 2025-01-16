@@ -3,7 +3,7 @@ import tick from '../../../images/tick.png';
 import goatifi from '../../../images/goatifi.jpg';
 import perfil from '@/../images/perfilGidari.png'
 
-function F1gidaria(){
+function F1gidaria({ gidariaF1 }){
     return(
         <>
         <div className="gidariaDiv">

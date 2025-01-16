@@ -4,9 +4,9 @@ import Menua from '../../Components/basikoak/MenuDeplegablea';
 import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
 
-function Header({bezeroa}) {
+function Header({bezeroa, liga}) {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  console.log(liga);
   const [locale, setLocale] = useState(document.documentElement.lang);
   const { translations } = usePage().props;
   const [dynamicTranslations, setDynamicTranslations] = useState(translations);
@@ -65,8 +65,7 @@ function Header({bezeroa}) {
       <div className='cont'>
         <div className='dena'>
           <div className='header'>
-            <p>FURY</p>
-            <p className='f1'>F1 team </p>
+            <p className='f1'>{" " + liga}</p>
           </div>
 
           <button className="hamburger" onClick={toggleMenu}>

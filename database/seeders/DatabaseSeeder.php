@@ -448,7 +448,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Gidaria::create([
-            'izena' => 'Luke Browning',
+            'izena' => 'Richard Verschoor',
             'taldea' => 11,
             'puntuak' => '0',
             'jabea' => null,
