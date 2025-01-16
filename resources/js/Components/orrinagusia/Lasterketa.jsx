@@ -6,7 +6,6 @@ function Lasterketa() {
   const { translations } = usePage().props;
 
   useEffect(() => {
-    // Función para cargar los scripts necesarios
     const loadScripts = () => {
       const scripts = [
         "https://js.api.here.com/v3/3.1/mapsjs-core.js",
@@ -22,72 +21,69 @@ function Lasterketa() {
         script.src = src;
         script.async = true;
         script.onload = () => {
+          console.log(`Script cargado: ${src}`);
           loadedScripts += 1;
-          // Cuando todos los scripts se hayan cargado, inicializamos el mapa
           if (loadedScripts === scripts.length) {
+            console.log('Todos los scripts se han cargado correctamente');
             initializeMap();
           }
+        };
+        script.onerror = () => {
+          console.error(`Error al cargar el script: ${src}`);
         };
         document.body.appendChild(script);
       });
     };
 
-    // Cargar los scripts
     loadScripts();
 
     return () => {
-      // Limpiar los scripts cuando el componente se desmonte
       const scripts = document.querySelectorAll('script[src*="mapsjs"]');
       scripts.forEach((script) => script.remove());
     };
   }, []);
 
   const initializeMap = () => {
-    // Aquí se encuentra la clave de la API de HERE
-    const apiKey = "MG38gQjUkrKVnS9MqZIncYbjffHyeuRzd7r8VWOk0lQ";
+    try {
+      console.log('Inicializando el mapa...');
+      const apiKey = "MG38gQjUkrKVnS9MqZIncYbjffHyeuRzd7r8VWOk0lQ";
 
-    // Crear la plataforma de HERE
-    const platform = new H.service.Platform({
-      apikey: apiKey,
-    });
+      const platform = new H.service.Platform({
+        apikey: apiKey,
+      });
 
-    // Crear las capas del mapa
-    const defaultLayers = platform.createDefaultLayers();
+      const defaultLayers = platform.createDefaultLayers();
+      const circuitCoords = { lat: 25.4889, lng: 51.4544 };
 
-    // Coordenadas del circuito Losail
-    const circuitCoords = { lat: 25.4889, lng: 51.4544 };
+      const map = new H.Map(
+        document.getElementById("mapContainer"),
+        defaultLayers.vector.normal.map,
+        {
+          zoom: 15,
+          center: circuitCoords,
+        }
+      );
 
-    // Crear el mapa
-    const map = new H.Map(
-      document.getElementById("mapContainer"),
-      defaultLayers.vector.normal.map,
-      {
-        zoom: 15,
-        center: circuitCoords,
-      }
-    );
+      const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+      const ui = H.ui.UI.createDefault(map, defaultLayers);
 
-    // Crear la interacción del usuario con el mapa
-    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+      const marker = new H.map.Marker(circuitCoords);
+      map.addObject(marker);
 
-    // Crear la interfaz del usuario en el mapa
-    const ui = H.ui.UI.createDefault(map, defaultLayers);
+      marker.addEventListener("tap", () => {
+        const googleMapsUrl = `https://www.google.com/maps?q=${circuitCoords.lat},${circuitCoords.lng}`;
+        window.open(googleMapsUrl, "_blank");
+      });
 
-    // Agregar el marcador en la ubicación de Losail
-    const marker = new H.map.Marker(circuitCoords);
-    map.addObject(marker);
+      const bubble = new H.ui.InfoBubble(circuitCoords, {
+        content: "<b>Losail International Circuit</b><br>F1 GP de Catar",
+      });
+      ui.addBubble(bubble);
 
-    // Agregar el evento de clic al marcador para abrir Google Maps
-    marker.addEventListener("tap", () => {
-      const googleMapsUrl = `https://www.google.com/maps?q=${circuitCoords.lat},${circuitCoords.lng}`;
-      window.open(googleMapsUrl, "_blank");
-    });
-
-    // Mostrar una burbuja de información sobre el marcador
-    const bubble = new H.ui.InfoBubble(circuitCoords, {
-      content: "<b>Losail International Circuit</b><br>F1 GP de Catar",
-    });
-    ui.addBubble(bubble);
+      console.log('Mapa inicializado correctamente');
+    } catch (error) {
+      console.error('Error al inicializar el mapa:', error);
+    }
   };
 
   return (
@@ -105,7 +101,6 @@ function Lasterketa() {
             </div>
           </div>
           <div className='circuito'>
-            {/* Aquí ponemos el contenedor donde cargaremos el mapa */}
             <div id="mapContainer" style={{ width: '100%', height: '250px' }}></div>
           </div>
         </div>
