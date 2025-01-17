@@ -16,7 +16,7 @@
     padding: 10px 20px;
     text-align: center;
     margin: auto;
-    
+
   }
 
   .logo{
@@ -140,12 +140,13 @@
   .perfil{
     margin-top: 8%;
     display: flex;
-    justify-content: space-around;
   }
   .perfil p{
     font-family: 'MiFuente';
     font-size: 12px;
     margin-top: 5%;
+    text-align: right;
+    margin-left: 9%;
   }
   .perfil img{
     width: 20%;

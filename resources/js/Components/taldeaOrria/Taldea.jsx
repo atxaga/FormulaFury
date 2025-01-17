@@ -15,6 +15,8 @@ import verstappen from '@/../images/verstappen.png';
 import tick from '../../../images/tick.png';
 import F1Taldea from './F1Ttaldea';
 import ferrari from '../../../images/ferrari.png';
+import plus from '../../../images/plusTaldea.png';
+
 
 function Taldea() {
   const { translations, bezeroa, ligaIzena, gidariaF1 = [], gidariaF2 = [], taldeaIzena } = usePage().props;
@@ -100,7 +102,7 @@ function Taldea() {
               <p>{translations.taldea.plantilla}</p>
             </div>
             <div className="totala">
-              <p className="text-white">4/5</p>
+              <p className="text-white">5/5</p>
             </div>
           </div>
           <div className="lasterketa">
@@ -126,9 +128,17 @@ function Taldea() {
           <div className="f1Class" onClick={openModalF1}>
             <img className="f1" src={f1Img} alt="F1" />
             <div className="gidariaDiv">
+            {selectedDriverF1First ? (
               <div className="foto">
-                {selectedDriverF1First ? <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> : <img src={perfil} />}
+                 <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> 
               </div>
+            ):(
+              <div className="foto" style={{padding:'50px'}}>
+              <img style={{ width: '30%',height:'auto', margin: 'auto' }} src={plus} />
+              </div>
+
+            )}
+              
               <div className="datof1">
                 <div className="izena">{selectedDriverF1First ? selectedDriverF1First.izena : ''}</div>
                 <div className="egoera">
@@ -137,9 +147,16 @@ function Taldea() {
               </div>
             </div>
             <div className="gidariaDiv">
+            {selectedDriverF1Second ? (
               <div className="foto">
-                {selectedDriverF1Second ? <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> : <img src={perfil} />}
+                 <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> 
               </div>
+            ):(
+              <div className="foto" style={{padding:'50px'}}>
+              <img style={{ width: '30%',height:'auto', margin: 'auto' }} src={plus} />
+              </div>
+
+            )}
               <div className="datof1">
                 <div className="izena">{selectedDriverF1Second ? selectedDriverF1Second.izena : ''}</div>
                 <div className="egoera">
@@ -171,9 +188,16 @@ function Taldea() {
           <div className="f2Class" onClick={openModalF2}>
             <img className="f2" src={f2Img} alt="F2" />
             <div className="gidariaDiv">
+            {selectedDriverF2First ? (
               <div className="foto">
-                {selectedDriverF2First ? <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> : <img src={perfil} />}
+                 <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> 
               </div>
+            ):(
+              <div className="foto" style={{padding:'50px'}}>
+              <img style={{ width: '30%',height:'auto', margin: 'auto' }} src={plus} />
+              </div>
+
+            )}
               <div className="datof1">
                 <div className="izena">{selectedDriverF2First ? selectedDriverF2First.izena : ''}</div>
                 <div className="egoera">
@@ -183,8 +207,16 @@ function Taldea() {
             </div>
             <div className="gidariaDiv">
               <div className="foto">
-                {selectedDriverF2Second ? <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> : <img src={perfil} />}
+              {selectedDriverF2Second ? (
+              <div className="foto">
+                 <img style={{ width: '80%', margin: 'auto' }} src={verstappen} /> 
               </div>
+            ):(
+              <div className="foto" style={{padding:'50px'}}>
+              <img style={{ width: '30%',height:'auto', margin: 'auto' }} src={plus} />
+              </div>
+
+            )}              </div>
               <div className="datof1">
                 <div className="izena">{selectedDriverF2Second ? selectedDriverF2Second.izena : ''}</div>
                 <div className="egoera">

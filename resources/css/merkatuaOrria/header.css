@@ -252,6 +252,9 @@ button.fitxatu {
     color: rgb(255, 0, 0); /* Texto blanco en hover */
   
   }
+  .nire-op a{
+    color: gray;
+  }
 .main-gidari{
     font-family: 'MiFuente2', sans-serif;
     margin: auto;

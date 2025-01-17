@@ -4,6 +4,7 @@ use App\Http\Controllers\KlasifikazioaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LigaController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MerkatuaController;
 use App\Http\Controllers\PujaController;
 use App\Http\Controllers\TaldeaController;
@@ -16,10 +17,7 @@ use Illuminate\Support\Facades\Session;
 
 
 
-Route::get('/', function () {
-    return Inertia::render('mainOrriak/loginMain', []);
-});
-
+Route::get('/', [LoginController::class, 'index'])->name('login.index');
 
 
 Route::get('/kontugabe', function () {

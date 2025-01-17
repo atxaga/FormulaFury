@@ -1,8 +1,8 @@
-import '@/../css/merkatuaOrria/footer.css';
+import '../../../css/merkatuaOrria/footer.css';
 import casco from '../../../images/casco.png.png';
 import klasifikazioa  from '../../../images/klasifikazioa.png.png';
-import taldea  from '../../../images/taldea.png.png';
-import merkatuaSelected  from '../../../images/merkatuaSelected.png.png';
+import taldeaSelect  from '../../../images/taldea.png';
+import merkatua  from '../../../images/merkatuaSelected.png.png';
 import aktibitatea  from '../../../images/aktibitatea.png';
 import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
@@ -34,17 +34,18 @@ function Footer() {
         
         <div className='taldeaInput'>
         <a href="taldea">
-          <img src={taldea}  />
+          <img src={taldeaSelect}  />
           {translations.footer.taldea}
         </a>
         </div>
         <div className='merkatua'>
           <a href="merkatua">
           <div className='img'>
-          <img src={merkatuaSelected}  />
+          <img src={merkatua}  />
           </div>
-            {translations.footer.merkatua}
+          {translations.footer.merkatua}
           </a>
+          
         </div>
         <div className='aktibitatea'>
           <div className='img'>

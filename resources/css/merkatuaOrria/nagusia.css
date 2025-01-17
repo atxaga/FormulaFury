@@ -13,7 +13,7 @@
     left: 50%; /* Lo posiciona relativo al centro */
     transform: translateX(-50%); /* Lo centra horizontalmente */
     z-index: 10; /* Lo pone por encima de otros elementos */
-    margin-bottom: 130px;
+    margin-bottom: 100px;
 }
 
 .saldototala p {

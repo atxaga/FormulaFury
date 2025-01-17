@@ -1,20 +1,14 @@
 import '../../../css/klasifikazioOrria/footer.css';
 import casco from '../../../images/casco.png.png';
 import klasifikazioa  from '../../../images/klasifikazioaSelected.png.png';
-import taldeaSelect  from '../../../images/taldea.png.png';
+import taldeaSelect  from '../../../images/taldea.png';
 import merkatua  from '../../../images/merkatua.png.png';
 import aktibitatea  from '../../../images/aktibitatea.png';
 import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
 
-function Footer( { taldeaRoute } ) {
+function Footer() {
   const { translations } = usePage().props;
-
-  const redirectTaldea = (id) => {
-  
-    Inertia.get('taldea');
-    
-  }
   return (
     <>
       <div className='container1 text-center fixed-bottom'>
@@ -39,15 +33,17 @@ function Footer( { taldeaRoute } ) {
         </div>
         
         <div className='taldeaInput'>
-        <a href={taldeaRoute}>
+        <a href="taldea">
           <img src={taldeaSelect}  />
           {translations.footer.taldea}
         </a>
         </div>
         <div className='merkatua'>
+          <a href="merkatua">
           <div className='img'>
           <img src={merkatua}  />
           </div>
+          </a>
           <p>
             {translations.footer.merkatua}
           </p>

@@ -17,6 +17,7 @@
     height: 10vh;
     justify-content: center;
     align-items: center;
+    padding-top: 1%;
 
     font-weight: 600;
 
@@ -28,6 +29,7 @@
     color: white;
     width: 12%;
     justify-content: space-around;
+
 
 }
 .f1{

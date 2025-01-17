@@ -1,95 +1,94 @@
 .container1 {
   background-color: black;
   position: fixed;
-  width: 100%; /* Ajusta el ancho deseado */
+  width: 100%; /* Ocupa toda la parte inferior */
   bottom: 0; /* Fijo en la parte inferior */
   display: flex; /* Flexbox para estructurar */
-  justify-content: center; /* Centrar elementos horizontalmente */
+  justify-content: space-around; /* Espaciado uniforme entre elementos */
   align-items: center; /* Centrar verticalmente */
   padding: 10px 0; /* Espaciado interno */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
-  margin: auto; /* Centrar */
-  font-family: 'MiFuente';
-  z-index: 0;
-   /* Fuente personalizada */
-}
-.header{
-  text-align: center;
-  margin-left: 38%;
+  z-index: 100; /* Asegurar que esté sobre otros elementos */
+  font-family: 'MiFuente'; /* Fuente personalizada */
 }
 
 .argazkiak {
-  display: flex;
-  justify-content: space-around; /* Distribuir uniformemente */
+  display: flex; /* Flexbox para organizar elementos */
+  justify-content: space-around; /* Espaciado uniforme entre elementos */
   align-items: center; /* Centrar verticalmente */
-  gap: 20px; /* Espaciado entre elementos */
-  width: 100%; /* Ocupa todo el ancho */
-  overflow: hidden; /* Prevenir desbordamientos */
+  gap: 20px; /* Espaciado entre bloques */
+  width: 100%; /* Usar todo el ancho disponible */
 }
 
 .argazkiak > div {
-  flex: 1; /* Todos los elementos ocupan el mismo espacio */
-  text-align: center; /* Centrar contenido */
-  min-width: 80px; /* Establecer un ancho mínimo constante */
+  text-align: center; /* Centrar texto y contenido */
+  flex: 1; /* Asegurar que cada bloque ocupe el mismo espacio */
+  display: flex; /* Flexbox dentro de cada bloque */
+  flex-direction: column; /* Organizar en columna (imagen arriba, texto abajo) */
+  align-items: center; /* Centrar horizontalmente */
 }
 
 .argazkiak img {
-  max-width: 80px; /* Tamaño máximo estándar */
+  max-width: 60px; /* Tamaño uniforme para todas las imágenes */
   height: auto; /* Mantener proporción */
-  margin-left: 36%;
+  margin-bottom: 5px; /* Espacio entre la imagen y el texto */
 }
 
-.taldeaInput img {
-  max-width: 200px; /* Imagen más grande para taldeaInput */
-  height: auto; /* Mantener proporción */
-  margin-left: -1%;
+.klasifikazioa {
+  display: flex; /* Hacer que klasifikazioa también use flexbox */
+  flex-direction: column; /* Imagen arriba, texto abajo */
+  align-items: center; /* Centrar horizontalmente */
+  text-align: center; /* Centrar texto */
+}
+.klasifikazioa img{
 
+  margin: auto;
 }
 
-.argazkiak div {
-  position: relative; /* Permite posicionamiento de elementos internos */
-}
-
-.taldeaInput img {
-  position: absolute; /* Posicionar la imagen dentro del contenedor */
-  top: 50%; /* Centrar verticalmente */
-  left: 50%; /* Centrar horizontalmente */
-  transform: translate(-50%, -50%) scale(1.5); /* Ajustar tamaño y centrar */
-}
 .taldeaInput {
-    display: flex; /* Usar flexbox para organizar contenido */
-    flex-direction: column; /* Organizar en columna */
-    align-items: center; /* Centrar horizontalmente */
-    justify-content: center; /* Centrar verticalmente */
-    position: relative; /* Necesario para la posición interna */
-  }
-  
-  .taldeaInput img {
-    max-width: 200px; /* Tamaño máximo de la imagen */
-    height: auto; /* Mantener proporción */
-  }
-  
-  .taldeaInput a {
-    margin: 80px 0 0 0; /* Espacio superior específico */
-    padding: 0; /* Asegurar que no hay padding adicional */
-    font-size: 14px; /* Ajustar tamaño del texto */
-    text-align: center; /* Centrar texto */
-    text-decoration: none;
-  }
-  
-.klasifikazioa a,.taldea a, .ligak a{
-    text-decoration: none;
-}
-.ligak a{
-  color: red;
+  position: relative; /* Permite que la imagen se posicione sin afectar a otros elementos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.argazkiak p, a {
-  font-size: 12px; /* Tamaño del texto */
+.taldeaInput img {
+  margin: auto;
+ /* Ajusta horizontalmente */
+}
+
+
+.taldeaInput a {
+  margin-top: 80px; /* Asegura el espacio del texto */
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  top: 10px; /* Ajusta verticalmente */
+  left: 10%;
+}
+.argazkiak p,
+.argazkiak a {
+  font-size: 14px; /* Tamaño uniforme para los textos */
   color: gray; /* Color inicial */
+  margin: 0; /* Sin márgenes extra */
 }
 
 .argazkiak div:hover p,
 .argazkiak div:hover a {
-  color: red; /* Cambiar el color al pasar el cursor */
+  color: red; /* Cambiar color al pasar el cursor */
+}
+
+.klasifikazioa a,
+.taldeaInput a,
+.ligak a {
+  text-decoration: none; /* Eliminar subrayado */
+}
+
+.ligak a {
+  color: rgb(255, 0, 0); /* Color uniforme */
+}
+
+.ligak:hover a {
+  color: red; /* Cambiar color al pasar el cursor */
 }

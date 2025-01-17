@@ -8,7 +8,7 @@ function Ligak() {
   return (
     <>
       <div className='kontugabe'>
-          <p>Ez zaude erregistratua!</p><br />
+          <p style={{color: 'gray'}}>Ez zaude erregistratua!</p><br />
           <a href="/login"> <button className='saioa'><a>Saioa hasi</a></button></a><br />
         </div>
     </>

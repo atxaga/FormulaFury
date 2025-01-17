@@ -3,7 +3,7 @@ import '@/../css/nireop/header.css';
 import Menua from '@/Components/basikoak/MenuDeplegablea';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-function Header() {
+function Header({liga, bezeroa}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -32,8 +32,7 @@ function Header() {
         ) : (
           <>
             <div className="header">
-              <p>FURY</p>
-              <p className="f1">F1 team</p>
+              <p className="f1">{ liga.izena}</p>
             </div>
 
             <button className="hamburger" onClick={toggleMenu}>
@@ -43,7 +42,7 @@ function Header() {
               <button className="close-btn" onClick={toggleMenu}>
                 ×
               </button>
-              <Menua />
+              <Menua bezeroa={bezeroa}/>
             </div>
             <div className="lupa" onClick={toggleSearch}>
               <i className="bi bi-search"></i>

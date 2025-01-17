@@ -33,7 +33,8 @@ export default function Modal({ children, show = false, maxWidth = '2xl', closea
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="absolute inset-0 bg-gray-500/75" />
+                    {/* Fondo negro */}
+                    <div className="absolute inset-0 bg-black/75" />
                 </Transition.Child>
 
                 <Transition.Child

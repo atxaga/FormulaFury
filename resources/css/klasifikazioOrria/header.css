@@ -11,44 +11,50 @@
     background-color: rgb(11, 15, 24);
     height: 15vh;
 }
-.header{
-    font-size: 40px;
-    color: white;
-    margin-left: 20%;
-    font-weight: 600;
-}
 .dena {
-    display: flex;
-    justify-content: space-between;  /* Espacia los elementos entre sí */
-    align-items: center;  /* Centra verticalmente los elementos */
-    padding: 0 20px;  /* Ajusta el espaciado horizontal si es necesario */
-  }
-  
-  .header {
-    flex-grow: 1;  /* Hace que el header ocupe todo el espacio disponible */
-    margin-left: 37%;
-  }
-  
-  .plus {
-    display: flex;
-    justify-content: flex-end;  /* Alinea el icono plus a la derecha */
-    align-items: center;  /* Alinea el icono verticalmente */
-    margin-right: 2%;
-    width: 20%;
-  }
-  
-  .hamburger {
-    position: absolute;
-    left: 20px;  /* Pegado a la izquierda */
-  }
-.f1{
-    margin-left: 1%;
-    color: red;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.plus img{
-    width: 10%;
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre elementos */
+  padding: 10px 20px; /* Espaciado interno */
+  background-color: rgb(11, 15, 24);
+  color: #fff; /* Color del texto */
+  width: 100%; /* Asegurar que ocupa todo el ancho */
+  box-sizing: border-box; /* Incluir padding en el ancho total */
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  
 }
-button.hamburger{
-    margin-left: 2%;
+
+.hamburger {
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.f1 {
+  flex: 1; /* Ocupa todo el espacio restante */
+  text-align: center; /* Centrar el texto */
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+
+.plus {
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  justify-content: flex-end; /* Empujar el plus al final del contenedor */
+  cursor: pointer;
+}
+
+.plus img {
+  width: 25px;
+  height: 25px;
 }

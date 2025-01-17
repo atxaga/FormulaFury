@@ -14,6 +14,7 @@ import { Inertia } from '@inertiajs/inertia';
 
 function Nagusia() {
   const { ligak = [] } = usePage().props;
+  const { bezeroaDirua } = usePage().props;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
@@ -37,9 +38,9 @@ function Nagusia() {
             <button className="sortuLiga" onClick={openModal}>Liga sortu</button>
           </div>
             {ligak.length > 0 ? (
-              <Liga ligak={ligak} />
+              <Liga ligak={ligak} bezeroa={bezeroaDirua}/>
             ) : (
-              <p className='ez'>Ez zaude ezta liga batean sartuta</p>
+              <p className='ez' style={{color: 'gray'}}>Ez zaude ezta liga batean sartuta</p>
             )}
           <Footer />
         </div>

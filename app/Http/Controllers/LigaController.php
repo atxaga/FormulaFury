@@ -19,12 +19,16 @@ class LigaController extends Controller
 
 
     $bezeroaIzena = $request->user()->izena;
+    $bezeroa = $request->user()->bezeroa;
 
     $ligak = $bezeroa->ligak;
     
     return Inertia::render('mainOrriak/nagusiaMain', [
         'ligak' => $ligak,
-        'bezeroa' => $bezeroaIzena]);
+        'bezeroa' => $bezeroaIzena,
+        'bezeroaDirua' => $bezeroa
+    ]);
+        
 }
 public function store(Request $request)
 {

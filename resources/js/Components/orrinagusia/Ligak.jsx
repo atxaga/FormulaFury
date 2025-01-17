@@ -6,7 +6,7 @@ import euro from '../../../images/euro.png';
 import { redirect } from 'react-router-dom';
 import { Inertia } from '@inertiajs/inertia'; 
 
-function Ligak({ ligak }) {
+function Ligak({ ligak, bezeroa }) {
   const [ligas, setLigas] = useState(ligak);
   const [showRemoveInput, setShowRemoveInput] = useState(null);
 
@@ -37,7 +37,7 @@ function Ligak({ ligak }) {
               </div>
             </div>
             <div className="puntuak">
-              <p>150 PFRY</p> 
+              <p>{bezeroa.puntuak} PFRY</p> 
             </div>
           </div>
           <div className="ligak-info-eskubi">
@@ -51,7 +51,7 @@ function Ligak({ ligak }) {
                   onClick={() => handleThreeDotsClick(liga.id)} 
                 />
                 <div className="dirua">
-                  <h3>20.000.000</h3>
+                  <h3>{bezeroa.dirua}</h3>
                   <img src={euro} alt="Euro" />
                 </div>
               </div>

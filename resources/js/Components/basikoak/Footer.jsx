@@ -1,7 +1,7 @@
 import '../../../css/footer.css';
 import casco from '../../../images/ligakSelected.png.png';
 import klasifikazioa  from '../../../images/klasifikazioa.png.png';
-import taldeaSelect  from '../../../images/taldea.png.png';
+import taldeaSelect  from '../../../images/taldea.png';
 import merkatua  from '../../../images/merkatua.png.png';
 import aktibitatea  from '../../../images/aktibitatea.png';
 import { useState } from 'react';

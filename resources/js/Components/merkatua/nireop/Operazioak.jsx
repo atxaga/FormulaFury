@@ -8,6 +8,8 @@ import '@/../css/nireop/nagusia.css';
 function Operazioak() {
     const { gidariak = [] } = usePage().props;
     const { puja = [] } = usePage().props; 
+    const { liga } = usePage().props;
+    const { bezeroa } = usePage().props;
 
     const gidariakConPuja = gidariak.filter((gidaria) =>
         puja.some((p) => p.gidaria_id === gidaria.id)
@@ -15,7 +17,7 @@ function Operazioak() {
 
     return (
         <>
-            <Header />
+            <Header liga={liga} bezeroa={bezeroa}/>
             <div className="pujakDiv">
                 <img src={flechaurdin} alt="" />
                 <p>Erosketak</p>

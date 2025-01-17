@@ -89,10 +89,12 @@ function Lasterketa() {
   return (
     <>
       <div className='container'>
+        
         <div className='hurrengo'>
           <p>{translations.nagusia.hurrengola}</p>
         </div>
         <div className='blanco'>
+        <div>
           <div className='lasterketa'>
             <p>GP CATAR</p>
             <div className='datuak'>
@@ -100,9 +102,11 @@ function Lasterketa() {
               <p>CIRCUITO INTERNACIONAL DE LOSAIL</p>
             </div>
           </div>
-          <div className='circuito'>
-            <div id="mapContainer" style={{ width: '100%', height: '250px' }}></div>
-          </div>
+          
+        </div>
+        <div className='circuito'>
+          <div id="mapContainer" style={{ width: '100%', height: '260px' }}></div>
+        </div>
         </div>
         <div className='kontaktatu1'>
           <p>{translations.nagusia.kontaktatu}</p>

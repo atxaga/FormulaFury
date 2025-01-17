@@ -1,5 +1,6 @@
 .modal-content{
-    background-color: rgb(31, 82, 235);
+    background-color: rgb(0, 0, 0);
+    padding: 20px;
 }
 .kodea{
     display: flex;

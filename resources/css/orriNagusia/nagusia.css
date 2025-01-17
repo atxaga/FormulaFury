@@ -247,6 +247,10 @@ h1{
 }
 /*de aqui en adelante esta hecho por aitor*/
 
+.circuito{
+  width: 30%;
+  margin-left: 4%;
+}
 @media (max-width: 768px) {
     .blanco-liga {
       align-items: center; /* Centra los elementos */
