@@ -87,7 +87,7 @@ function Header({bezeroa, liga}) {
             <a href='gidariak' style={{ textDecoration: 'none', color: 'gray' }}><p>Gidariak</p></a>
           </div>
           <div className='puntuak'>
-          <a href='puntuak' style={{ textDecoration: 'none', color: 'gray' }}><p>Puntuak</p></a>
+            <a href='puntuak' style={{ textDecoration: 'none', color: 'gray' }}><p>Puntuak</p></a>
           </div>
         </div>
 

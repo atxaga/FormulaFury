@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('puntuak_gidaria', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('gidaria');
-            $table->integer('puntuak_guztira');
             $table->unsignedBigInteger('gp');
             $table->integer('pos_qualy');
             $table->integer('pos_race');
@@ -22,7 +21,6 @@ return new class extends Migration
             $table->boolean('h2h_race');
             $table->boolean('buelta_azkarra');
             $table->boolean('pole');
-            $table->integer('pos_txapelketa');
             $table->timestamps();
 
             $table->foreign('gp')->references('id')->on('grand_prix_puntuak')->onDelete('cascade');

@@ -36,9 +36,9 @@ function Contenedor() {
               <p className="text-white">IGA 5 , 20:00 </p>
             </div>
           </div>
-          <div className="balorea">
+          <div className="balor">
             <div className="baloreaLetra">
-              <p>BALOREA</p>
+              <p>BALIOA</p>
             </div>
             <div className="totalaBalorea">
               <p className="text-white">{ekipoBalorea}</p>

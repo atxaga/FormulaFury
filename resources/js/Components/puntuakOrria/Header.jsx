@@ -1,4 +1,4 @@
-import '../../../css/taldeaOrria/header.css';
+import '../../../css/puntuakOrria/header.css';
 import '../../../css/header.css';
 import Menua from '../basikoak/MenuDeplegablea';
 import { useState } from 'react';
@@ -6,11 +6,10 @@ import { usePage } from '@inertiajs/react';
 
 function Header({bezeroa, liga}) {
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log(liga);
   const [locale, setLocale] = useState(document.documentElement.lang);
   const { translations } = usePage().props;
   const [dynamicTranslations, setDynamicTranslations] = useState(translations);
-  console.log(bezeroa);
+
   const toggleMenu = () => {
      setMenuOpen(!menuOpen);
   };
@@ -81,13 +80,13 @@ function Header({bezeroa, liga}) {
         </div>
         <div className='sekzioak'>
           <div className='taldea'>
-            <a href='taldea' style={{ textDecoration: 'none', color: 'white' }}><p>Taldea</p></a>
+            <a href='taldea' style={{ textDecoration: 'none', color: 'gray' }}><p>Taldea</p></a>
           </div>
           <div className='gidariak'>
             <a href='gidariak' style={{ textDecoration: 'none', color: 'gray' }}><p>Gidariak</p></a>
           </div>
           <div className='puntuak'>
-            <p>Puntuak</p>
+            <a href='puntuak' style={{ textDecoration: 'none', color: 'white' }}><p>Puntuak</p></a>
           </div>
         </div>
 

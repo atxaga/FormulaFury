@@ -56,6 +56,7 @@ function Gidaria({gidaria}) {
         </div>
         
         </div>
+        
         </div>
     </>
   );

@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('puntuak_taldea', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('taldea');
-            $table->integer('puntuak_guztira');
             $table->unsignedBigInteger('gp');
             $table->string('pos_qualy');
             $table->string('pos_race');
             $table->boolean('buelta_azkarra');
             $table->boolean('pole');
-            $table->string('pos_txapelketa');
             $table->timestamps();
 
             $table->foreign('gp')->references('id')->on('grand_prix_puntuak')->onDelete('cascade');

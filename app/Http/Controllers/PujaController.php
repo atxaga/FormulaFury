@@ -130,6 +130,8 @@ class PujaController extends Controller
                     'bezeroa_id' => $maxPuja->bezeroa_id,
                     'liga_id' => $maxPuja->liga_id,
                     'taldea_id' => $bezeroTaldea->taldea_id,
+                    'gidaria_clausula' => $maxPuja->puja,
+                    'taldea_clausula' => 0
                 ]);
 
                 LigaGidari::where('gidaria_id', $maxPuja->gidaria_id)

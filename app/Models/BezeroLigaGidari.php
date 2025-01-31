@@ -11,7 +11,9 @@ class BezeroLigaGidari extends Model
     protected $fillable = [
         'bezeroa_id',
         'liga_id',
-        'gidaria_id'
+        'gidaria_id',
+        'gidaria_clausula',
+        'taldea_clausula'
     ];
 
     public function users(){

@@ -33,7 +33,8 @@ class LigaController extends Controller
 }
 public function store(Request $request)
 {
-    
+    $taldeak = Taldea::all();
+
     $request->validate([
         'izena' => 'required|min:5|max:30', 
         'deskribapena' => 'nullable|max:255', 
@@ -79,7 +80,6 @@ public function store(Request $request)
 
     //Taldeak insertatu
 
-   $taldeak = Taldea::all();
 
     $pivotData = $taldeak->mapWithKeys(function ($taldeak) {
         return [
@@ -117,6 +117,8 @@ public function store(Request $request)
         ->inRandomOrder()
         ->limit(1)
         ->first();
+    $taldeaBalioa = Taldea::findOrFail($taldea->taldea_id);
+    $taldeaClausula = $taldeaBalioa->balioa + ($taldeaBalioa->balioa*0.1);
 
     if (!$taldea) {
         return redirect()->back()->with('error', 'Ez dago erabilgarri dagoen taldea.');
@@ -127,13 +129,15 @@ public function store(Request $request)
     if ($gidariak->count() < 4) {
         return redirect()->back()->with('error', 'Ez dago nahikoa gidari erabilgarri.');
     }
-
     foreach ($gidariak as $gidari) {
+    $gidariaClausula = $gidari->balioa + ($gidari->balioa*0.1);
     DB::table('bezeroa_liga_gidaria')->insert([
         'bezeroa_id' => $bezeroa->id,
         'liga_id' => $liga->id,
         'gidaria_id' => $gidari->gidaria_id,
-        'taldea_id' => $taldea->taldea_id
+        'taldea_id' => $taldea->taldea_id,
+        'gidaria_clausula' => $gidariaClausula,
+        'taldea_clausula' => $taldeaClausula,
     ]);
 
     DB::table('gidaria_liga')
@@ -200,13 +204,20 @@ public function sartu(Request $request)
     if ($gidariak->count() < 4) {
         return redirect()->back()->with('error', 'Ez dago nahikoa gidari erabilgarri.');
     }
+    $taldeaBalioa = Taldea::findOrFail($taldea->taldea_id);
+    $taldeaClausula = $taldeaBalioa->balioa + ($taldeaBalioa->balioa*0.1);
+
+
 
     foreach ($gidariak as $gidari) {
+    $gidariaClausula = $gidari->balioa + ($gidari->balioa*0.1);
     DB::table('bezeroa_liga_gidaria')->insert([
         'bezeroa_id' => $bezeroa->id,
         'liga_id' => $liga->id,
         'gidaria_id' => $gidari->gidaria_id,
-        'taldea_id' => $taldea->taldea_id
+        'taldea_id' => $taldea->taldea_id,
+        'gidaria_clausula' => $gidariaClausula,
+        'taldea_clausula' => $taldeaClausula,
     ]);
 
     DB::table('gidaria_liga')

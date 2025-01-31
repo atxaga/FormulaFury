@@ -47,11 +47,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/nireoperazioak', [PujaController::class, 'pujatutakoGidari']);
     Route::get('/historikoa', [AktibitateaController::class, 'historikoa'])->name('historikoa.index');
     Route::post('/plantilla', [TaldeaController::class, 'update'])->name('taldea.update');
-    Route::post('/puntuak', [TaldeaController::class, 'puntuatu'])->name('taldea.puntuatu');
+    Route::get('/puntuak', [TaldeaController::class, 'puntuatu'])->name('taldea.puntuatu');
     Route::get('/aktibitatea', [AktibitateaController::class, 'index'])->name('aktibitatea.index');
+    Route::get('/puntuakgehitu', function () {
+        return Inertia::render('mainOrriak/puntuakgehituMain', []);
+    });
 
 });
 Route::post('/saldu/{id}', [TaldeaController::class, 'saldu'])->name('gidaria.saldu');
+Route::post('/klausulaigo/{id}', [TaldeaController::class, 'klausula'])->name('gidaria.klausula');
+Route::post('/gidariakbezero/{id}', [TaldeaController::class, 'taldeaIkusi'])->name('gidaria.ikusi');
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switchLanguage'])->name('language.switch');
 Route::get('/set-locale/{language}', [LanguageController::class, 'setLocale']);

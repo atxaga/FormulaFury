@@ -101,7 +101,7 @@ const Taldea = () => {
               <p>{translations.taldea.plantilla}</p>
             </div>
             <div className="totala">
-              <p className="text-white">5/10</p>
+              <p className="text-white">{gidariaF1.length + gidariaF2.length + 1}/10</p>
             </div>
           </div>
           <div className="lasterketa">
@@ -117,11 +117,12 @@ const Taldea = () => {
               <p>{translations.taldea.balioa}</p>
             </div>
             <div className="totalaBalorea">
-              <p className="text-white">560.000.000</p>
+              <p className="text-white">{ekipoBalorea}</p>
               <img src={euroTaldeaImg} alt="Euro Taldea" />
             </div>
-            <button style={{ background: 'red' }} onClick={gordeGidariak}>Gorde</button>
           </div>
+          <button className='gorde' onClick={gordeGidariak}>Gorde</button>
+
         </div>
 
         <div className="logoak">

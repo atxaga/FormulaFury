@@ -23,6 +23,7 @@ class KlasifikazioaController extends Controller
 
     $bezeroakData = $bezeroak->map(function ($bezero) {
         return [
+            'id' => $bezero->user->id,
             'izena' => $bezero->user->izena, 
             'dirua' => $bezero->dirua, 
             'puntuak' => $bezero->puntuak          

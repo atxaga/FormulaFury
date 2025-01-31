@@ -27,8 +27,8 @@ export default function Modal({
         wider: 'sm:max-w-8xl',
     }[maxWidth];
 
-    // Clase para el máximo de altura y el scroll
-    const maxHeightClass = "max-h-[900px]"; // Ajusta esta altura según lo que necesites
+    
+    const maxHeightClass = "max-h-[900px]"; 
 
     return (
         <Transition show={show} leave="duration-200">
