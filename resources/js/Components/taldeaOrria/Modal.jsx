@@ -27,6 +27,9 @@ export default function Modal({
         wider: 'sm:max-w-8xl',
     }[maxWidth];
 
+    // Clase para el máximo de altura y el scroll
+    const maxHeightClass = "max-h-[900px]"; // Ajusta esta altura según lo que necesites
+
     return (
         <Transition show={show} leave="duration-200">
             <Dialog
@@ -55,9 +58,11 @@ export default function Modal({
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                     <DialogPanel
-                        className={`mb-6 transform overflow-hidden rounded-lg bg-black shadow-xl transition-all sm:mx-auto sm:w-full ${maxWidthClass}`}
+                        className={`mb-6 transform overflow-hidden rounded-lg bg-black shadow-xl transition-all sm:mx-auto sm:w-full ${maxWidthClass} ${maxHeightClass}`}
                     >
-                        {children}
+                        <div className="overflow-y-auto h-full p-4"> {/* Contenedor desplazable */}
+                            {children}
+                        </div>
                     </DialogPanel>
                 </TransitionChild>
             </Dialog>

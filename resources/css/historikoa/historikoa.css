@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../../js/fonts/horizon.otf') format('truetype');
+  }
+  @font-face {
+    font-family: 'MiFuente2';
+    src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
+  }
+  .cont{
+    background-color: rgb(11, 15, 27);
+}
+.dena{
+
+    font-family: 'MiFuente2';
+    display: flex;
+    text-align: center;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+}
+.header{
+
+    display: flex;
+    font-size: 40px;
+    color: white;
+    justify-content: space-around;
+
+}
+.f1{
+    color: red;
+    
+}
+
+.plus img{
+    width: 10%;
+}
+button.hamburger{
+    margin-left: 2%;
+}
+.sekzioak{
+    margin-top: 1%;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+
+}
+.sekzioak a{
+    font-size: 23px;
+    text-decoration: none;
+}
+
+.nire-op{
+    border-bottom: 4px solid red;
+    width: 30%;
+    
+
+}
+.nire-op a{
+    text-decoration: none;
+    font-size: 23px;
+    color: white;
+}
+.merkatuOr, .nire-op, .historikoa{
+    width: 20%;
+    text-align: center;
+}
+.merkatuOr a, .historikoa{
+    color: gray;
+}
+.lupa{
+    color: white;
+    font-size: 30px;
+    margin-right: 2%;
+}
+/* Mantener el fondo del header intacto */
+.dena {
+    font-family: 'MiFuente2';
+    display: flex;
+    text-align: center;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    background-color: rgb(11, 15, 27);
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  .f1 {
+    color: red;
+  }
+  
+  .hamburger {
+    margin-left: 2%;
+  }
+  
+  .lupa {
+    color: white;
+    font-size: 30px;
+    margin-right: 2%;
+    cursor: pointer;
+  }
+  
+  .sekzioak {
+    margin-top: 1%;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(11, 15, 27); /* Mantener el fondo del header */
+  }
+  
+  .search-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .search-input::placeholder {
+    color: gray;
+  }
+  
+  .close-search {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  .mugimendua-card{
+    background-color: black;
+  }
+  .gidaria-info {
+    font-family: 'MiFuente2', sans-serif;
+    margin: auto;
+    display: flex;
+    background-color: rgb(36, 36, 36);
+    border-radius: 5px;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 1px;
+    margin-top: 1%;
+    width: 80%;
+    height: 170px;
+    text-align: center;
+}
+.gidaria-info p{
+    font-size: 35px;
+    text-align: center;
+}
+.gidaria-info img{
+    margin-right: 3%;
+}
+.mugimendua-cart{
+  background-color: black;
+}
+.gidaria-infor {
+  font-family: 'MiFuente2', sans-serif;
+  margin: auto;
+  background-color: rgb(36, 36, 36);
+  border-radius: 5px;
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 1px;
+  margin-top: 1%;
+  width: 80%;
+  height: 170px;
+}
+h3{
+  font-size: 35px;
+  font-weight: bold;
+}
+.gidaria-infor p{
+  font-size: 29px;
+}
+
+.gidaria-infor img{
+  margin-right: 3%;
+}

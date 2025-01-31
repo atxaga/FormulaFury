@@ -3,12 +3,13 @@ import '../../../css/merkatuaOrria/gidaria.css';
 import dispo from '../../../images/tick.png';
 import f1 from '../../../images/f1.png';
 import f2 from '../../../images/f2.png';
-import verstappen from '../../../images/verstappen.png';
+import verstappen from '@/../images/verstappen.png';
 import Puja from './Puja';
 import { Inertia } from '@inertiajs/inertia';
 import Modal from '@/Components/Modal';
 
-function Gidaria({ pilot }) {
+
+function Gidaria({ pilot, bezeroaDirua }) {
   const [showModal, setShowModal] = useState(false);
   const [pujaRealizada, setPujaRealizada] = useState(null);
   const [actionOptionsVisible, setActionOptionsVisible] = useState(false);
@@ -48,11 +49,13 @@ function Gidaria({ pilot }) {
     }
   };
 
+ 
+
   return (
     <>
       <div className="main-gidari">
         <div className="datuak">
-          <img src={verstappen} alt="" />
+          <img src={pilot.foto} alt="" />
           <div className="gidariDatuak">
             <div className="usuario">
               <div className="mota">
@@ -125,11 +128,12 @@ function Gidaria({ pilot }) {
           </button>
           <h2>{pilot.izena}</h2>
           <div className="pilot-photo">
-            <img src={verstappen} alt="pilot" />
+            <img src={pilot.foto} alt="pilot" />
           </div>
           <Puja
             pilot={pilot}
             pujaInicial={pujaRealizada}
+            bezeroDirua = {bezeroaDirua}
             onPujaUpdate={handlePujaUpdate}
           />
         </div>

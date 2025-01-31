@@ -29,7 +29,6 @@ function LigaSortu() {
       <form onSubmit={handleSubmit}>
         <h1 className="liga-sortu-title">Liga Sortu</h1>
 
-        {/* Campo para el nombre de la liga */}
         <input
           type="text"
           className="liga-input"

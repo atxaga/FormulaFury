@@ -8,6 +8,7 @@ import f2  from '../../../images/f2.png';
 import verstappen  from '../../../images/verstappen.png';
 import euro from '../../../images/euro.png';
 import { usePage } from '@inertiajs/react';
+import { Inertia } from '@inertiajs/inertia';
 
 
 
@@ -15,11 +16,16 @@ import { usePage } from '@inertiajs/react';
 
 function Gidaria({gidaria}) {
   const { bezeroa } = usePage().props;
+
+  const salduGidaria = (id) => {
+    Inertia.post(`/saldu/${id}`);
+  };
+
   return (
     <>
        <div className='main-gidari'>
         <div className='datuak'>
-        <img src={verstappen} alt="" />
+        <img src={gidaria.foto} alt="" />
         <div className='gidariDatuak'>
         <div className='usuario'>
         <div className='mota'>
@@ -57,9 +63,10 @@ function Gidaria({gidaria}) {
           <p className='mediaP'>MEDIA</p>
           <p className='mediaValor'>0.00</p>
         </div>
+        <input  onClick={() => salduGidaria(gidaria.id)} type="button" value="Saldu" class="saldu" />
+        </div>
+        </div>
         
-        </div>
-        </div>
     </>
   );
 }

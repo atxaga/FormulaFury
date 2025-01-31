@@ -1,0 +1,105 @@
+.container1 {
+    background-color: black;
+    position: fixed;
+    width: 100%; /* Ocupa toda la parte inferior */
+    bottom: 0; /* Fijo en la parte inferior */
+    display: flex; /* Flexbox para estructurar */
+    justify-content: space-around; /* Espaciado uniforme entre elementos */
+    align-items: center; /* Centrar verticalmente */
+    padding: 10px 0; /* Espaciado interno */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 100; /* Asegurar que esté sobre otros elementos */
+    font-family: 'MiFuente'; /* Fuente personalizada */
+  }
+  
+  .argazkiak {
+    display: flex; /* Flexbox para organizar elementos */
+    justify-content: space-around; /* Espaciado uniforme entre elementos */
+    align-items: center; /* Centrar verticalmente */
+    gap: 20px; /* Espaciado entre bloques */
+    width: 100%; /* Usar todo el ancho disponible */
+  }
+  
+  .argazkiak > div {
+    text-align: center; /* Centrar texto y contenido */
+    flex: 1; /* Asegurar que cada bloque ocupe el mismo espacio */
+    display: flex; /* Flexbox dentro de cada bloque */
+    flex-direction: column; /* Organizar en columna (imagen arriba, texto abajo) */
+    align-items: center; /* Centrar horizontalmente */
+  }
+  
+  .argazkiak img {
+    max-width: 60px; /* Tamaño uniforme para todas las imágenes */
+    height: auto; /* Mantener proporción */
+    margin-bottom: 5px; /* Espacio entre la imagen y el texto */
+  }
+  
+  .klasifikazioa {
+    display: flex; /* Hacer que klasifikazioa también use flexbox */
+    flex-direction: column; /* Imagen arriba, texto abajo */
+    align-items: center; /* Centrar horizontalmente */
+    text-align: center; /* Centrar texto */
+  }
+  .klasifikazioa img{
+  
+    margin: auto;
+  }
+  
+  .taldeaInput {
+    position: relative; /* Permite que la imagen se posicione sin afectar a otros elementos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .taldeaInput img {
+    margin: auto;
+   /* Ajusta horizontalmente */
+  }
+  
+  
+  .taldeaInput a {
+    margin-top: 80px; /* Asegura el espacio del texto */
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    top: 10px; /* Ajusta verticalmente */
+    left: 10%;
+  }
+  .argazkiak p,
+  .argazkiak a {
+    font-size: 14px; /* Tamaño uniforme para los textos */
+    color: gray; /* Color inicial */
+    margin: 0; /* Sin márgenes extra */
+  }
+  
+  .argazkiak div:hover p,
+  .argazkiak div:hover a {
+    color: red; /* Cambiar color al pasar el cursor */
+  }
+  
+  .klasifikazioa a,
+  .taldeaInput a,
+  .ligak a {
+    text-decoration: none; /* Eliminar subrayado */
+  }
+  
+  .aktibitatea a {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+  }
+  .merkatua a{
+    text-decoration: none;
+  }
+  .merkatua img{
+    margin: auto;
+  }
+  .aktibitatea img{
+    margin: auto;
+  }
+  
+  .ligak:hover a {
+    color: red; /* Cambiar color al pasar el cursor */
+  }
+  

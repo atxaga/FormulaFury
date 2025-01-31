@@ -11,7 +11,8 @@ class Puja extends Model
     protected $fillable = [
         'puja',
         'gidaria_id',
-        'bezeroa_id'
+        'bezeroa_id',
+        'liga_id'
     ];
 
 }

@@ -47,7 +47,6 @@ class RegisteredUserController extends Controller
         Bezeroa::create([
             'puntuak' => 0,
             'premium' => false,
-            'dirua' => 100000000,
             'user_id' => $user->id
         ]);
 

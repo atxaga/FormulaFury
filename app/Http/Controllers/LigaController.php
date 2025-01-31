@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bezeroa;
+use App\Models\BezeroLiga;
 use App\Models\Gidaria;
 use App\Models\Liga;
 use App\Models\LigaGidari;
@@ -19,9 +20,9 @@ class LigaController extends Controller
 
 
     $bezeroaIzena = $request->user()->izena;
-    $bezeroa = $request->user()->bezeroa;
 
     $ligak = $bezeroa->ligak;
+
     
     return Inertia::render('mainOrriak/nagusiaMain', [
         'ligak' => $ligak,
@@ -55,8 +56,11 @@ public function store(Request $request)
     
     $bezeroa = $request->user()->bezeroa;
 
-    $liga->bezeroak()->attach($bezeroa->id, ['puntuak' => 0]);
-
+    $liga->bezeroak()->attach($bezeroa->id, [
+        'puntuak' => 0,
+        'dirua' => 25000000
+    ]);
+    
     //Gidariak insertatu
 
     $gidariak = Gidaria::all();
@@ -157,6 +161,7 @@ public function sartu(Request $request)
 
     DB::table('bezeroa_liga')->insert([
         'puntuak' => 0,
+        'dirua' => 25000000,
         'bezeroa_id' => $bezeroa->id,
         'liga_id' => $liga->id,
     ]);

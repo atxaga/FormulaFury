@@ -15,7 +15,8 @@ class Gidaria extends Model
         'jabea',
         'kategoria',
         'balioa',
-        'disponibilitatea'
+        'disponibilitatea',
+        'foto'
     ];
 
     public function bezeroa() {
@@ -49,8 +50,4 @@ class Gidaria extends Model
                     ->withPivot('erabilgarritasuna','erositako_prezioa','saldutako_prezioa')
                     ->withTimestamps();
     }
-
-
-
-
 }

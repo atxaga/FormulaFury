@@ -10,6 +10,7 @@ class BezeroLiga extends Pivot
 
     protected $fillable = [
         'puntuak',
+        'dirua',
         'bezeroa_id',
         'liga_id',
     ];

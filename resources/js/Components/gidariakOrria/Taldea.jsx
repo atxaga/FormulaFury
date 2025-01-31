@@ -17,7 +17,7 @@ function Taldea({taldea}) {
     <>
        <div className='main-gidari'>
         <div className='datuak'>
-        <img src={verstappen} alt="" />
+        <img src={taldea.foto} alt="" />
         <div className='gidariDatuak'>
         <div className='usuario'>
         <div className='taldeamota'>

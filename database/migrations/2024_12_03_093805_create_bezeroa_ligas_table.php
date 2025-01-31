@@ -14,6 +14,7 @@ return new class extends Migration
     Schema::create('bezeroa_liga', function (Blueprint $table) {
         $table->id(); 
         $table->integer('puntuak'); 
+        $table->integer('dirua');
         $table->foreignId('bezeroa_id')->constrained('bezeroak')->onDelete('cascade'); 
         $table->foreignId('liga_id')->constrained('ligak')->onDelete('cascade'); 
         $table->timestamps(); 

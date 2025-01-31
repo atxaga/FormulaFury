@@ -89,7 +89,12 @@
 .klasifikazioa a {
   color: rgb(255, 0, 0); /* Color uniforme */
 }
-
+.aktibitatea a{
+  text-decoration: none;
+}
+.aktibitatea img{
+  margin: auto;
+}
 .ligak:hover a {
   color: red; /* Cambiar color al pasar el cursor */
 }

@@ -14,7 +14,8 @@ class Taldea extends Model
         'puntuak',
         'jabea',
         'kategoria',
-        'balioa'
+        'balioa',
+        'foto'
     ];
 
     public function bezeroa() {

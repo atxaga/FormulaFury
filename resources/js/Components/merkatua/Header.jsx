@@ -88,7 +88,7 @@ function Header({ guztiak, bezeroa, liga  }) {
           <a href="/nireoperazioak">Nire Op.</a>
         </div>
         <div className="historikoa">
-          <a>Historikoa</a>
+          <a href='historikoa' style={{color: 'gray'}}>Historikoa</a>
         </div>
       </div>
     </div>

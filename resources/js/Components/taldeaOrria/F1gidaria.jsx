@@ -8,7 +8,7 @@ function F1gidaria({ gidariaF1 }){
         <>
         <div className="gidariaDiv">
             <div className="foto">
-                <img src={perfil} alt="" />
+                <img src={gidariaF1.foto} alt="" />
             </div>
             <div className="datof1">
             <div className="izena">

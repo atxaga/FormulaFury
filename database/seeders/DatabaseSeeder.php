@@ -49,21 +49,18 @@ class DatabaseSeeder extends Seeder
         Bezeroa::create([
             'puntuak' => 0,
             'premium' => 0,
-            'dirua' => 100000000,
             'user_id' => 1
         ]);
 
         Bezeroa::create([
             'puntuak' => 0,
             'premium' => 0,
-            'dirua' => 100000000,
             'user_id' => 2
         ]);
 
         Bezeroa::create([
             'puntuak' => 0,
             'premium' => 0,
-            'dirua' => 100000000,
             'user_id' => 3
         ]);
 
@@ -72,6 +69,7 @@ class DatabaseSeeder extends Seeder
             'puntuak' => 0,
             'bezeroa_id' => 1,
             'liga_id' => 1,
+            'dirua' => 25000000,
         ]);
 
         Taldea::create([
@@ -79,7 +77,8 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'sf24',
             'puntuak' => 0,
             'jabea' => 1,
-            'balioa' => 50000000
+            'balioa' => 40000000,
+            'foto' => '/images/ferrari.png'
         ]);
 
         Taldea::create([
@@ -87,23 +86,29 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'MCL38',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 45000000,
+            'foto' => '/images/mclaren.png'
+
         ]);
 
         Taldea::create([
             'izena' => 'Red Bull Racing',
             'kotxea' => 'RB20',
-            'puntuak' => 0,
+            'puntuak' => 40000000,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 0,
+            'foto' => '/images/redbull.png'
+
         ]);
 
         Taldea::create([
             'izena' => 'Mercedes-AMG PETRONAS',
             'kotxea' => 'W15',
-            'puntuak' => 0,
+            'puntuak' => 35000000,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 0,
+            'foto' => '/images/mercedes.png'
+
         ]);
 
         Taldea::create([
@@ -111,7 +116,9 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'AMR25',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 19000000,
+            'foto' => '/images/astonmartin.png'
+
         ]);
 
         Taldea::create([
@@ -119,7 +126,9 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'A524',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 22000000,
+            'foto' => '/images/alpine.png'
+
         ]);
 
 
@@ -128,7 +137,9 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'VF-25',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 5000000,
+            'foto' => '/images/haas.png'
+
         ]);
 
         Taldea::create([
@@ -136,7 +147,9 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'VCARB 01',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 10000000,
+            'foto' => '/images/rb.png'
+
         ]);
 
         Taldea::create([
@@ -144,7 +157,9 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'FW46',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 20000000,
+            'foto' => '/images/williams.png'
+
         ]);
 
         Taldea::create([
@@ -152,7 +167,9 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'C44',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 7500000,
+            'foto' => '/images/kick.png'
+
         ]);
 
         Taldea::create([
@@ -160,7 +177,8 @@ class DatabaseSeeder extends Seeder
             'kotxea' => 'F2',
             'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0
+            'balioa' => 0,
+            'foto' => '/images/kick.png'
         ]);
 
         
@@ -179,8 +197,9 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 35000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/leclerc.png'
         ]);
 
         Gidaria::create([
@@ -189,8 +208,9 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 22000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/hamilton.png'
 
         ]);
 
@@ -200,8 +220,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 33500000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/norris.png'
+
 
         ]);
 
@@ -211,8 +233,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 15000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/piastri.png'
+
 
         ]);
 
@@ -222,8 +246,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 40000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/verstappen.png'
+
 
         ]);
 
@@ -233,8 +259,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 2000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/lawson.png'
+
 
         ]);
 
@@ -244,8 +272,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 25000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/russell.png'
+
 
         ]);
 
@@ -255,8 +285,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 11500000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/antonelli.png'
+
 
         ]);
 
@@ -266,8 +298,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 17000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/alonso.png'
+
 
         ]);
 
@@ -277,8 +311,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 6000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/stroll.png'
+
 
         ]);
 
@@ -288,8 +324,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 9300000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/gasly.png'
+
 
         ]);
 
@@ -299,8 +337,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 2300000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/doohan.png'
+
 
         ]);
 
@@ -310,8 +350,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 8900000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/ocon.png'
+
 
         ]);
 
@@ -321,8 +363,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 3200000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/bearman.png'
+
 
         ]);
 
@@ -332,8 +376,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 8500000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/tsunoda.png'
+
 
         ]);
 
@@ -343,8 +389,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 1500000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/hadjar.png'
+
 
         ]);
 
@@ -354,8 +402,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 15000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/sainz.png'
+
 
         ]);
 
@@ -365,8 +415,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 9700000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/albon.png'
+
 
         ]);
 
@@ -376,8 +428,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 5500000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/hulkenberg.png'
+
 
         ]);
 
@@ -387,8 +441,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f1',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 2300000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/bortoleto.png'
+
 
         ]);
 
@@ -398,8 +454,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 990000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/fornaroli.png'
+
 
         ]);
 
@@ -409,8 +467,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 980000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/stanek.png'
+            
 
         ]);
 
@@ -420,8 +480,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 8000000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/lindbland.png'
+
 
         ]);
 
@@ -431,8 +493,11 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 1500000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/pepemarti.png'
+
+            
 
         ]);
 
@@ -442,8 +507,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 700000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/goethe.png'
+
 
         ]);
 
@@ -453,8 +520,11 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 800000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/verschoor.png'
+
+            
 
         ]);
 
@@ -464,8 +534,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 700000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/browning.png'
+
 
         ]);
 
@@ -475,8 +547,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 803000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/beganovic.png'
+
 
         ]);
 
@@ -486,8 +560,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 700000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/mini.png'
+
 
         ]);
 
@@ -497,8 +573,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 860000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/montoya.png'
+
 
         ]);
 
@@ -508,8 +586,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 600000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/crawford.png'
+
 
         ]);
 
@@ -519,8 +599,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 670000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/maini.png'
+
 
         ]);
 
@@ -530,19 +612,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 720000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/miyata.png'
 
-        ]);
-
-        Gidaria::create([
-            'izena' => 'Por anunciar',
-            'taldea' => 11,
-            'puntuak' => '0',
-            'jabea' => null,
-            'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
 
         ]);
 
@@ -552,19 +625,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 800000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/mansell.png'
 
-        ]);
-
-        Gidaria::create([
-            'izena' => 'Por anunciar',
-            'taldea' => 11,
-            'puntuak' => '0',
-            'jabea' => null,
-            'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
 
         ]);
 
@@ -574,19 +638,22 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 750000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/durksen.png'
+
 
         ]);
 
         Gidaria::create([
-            'izena' => 'Por anunciar',
+            'izena' => 'Cian Shields',
             'taldea' => 11,
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'No Disponible'
+            'balioa' => 640000,
+            'disponibilitatea' => 'No Disponible',
+            'foto' => '/images/shields.png'
 
         ]);
 
@@ -596,8 +663,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 700000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/esterson.png'
+
 
         ]);
 
@@ -607,8 +676,10 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 600000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/sami.png'
+
 
         ]);
 
@@ -618,21 +689,14 @@ class DatabaseSeeder extends Seeder
             'puntuak' => '0',
             'jabea' => null,
             'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'Disponible'
+            'balioa' => 750000,
+            'disponibilitatea' => 'Disponible',
+            'foto' => '/images/bennet.png'
+            
 
         ]);
 
-        Gidaria::create([
-            'izena' => 'Por anunciar',
-            'taldea' => 11,
-            'puntuak' => '0',
-            'jabea' => null,
-            'kategoria' => 'f2',
-            'balioa' => 0,
-            'disponibilitatea' => 'No Disponible'
-
-        ]);
+      
 
         $gidariak = Gidaria::all();
 

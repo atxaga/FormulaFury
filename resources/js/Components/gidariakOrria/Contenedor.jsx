@@ -11,6 +11,7 @@ import { usePage } from '@inertiajs/react';
 function Contenedor() {
   const { gidariak = [] } = usePage().props;
   const { taldea = null } = usePage().props; 
+  const { ekipoBalorea } = usePage().props;
   const { liga } = usePage().props;
   const { bezeroa } = usePage().props;
 
@@ -24,7 +25,7 @@ function Contenedor() {
               <p>PLANTILLA</p>
             </div>
             <div className="totala">
-              <p className="text-white">5/5</p>
+              <p className="text-white">{gidariak.length+1}/10</p>
             </div>
           </div>
           <div className="lasterketa">
@@ -40,7 +41,7 @@ function Contenedor() {
               <p>BALOREA</p>
             </div>
             <div className="totalaBalorea">
-              <p className="text-white">550.000.000</p>
+              <p className="text-white">{ekipoBalorea}</p>
               <img src={signoEuro} alt="" />
             </div>
           </div>

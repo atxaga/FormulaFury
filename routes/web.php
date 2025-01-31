@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AktibitateaController;
 use App\Http\Controllers\KlasifikazioaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LanguageController;
@@ -44,11 +45,17 @@ Route::middleware('auth')->group(function () {
     Route::post("/pujatu", [PujaController::class, 'store'])->name('puja.store');
     Route::post('/pujaezabatu', [PujaController::class, 'destroy'])->name('puja.destroy');
     Route::get('/nireoperazioak', [PujaController::class, 'pujatutakoGidari']);
+    Route::get('/historikoa', [AktibitateaController::class, 'historikoa'])->name('historikoa.index');
+    Route::post('/plantilla', [TaldeaController::class, 'update'])->name('taldea.update');
+    Route::post('/puntuak', [TaldeaController::class, 'puntuatu'])->name('taldea.puntuatu');
+    Route::get('/aktibitatea', [AktibitateaController::class, 'index'])->name('aktibitatea.index');
+
 });
+Route::post('/saldu/{id}', [TaldeaController::class, 'saldu'])->name('gidaria.saldu');
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switchLanguage'])->name('language.switch');
 Route::get('/set-locale/{language}', [LanguageController::class, 'setLocale']);
-
+Route::get('/merkatubukaera', [PujaController::class, 'bukaera'])->name('merkatua.bukaera');
 Route::get('/setLiga/{id}', function ($id) {
     session(['aukeratutakoLiga' => $id]);
     return redirect()->back();

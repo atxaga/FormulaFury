@@ -36,9 +36,7 @@ function Ligak({ ligak, bezeroa }) {
                 <h3>{liga.izena}</h3> 
               </div>
             </div>
-            <div className="puntuak">
-              <p>{bezeroa.puntuak} PFRY</p> 
-            </div>
+            
           </div>
           <div className="ligak-info-eskubi">
             <div className="dirua">

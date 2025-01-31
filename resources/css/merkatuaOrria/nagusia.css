@@ -14,11 +14,46 @@
     transform: translateX(-50%); /* Lo centra horizontalmente */
     z-index: 10; /* Lo pone por encima de otros elementos */
     margin-bottom: 100px;
+    height: 150px;
 }
 
 .saldototala p {
     font-family: 'MiFuente';
     font-size: 40px;
+}
+p.dirua{
+    font-family: 'MiFuente2';
+    margin-right: 5%;
+    font-size: 35px;
+
+
+}
+p.diruaminus{
+    font-family: 'MiFuente2';
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -7%;
+}
+
+p.diruaminus2{
+    font-family: 'MiFuente2';
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -7%;
+}
+.saldoDiv{
+    display: flex;
+    padding-top: 10%;
+    }
+.divpuja{
+    
+}
+.saldoDiv img{
+    width: 25%;
+    height: 50px;
+    margin-top: 2%;
 }
 .main-merkatua{
     margin-bottom: 13%;

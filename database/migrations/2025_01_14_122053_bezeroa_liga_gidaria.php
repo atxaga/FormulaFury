@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('liga_id');
             $table->unsignedBigInteger('gidaria_id');
             $table->unsignedBigInteger('taldea_id');
+            $table->boolean('aukeratuta')->default(0);
 
             $table->foreign('bezeroa_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('liga_id')->references('id')->on('ligak')->onDelete('cascade');

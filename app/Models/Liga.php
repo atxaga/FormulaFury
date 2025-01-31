@@ -19,7 +19,7 @@ class Liga extends Model
 
         return $this->belongsToMany(Bezeroa::class, 'bezeroa_liga', 'liga_id', 'bezeroa_id')
                     ->using(BezeroLiga::class)
-                    ->withPivot('puntuak')
+                    ->withPivot('puntuak','dirua')
                     ->withTimestamps();
 
     }
@@ -39,4 +39,19 @@ class Liga extends Model
                     ->withPivot('erabilgarritasuna', 'erositako_prezioa', 'saldutako_prezioa')
                     ->withTimestamps();                                                                                                                   
     }
+
+    public function plantillas()
+{
+    return $this->belongsToMany(Bezeroa::class, 'plantillas')
+                ->using(Plantilla::class)
+                ->withPivot([
+                    'gidaria_f1_1',
+                    'gidaria_f1_2',
+                    'gidaria_f2_1',
+                    'gidaria_f2_2',
+                    'taldea_id'
+                ])
+                ->withTimestamps();
+}
+
 }

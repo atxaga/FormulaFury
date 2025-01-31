@@ -4,15 +4,16 @@ import f1 from '../../../images/f1.png';
 import f2 from '../../../images/f2.png';
 import verstappen from '../../../images/verstappen.png';
 import { Inertia } from '@inertiajs/inertia';
+import '@/../css/bilatzailea/bilatzailea.css'
 
 
 function Gidaria({ pilot }) {
 
   return (
     <>
-      <div className="main-gidari">
+      <div className="main-gidari-bilatu">
         <div className="datuak">
-          <img src={verstappen} alt="" />
+          <img style={{maxWidth: '300px'}} src={pilot.foto} alt="" />
           <div className="gidariDatuak">
             <div className="usuario">
               <div className="mota">

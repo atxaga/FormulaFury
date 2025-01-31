@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('kategoria');
             $table->string("disponibilitatea");
             $table->integer('balioa');
+            $table->string('foto');
             
             $table->timestamps();
             $table->foreign('taldea')->references('id')->on('taldeak')->onDelete('cascade');

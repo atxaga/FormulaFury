@@ -72,6 +72,7 @@
   font-size: 14px; /* Tamaño uniforme para los textos */
   color: gray; /* Color inicial */
   margin: 0; /* Sin márgenes extra */
+  
 }
 
 .argazkiak div:hover p,
@@ -92,7 +93,12 @@
 .merkatua img{
   margin: auto;
 }
-
+.aktibitatea a{
+  text-decoration: none;
+}
+.aktibitatea img{
+  margin: auto;
+}
 .ligak:hover a {
   color: red; /* Cambiar color al pasar el cursor */
 }

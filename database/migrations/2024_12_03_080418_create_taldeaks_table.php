@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('jabea')->nullable();
             $table->foreign('jabea')->references('id')->on('bezeroak')->onDelete('cascade');
             $table->integer('balioa');
+            $table->string('foto');
             $table->integer('erositako_prezioa')->nullable();
             $table->timestamps();
         });
