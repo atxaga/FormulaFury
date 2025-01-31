@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../../../css/gidariaOrria/contenedor.css';
 import Footer from '@/Components/taldeaOrria/Footer';
-import Header from '../../Components/gidariakOrria/Header';
+import Header from './Header';
 import Gidaria from './Gidaria';
 import Taldea from './Taldea'; 
 import signoEuro from '../../../images/euroTaldea.png';
@@ -11,13 +11,14 @@ function Contenedor() {
   const { gidariak = [] } = usePage().props;  
   const { taldea = null } = usePage().props; 
   const { ekipoBalorea } = usePage().props;  
+  const { bezeroaDirua } = usePage().props;  
   const { liga } = usePage().props;  
-  const { bezeroa } = usePage().props;  
+  console.log('orri barrenean, PORFIN')
 
   return (
     <>
       <div className="main-gidaria">
-        <Header liga={liga} bezeroa={bezeroa}/>
+        <Header liga={liga}/>
         <div className='info'>
           <div className="plantilla">
             <div className="plantillaLetra">
@@ -48,7 +49,7 @@ function Contenedor() {
 
         {gidariak.length > 0 ? (
           gidariak.map((gidaria, index) => (
-            <Gidaria key={index} gidaria={gidaria} />
+            <Gidaria key={index} gidaria={gidaria} bezeroaDirua={bezeroaDirua} />
           ))
         ) : (
           <p>Ez duzu gidaririk</p>  

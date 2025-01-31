@@ -3,7 +3,7 @@ import '../../../css/klasifikazioOrria/jokalaria.css';
 import flechaabajo from '../../../images/flechaabajo.png';
 import lapiz from '../../../images/lapiz.png';
 
-function Total() {
+function Total({liga}) {
   return (
     <>
     <div className='totalDiv'>
@@ -18,7 +18,8 @@ function Total() {
       <div className="search-container">
         <input
           type="text"
-          className="search-input"
+          className="search-input text-white"
+          value={liga.deskribapena}
         />
         <button className="search-button">
           <img src={lapiz} alt="Buscar" />

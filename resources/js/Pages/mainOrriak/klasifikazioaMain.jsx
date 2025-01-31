@@ -15,14 +15,15 @@ function klasifikazioaMain(){
 
   const { liga } = usePage().props;
   const { bezeroak = [] } = usePage().props; 
+  const {bezeroa} = usePage().props;
   const [aukeratutakoLiga, setAukeratutakoLiga] = useState('');
   const { taldeaRoute } = usePage().props; 
  
 return(
   <>
     <Header liga={liga} />
-    <Total />
-    <Jokalaria liga={liga} bezeroak={bezeroak}/>
+    <Total liga={liga} />
+    <Jokalaria liga={liga} bezeroak={bezeroak} bezeroaCurrent={bezeroa}/>
     <Footer taldeaRoute={taldeaRoute}/>
   </>
 );

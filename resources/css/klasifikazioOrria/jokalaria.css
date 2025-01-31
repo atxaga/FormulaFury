@@ -164,4 +164,13 @@ body {
 .formula p{
   font-size: 15px;
 }
-  
+.ikusi img{
+  width: 9%;
+  flex-direction: column;
+}
+/*<div className='ikusi'>
+          <a href="/ikusitaldea">
+            <img src='/images/ojo.png' alt="" />
+          </a>
+          </div>*/
+          

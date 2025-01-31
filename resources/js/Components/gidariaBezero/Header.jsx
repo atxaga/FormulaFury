@@ -18,27 +18,23 @@ function Header({liga, bezeroa}) {
       <div className='header'>
         <p className='f1'> {" " + liga.izena}</p>
       </div>
-      
-      <button className="hamburger" onClick={toggleMenu}>
-            ☰
+      <a href="/klasifikazioa">
+      <button className="hamburger">
+            Atzera
           </button>
+          </a>
           <div className={`sidebar ${menuOpen ? 'open' : ''}`}>
           <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua bezeroa={bezeroa}/>
         </div>
         </div>
         <div className='sekzioak'>
-        <div className='talde'>
-          <a href='taldea' style={{ textDecoration: 'none', color: 'gray'}}><p>Taldea</p></a>
-        </div>
+        
         <div className='gidariak'>
           <a href='taldea' style={{ textDecoration: 'none', color: 'white'}}><p>Gidariak</p></a>
         </div>
-        <div className='puntuak'>
-          <a href='puntuak' style={{ textDecoration: 'none' ,color: 'gray'}}><p>Puntuak</p></a>
-        </div>
+        
         </div>
         
       </div>

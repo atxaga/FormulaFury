@@ -10,7 +10,9 @@ use App\Models\Gidaria;
 use App\Models\Taldea;
 use App\Models\Liga;
 use App\Models\LigaGidari;
+use App\Models\Ofertak;
 use App\Models\Plantilla;
+use App\Models\Puja;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -321,23 +323,42 @@ class TaldeaController extends Controller
 }
 public function taldeaIkusi(Request $request)
 {
-    $bezeroaId = $request->id;
+    $bezeroaId = session('aukeratutakoBezeroa');
+    $bezeroaCurrent = $request->user();
 
-    $bezeroa = User::where('id', $request->id)
+
+    $bezeroa = User::where('id', $bezeroaId)
     ->first();    
 
     $ligaId = session('aukeratutakoLiga');
     $liga = Liga::find($ligaId);
+
+    $bezeroaDirua = BezeroLiga::where('liga_id', $ligaId)
+    ->where('bezeroa_id', $bezeroaCurrent->id)
+    ->first();
+
     
     $gidariakIds = BezeroLigaGidari::where('bezeroa_id', $bezeroaId)
         ->where('liga_id', $ligaId)
         ->pluck('gidaria_id'); 
+
+     $gidariak = BezeroLigaGidari::where([
+            ['liga_id', '=', $ligaId],
+            ['bezeroa_id', '=', $bezeroaId ],
+        ])->get();
     $taldeaId = BezeroLigaGidari::where('bezeroa_id', $bezeroaId)
         ->where('liga_id', $ligaId)
         ->first(); 
     
-    $gidariak = Gidaria::whereIn('id', $gidariakIds)->get();
-
+        $gidariBezero = Gidaria::whereIn('id', $gidariakIds)
+        ->get()
+        ->map(function ($gidaria) use ($gidariak, $ligaId) {
+            $gidariaData = $gidariak->where('gidaria_id', $gidaria->id)
+                                    ->where('liga_id', $ligaId)
+                                    ->first();
+            $gidaria->gidaria_clausula = $gidariaData ? $gidariaData->gidaria_clausula : null;
+            return $gidaria;
+        });
     $taldea = Taldea::where('id', $taldeaId->taldea_id)
         ->first();
 
@@ -346,13 +367,103 @@ public function taldeaIkusi(Request $request)
 
     
     return Inertia::render('mainOrriak/gidariakBezero', [
-        'gidariak' => $gidariak,
+        'gidariak' => $gidariBezero,
         'taldea' => $taldea,
+        'bezeroaDirua' => $bezeroaDirua->dirua,
         'ekipoBalorea' => $ekipoBalorea,
         'liga' => $liga,
         'bezeroa' => $bezeroa,
     ]);
 }
+public function klausulazo(Request $request)
+{
+    $id = $request->id;  
+    $ligaId = session('aukeratutakoLiga');  
+    $bezeroa = session('aukeratutakoBezeroa'); 
+    $bezeroaCurrent = $request->user(); 
 
+    $klausula = BezeroLigaGidari::where('liga_id', $ligaId)
+        ->where('gidaria_id', $id)
+        ->first();
+
+    if (!$klausula) {
+        return;
+    }
+
+    $bezeroaAukera = BezeroLiga::where('bezeroa_id', $bezeroaCurrent->id)
+        ->first();
+
+    if (!$bezeroaAukera) {
+        return;
+    }
+
+    if ($klausula->gidaria_clausula > $bezeroaAukera->dirua) {
+        return response()->json(['message' => 'Fondos insuficientes'], 400);  
+    }
+
+    $bezeroaAukera->dirua -= $klausula->gidaria_clausula;
+    $bezeroaAukera->save();
+
+    $bezeroaGidaria = BezeroLigaGidari::where('liga_id', $ligaId)
+        ->where('bezeroa_id', $bezeroa) 
+        ->where('gidaria_id', $id)
+        ->first();
+    
+    
+    $taldea = BezeroLigaGidari::where('liga_id', $ligaId)
+    ->where('bezeroa_id', $bezeroaCurrent->id)
+    ->first();
+
+    $bezeroaGidaria->delete();
+
+    BezeroLigaGidari::insert([
+        'gidaria_id' => $id,  
+        'taldea_id' => $taldea->taldea_id, 
+        'liga_id' => $ligaId,  
+        'bezeroa_id' => $bezeroaCurrent->id,  
+        'aukeratuta' => 0,  
+        'gidaria_clausula' => $klausula->gidaria_clausula,  
+        'taldea_clausula' => 0  
+    ]);
+
+    return redirect()->back();  
+
+
+}
+public function oferta(Request $request){
+    $ligaid = session('aukeratutakoLiga');
+    $bezeroaManda = $request->user();
+    $bezeroaRecibe = session('aukeratutakoBezeroa');
+
+    $request->validate([
+        'oferta' => 'required|numeric',
+        'gidaria_id' => 'required|numeric',
+    ]);
+
+    
+
+    $existingPuja = Ofertak::where([
+        ['gidaria_id', '=', $request->gidaria_id],
+        ['bezeroa_manda', '=', $bezeroaManda->id], 
+        ['bezeroa_recibe', '=', $bezeroaRecibe], 
+        ['liga_id', '=', $ligaid],
+    ])->first();
+
+    if ($existingPuja) {
+        $existingPuja->delete();
+    }
+
+    Ofertak::create([
+        'oferta' => $request->oferta,
+        'gidaria_id' => $request->gidaria_id,
+        'bezeroa_manda' => $bezeroaManda->id,
+        'bezeroa_recibe' => $bezeroaRecibe,
+        'liga_id' => $ligaid,
+    ]);
+
+    
+
+    return redirect()->back();;
+}
 
 }

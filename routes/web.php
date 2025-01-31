@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/gidariak', [TaldeaController::class, 'gidariak'])->name('gidariak');
 
     Route::post("/pujatu", [PujaController::class, 'store'])->name('puja.store');
+    Route::post("/oferta", [TaldeaController::class, 'oferta'])->name('gidaria.oferta');
+    
+    Route::get("/salketak", [MerkatuaController::class, 'salketak'])->name('merkatua.salketak');
+
     Route::post('/pujaezabatu', [PujaController::class, 'destroy'])->name('puja.destroy');
     Route::get('/nireoperazioak', [PujaController::class, 'pujatutakoGidari']);
     Route::get('/historikoa', [AktibitateaController::class, 'historikoa'])->name('historikoa.index');
@@ -55,8 +59,13 @@ Route::middleware('auth')->group(function () {
 
 });
 Route::post('/saldu/{id}', [TaldeaController::class, 'saldu'])->name('gidaria.saldu');
+Route::post('/klausulatu/{id}', [TaldeaController::class, 'klausulazo'])->name('gidaria.klausulazo');
 Route::post('/klausulaigo/{id}', [TaldeaController::class, 'klausula'])->name('gidaria.klausula');
-Route::post('/gidariakbezero/{id}', [TaldeaController::class, 'taldeaIkusi'])->name('gidaria.ikusi');
+Route::get('/ikusitaldea', [TaldeaController::class, 'taldeaIkusi'])->name('gidaria.ikusi');
+Route::get('/setBezero/{id}', function ($id) {
+    session(['aukeratutakoBezeroa' => $id]);
+    return redirect()->back();
+})->name('setLiga');
 
 Route::get('/lang/{locale}', [LanguageController::class, 'switchLanguage'])->name('language.switch');
 Route::get('/set-locale/{language}', [LanguageController::class, 'setLocale']);

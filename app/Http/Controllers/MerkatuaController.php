@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Gidaria;
 use App\Models\LigaGidari;
 use App\Models\Liga;
+use App\Models\Ofertak;
 use App\Models\Puja;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Cache;
@@ -56,7 +57,26 @@ class MerkatuaController extends Controller
         'totalPuja' => $totalPuja,
     ]);
 }
-    
+public function salketak(Request $request)
+{
+    $bezeroaCurrent = $request->user();
+    $ligaId = session('aukeratutakoLiga');
+
+    $ofertak = Ofertak::where('bezeroa_recibe', $bezeroaCurrent->id)
+        ->where('liga_id', $ligaId)
+        ->get();
+
+    $liga = Liga::find($ligaId);
+
+    $gidariaIds = $ofertak->pluck('gidaria_id')->toArray();
+
+    $gidarias = Gidaria::whereIn('id', $gidariaIds)->get();
+
+    return Inertia::render('mainOrriak/ofertakMain', [
+        'gidarias' => $gidarias,  
+        'liga' => $liga,
+    ]);
+}
 
     
     

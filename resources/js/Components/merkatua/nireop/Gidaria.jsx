@@ -54,7 +54,7 @@ function Gidaria({ pilot }) {
     <>
       <div className="main-gidari">
         <div className="datuak">
-          <img src={verstappen} alt="" />
+          <img src={pilot.foto} alt="" />
           <div className="gidariDatuak">
             <div className="usuario">
               <div className="mota">
@@ -92,28 +92,13 @@ function Gidaria({ pilot }) {
             
               <button
                 className="fitxatu"
-                onClick={() => setActionOptionsVisible(!actionOptionsVisible)}
+                onClick={() => handleActionOptionClick('aldatu')}
               >
-                Kudeatu
+                Ikusi
               </button>
     
 
-            {actionOptionsVisible && (
-              <div className="action-options">
-                <button
-                  className="option-button"
-                  onClick={() => handleActionOptionClick('aldatu')}
-                >
-                  Puja aldatu
-                </button>
-                <button
-                  className="option-button"
-                  onClick={() => handleActionOptionClick('ezabatu')}
-                >
-                  Puja ezabatu
-                </button>
-              </div>
-            )}
+            
           </div>
         </div>
       </div>
