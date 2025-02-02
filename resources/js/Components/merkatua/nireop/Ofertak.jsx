@@ -1,5 +1,5 @@
 import Footer from '../Footer';
-import Gidaria from './Gidaria';
+import Gidaria from './GidariaSaldu';
 import Header from './Header';
 import flechaurdin from '@/../images/flechurdin.png';
 

@@ -10,6 +10,7 @@ use App\Models\LigaGidari;
 use App\Models\Liga;
 use App\Models\Ofertak;
 use App\Models\Puja;
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Cache;
 
@@ -72,11 +73,31 @@ public function salketak(Request $request)
 
     $gidarias = Gidaria::whereIn('id', $gidariaIds)->get();
 
+    $ofertas = Ofertak::whereIn('gidaria_id', $gidariaIds)
+        ->select('id', 'gidaria_id', 'bezeroa_manda', 'oferta')
+        ->get();
+
+    $bezeroaMandaIds = $ofertas->pluck('bezeroa_manda')->unique()->toArray();
+
+    $users = User::whereIn('id', $bezeroaMandaIds)->pluck('izena', 'id');
+
+    $gidarias = $gidarias->map(function ($gidaria) use ($ofertas, $users) {
+        $oferta = $ofertas->where('gidaria_id', $gidaria->id)->first();
+
+        $gidaria->oferta_id = $oferta->id ?? null;
+        $gidaria->bezeroa_manda = $oferta->bezeroa_manda ?? null;
+        $gidaria->oferta = $oferta->oferta ?? null;
+        $gidaria->bezeroa_manda_nombre = $users[$oferta->bezeroa_manda] ?? null;
+
+        return $gidaria;
+    });
+
     return Inertia::render('mainOrriak/ofertakMain', [
-        'gidarias' => $gidarias,  
+        'gidarias' => $gidarias,
         'liga' => $liga,
     ]);
 }
+
 
     
     

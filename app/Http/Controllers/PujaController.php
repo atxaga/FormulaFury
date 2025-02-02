@@ -10,6 +10,7 @@ use App\Models\Gidaria;
 use App\Models\Puja;
 use App\Models\Liga;
 use App\Models\LigaGidari;
+use App\Models\Ofertak;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -35,9 +36,36 @@ class PujaController extends Controller
         ['liga_id', '=', $ligaid],
     ])->first();
 
+    $ofertada = Ofertak::where([
+        ['gidaria_id', '=', $request->gidaria_id],
+        ['bezeroa_manda', '=', $request->user()->id],
+        ['liga_id', '=', $ligaid],
+    ])
+    ->first();
+
+    
+    
+    if($ofertada){
+        $bezeroa_recibe = $ofertada->bezeroa_recibe;
+
+        $ofertada->delete();
+
+        Ofertak::create([
+            'liga_id'=> $ligaid,
+            'bezeroa_manda'=> $bezeroa->id,
+            'bezeroa_recibe' => $bezeroa_recibe,
+            'gidaria_id' => $request->gidaria_id,
+            'oferta' => $request->puja,
+        ]);
+    }
+    
+   
+
     if ($existingPuja) {
         $existingPuja->delete();
     }
+
+
 
     Puja::create([
         'puja' => $request->puja,
@@ -53,13 +81,29 @@ class PujaController extends Controller
 
     public function destroy(Request $request)
     {
+        $ligaId = session('aukeratutakoLiga');
+        $bezeroa = $request->user();
+
         $existingPuja = Puja::where([
             ['gidaria_id', '=', $request->id],
+            ['liga_id', '=', $ligaId]
+        
         ])->first();
     
         if ($existingPuja) {
             $existingPuja->delete();
-        }    
+        }
+
+        $ofertada = Ofertak::where([
+            ['gidaria_id', '=', $request->id],
+            ['bezeroa_manda', '=', $bezeroa->id],
+            ['liga_id', '=', $ligaId],
+        ])
+        ->first();
+
+        if($ofertada){
+            $ofertada->delete();
+        }
 
     return redirect()->route('merkatua.index');
     }

@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::post("/oferta", [TaldeaController::class, 'oferta'])->name('gidaria.oferta');
     
     Route::get("/salketak", [MerkatuaController::class, 'salketak'])->name('merkatua.salketak');
+    Route::post('/onartu', [TaldeaController::class, 'onartu'])->name('onartu');
 
     Route::post('/pujaezabatu', [PujaController::class, 'destroy'])->name('puja.destroy');
     Route::get('/nireoperazioak', [PujaController::class, 'pujatutakoGidari']);

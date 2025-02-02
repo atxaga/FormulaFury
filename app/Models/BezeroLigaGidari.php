@@ -12,6 +12,7 @@ class BezeroLigaGidari extends Model
         'bezeroa_id',
         'liga_id',
         'gidaria_id',
+        'taldea_id',
         'gidaria_clausula',
         'taldea_clausula'
     ];

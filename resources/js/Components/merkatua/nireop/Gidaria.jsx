@@ -93,8 +93,14 @@ function Gidaria({ pilot }) {
               <button
                 className="fitxatu"
                 onClick={() => handleActionOptionClick('aldatu')}
+                >
+                Aldatu
+              </button>
+              <button
+                className="fitxatu"
+                onClick={() => handleActionOptionClick('ezabatu')}
               >
-                Ikusi
+                Ezabatu
               </button>
     
 
@@ -111,7 +117,7 @@ function Gidaria({ pilot }) {
             </button>
             <h2>{pilot.izena}</h2>
             <div className="pilot-photo">
-              <img src={verstappen} alt="pilot" />
+              <img src={pilot.foto} alt="pilot" />
             </div>
             <Puja
               pilot={pilot}

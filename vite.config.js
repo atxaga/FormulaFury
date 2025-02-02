@@ -18,7 +18,7 @@ export default defineConfig({
     host: '0.0.0.0', // Permite acceso desde otros dispositivos
     port: 5173,      // Puerto para Vite
     hmr: {
-      host: '192.168.1.36', // Reemplaza con la IP local de tu máquina
+      host: '192.168.1.40', // Reemplaza con la IP local de tu máquina
       port: 5173,
     },
   },

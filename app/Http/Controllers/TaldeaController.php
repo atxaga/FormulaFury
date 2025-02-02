@@ -391,6 +391,7 @@ public function klausulazo(Request $request)
     }
 
     $bezeroaAukera = BezeroLiga::where('bezeroa_id', $bezeroaCurrent->id)
+        ->where('liga_id', $ligaId)
         ->first();
 
     if (!$bezeroaAukera) {
@@ -408,6 +409,10 @@ public function klausulazo(Request $request)
         ->where('bezeroa_id', $bezeroa) 
         ->where('gidaria_id', $id)
         ->first();
+    
+    BezeroLiga::where('bezeroa_id',$bezeroa)
+    ->where('liga_id', $ligaId)
+    ->increment('dirua', $klausula->gidaria_clausula);
     
     
     $taldea = BezeroLigaGidari::where('liga_id', $ligaId)
@@ -461,9 +466,86 @@ public function oferta(Request $request){
         'liga_id' => $ligaid,
     ]);
 
+    Puja::create([
+        'puja' => $request->oferta,
+        'gidaria_id' => $request->gidaria_id,
+        'bezeroa_id' => $bezeroaManda->id,
+        'liga_id' => $ligaid,
+    ]);
+
     
 
     return redirect()->back();;
+}
+public function onartu(Request $request)
+{
+    $bezeroaCurrent = $request->user();
+    $ligaId = session('aukeratutakoLiga');
+
+    $gidariaId = $request->gidaria_id;
+    $oferta = $request->oferta;
+    $bezeroaMandaId = $request->bezeroa_manda_id;
+
+    $bezeroaMandaLiga = BezeroLiga::where('bezeroa_id', $bezeroaMandaId)
+        ->where('liga_id', $ligaId)
+        ->first();
+
+  
+
+    $bezeroaMandaLiga->dirua -= $oferta;
+    $bezeroaMandaLiga->save();
+
+    $taldeaMand = BezeroLigaGidari::where('bezeroa_id', $bezeroaMandaId)
+    ->where('liga_id', $ligaId)
+    ->first();
+
+    $taldeaManda = Taldea::where('id', $taldeaMand->taldea_id)
+    ->first();
+
+
+
+
+    BezeroLigaGidari::create([
+        'bezeroa_id' => $bezeroaMandaId,
+        'gidaria_id' => $gidariaId,
+        'gidaria_clausula' => $oferta,
+        'taldea_clausula' => $taldeaManda->balioa,
+        'liga_id' => $ligaId,
+        'taldea_id' => $taldeaManda->id,
+
+    ]);
+
+    $bezeroaCurrentLiga = BezeroLiga::where('bezeroa_id', $bezeroaCurrent->id)
+        ->where('liga_id', $ligaId)
+        ->first();
+
+    if ($bezeroaCurrentLiga) {
+        $bezeroaCurrentLiga->dirua += $oferta;
+        $bezeroaCurrentLiga->save();
+    }
+
+    BezeroLigaGidari::where('bezeroa_id', $bezeroaCurrent->id)
+        ->where('gidaria_id', $gidariaId)
+        ->where('liga_id', $ligaId)
+        ->delete();
+
+        Ofertak::where('gidaria_id', $gidariaId)
+        ->where('bezeroa_manda', $bezeroaMandaId)
+        ->where('liga_id', $ligaId)
+        ->delete();
+
+    return back()->with('success', 'Eskaintza onartu da!');
+}
+
+
+public function ezeztatu(Request $request){
+    $ligaid = session('aukeratutakoLiga');
+    $bezeroaManda = $request->user();
+    $bezeroaRecibe = session('aukeratutakoBezeroa');
+
+
+
+    
 }
 
 }
