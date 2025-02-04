@@ -10,23 +10,20 @@ class PuntuakTaldea extends Model
 
     protected $fillable = [
         'taldea',
-        'puntuak_guztira',
         'gp',
         'pos_qualy',
         'pos_race',
         'buelta_azkarra',
         'pole',
-        'pos_txapelketa',
     ];
 
-    public function taldeak() {
-
-        return $this->belongsTo(Taldea::class);
-
+    public function taldea()
+    {
+        return $this->belongsTo(Taldea::class, 'taldea');
     }
 
-    public function grandprix() {
-
-        return $this->belongsTo(GrandPrixPuntuak::class);
+    public function grandPrix()
+    {
+        return $this->belongsTo(GrandPrix::class, 'gp');
     }
 }

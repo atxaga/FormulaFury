@@ -8,8 +8,7 @@ import Puja from './Puja';
 import { Inertia } from '@inertiajs/inertia';
 import Modal from '@/Components/Modal';
 
-
-function Gidaria({ pilot, bezeroaDirua }) {
+function Gidaria({ pujaGuztiak, pilot, bezeroaDirua }) {
   const [showModal, setShowModal] = useState(false);
   const [pujaRealizada, setPujaRealizada] = useState(null);
   const [actionOptionsVisible, setActionOptionsVisible] = useState(false);
@@ -49,7 +48,7 @@ function Gidaria({ pilot, bezeroaDirua }) {
     }
   };
 
- 
+  const pujasDelPilot = pujaGuztiak.filter(puja => puja.gidaria_id === pilot.id);
 
   return (
     <>
@@ -88,10 +87,19 @@ function Gidaria({ pilot, bezeroaDirua }) {
             <p className="mediaValor">{pilot.balioa}</p>
           </div>
           <div>
+            {pujasDelPilot.length > 0 ? (
+            <p style={{color: 'gray'}}>Pujak {pujasDelPilot.length}</p>
+
+            ):(
+              null
+            )}
+
             {!pujaRealizada ? (
+              <>
               <button className="fitxatu" onClick={handleModalOpen}>
                 Fitxatu
               </button>
+              </>
             ) : (
               <button
                 className="fitxatu"
@@ -133,7 +141,7 @@ function Gidaria({ pilot, bezeroaDirua }) {
           <Puja
             pilot={pilot}
             pujaInicial={pujaRealizada}
-            bezeroDirua = {bezeroaDirua}
+            bezeroDirua={bezeroaDirua}
             onPujaUpdate={handlePujaUpdate}
           />
         </div>

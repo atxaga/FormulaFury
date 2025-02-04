@@ -15,15 +15,16 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('taldea');
             $table->unsignedBigInteger('gp');
-            $table->string('pos_qualy');
-            $table->string('pos_race');
-            $table->boolean('buelta_azkarra');
-            $table->boolean('pole');
+            $table->tinyInteger('pos_qualy')->nullable();
+            $table->tinyInteger('pos_race')->nullable();
+            $table->boolean('buelta_azkarra')->default(false);
+            $table->boolean('pole')->default(false);
             $table->timestamps();
-
-            $table->foreign('gp')->references('id')->on('grand_prix_puntuak')->onDelete('cascade');
+        
             $table->foreign('taldea')->references('id')->on('taldeak')->onDelete('cascade');
+            $table->foreign('gp')->references('id')->on('grand_prix')->onDelete('cascade');
         });
+        
     }
 
     /**

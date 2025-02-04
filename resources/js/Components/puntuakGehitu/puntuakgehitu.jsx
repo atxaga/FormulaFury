@@ -1,35 +1,69 @@
-import { useForm } from '@inertiajs/react';
-import '@/../css/loginOrria/register.css';
-import fondo from '@/../assets/video/video.mp4';
+import { useForm, usePage } from '@inertiajs/react';
 import InputError from '@/Components/InputError';
 import { useState } from 'react';
+import { Inertia } from '@inertiajs/inertia'; 
 
 
-function Register() {
-  const { data, setData, post, processing, errors, reset } = useForm({
+function PuntuakGehitu() {
+  const { gidariak, taldeak, lasterketak } = usePage().props;
+  const [aukeratutakoTaldeaI, setAukeratutakoTaldea] = useState(0);
+  const [aukeratutakoGidariaI, setAukeratutakoGidaria ] = useState(0);
+  const [gp, setAukeratutakoGP] = useState(0);
+  const [kategoria, setkategoria] = useState("");
+  const { data, setData, post, errors, reset, } = useForm({
     pos_qualy: '',
     pos_race: '',
     h2h_qualy: '',
     h2h_race: '',
     pole: '',
-    buelta_azkarra: ''
+    buelta_azkarra: '',
+    sprint: ''
   });
   const [formAukera, setFormAukera] = useState("");
 
 
-const submit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-
-    post(route('gehitu'), {
-        onFinish: () => reset('password', 'password_confirmation'),
-    });
-};
+  
+    const aukeratutakoa = formAukera === "gidariak" ? aukeratutakoGidariaI : aukeratutakoTaldeaI;
+    const datuak = {
+          data: data,
+          aukeratutakoa: aukeratutakoa,
+          gp: gp,
+          tipo: formAukera,
+          kategoria: kategoria
+        };
+        Inertia.post('/gehituPuntuak', datuak);
+  };
+  
 
     function setForm (e) {
         let aukeratutakoa = e.target.value;
         setFormAukera(aukeratutakoa);
     }
 
+    function setkategoriaForm(e) {
+      let aukeratutakoa = e.target.value;
+      setkategoria(aukeratutakoa);
+    }
+
+    function aukeratutakoGidaria(e) {
+      let aukeratutako = e.target.value;
+
+      setAukeratutakoGidaria(aukeratutako);
+    }
+
+    function aukeratutakoTaldea(e) {
+      let aukeratutako = e.target.value;
+
+      setAukeratutakoTaldea(aukeratutako);
+    }
+
+    function aukeratutakoGP(e) {
+      let aukeratutako =  e.target.value;
+
+      setAukeratutakoGP(aukeratutako);
+    }
   return (
     <>
       <div className='container text-center'>
@@ -39,8 +73,25 @@ const submit = (e) => {
           <form className='login-form' onSubmit={submit}>
             <label htmlFor=""><input type="radio" name="aukeratu" id="" onChange={setForm} value="gidariak"/> Gidariak</label>
             <label htmlFor=""><input type="radio" name="aukeratu" id=""  onChange={setForm} value="taldeak"/> Taldeak</label>
+            <select name="" id="" onChange={aukeratutakoGP}>
+              <option>--Aukeratu GP--</option>
+              {lasterketak.map((lasterketa, index) => 
+              <option key={index} value={lasterketa.id}>{lasterketa.izena}</option>  
+                )
+              }
+            </select>
             {formAukera === "gidariak" ? (
                 <>
+                <label htmlFor=""><input type="radio" name="aukeratukategoria" id="" onChange={setkategoriaForm} value="F1"/> F1</label>
+                <label htmlFor=""><input type="radio" name="aukeratukategoria" id=""  onChange={setkategoriaForm} value="F2"/> F2</label>
+                <select name="" id="" onChange={aukeratutakoGidaria}>
+                <option default>--Aukeratu Gidaria--</option>
+                    { gidariak.map((gidaria, index) => 
+                      <option key={index} value={gidaria.id}>{gidaria.izena}</option>
+                    )
+                  }
+                </select>
+                
                 <input
                 className='login-input'
                 type="number"
@@ -49,7 +100,6 @@ const submit = (e) => {
                 placeholder='Klasifikazio posizioa'
                 autoComplete="pos_qualy"
                 value={data.pos_qualy}
-                isFocused={true}
                 onChange={(e) => setData('pos_qualy', e.target.value)}
                 required
               />
@@ -63,6 +113,16 @@ const submit = (e) => {
                 placeholder='lasterketaren posizioa'
                 value={data.pos_race}
                 onChange={(e) => setData('pos_race', e.target.value)}
+              />
+                      <InputError message={errors.pos_race} className="mt-2" />
+
+              <input
+                className='login-input'
+                type="number"
+                name="pos_sprint"
+                placeholder='Sprint lasterketaren posizioa(F2ko gidaria edo F1 sprint formatuko astea bada)'
+                value={data.pos_sprint}
+                onChange={(e) => setData('pos_sprint', e.target.value)}
               />
                       <InputError message={errors.pos_race} className="mt-2" />
   
@@ -83,8 +143,8 @@ const submit = (e) => {
                   id='h2h_race'
                   name="h2h_race"
                   autoComplete="h2h_race"
-                  value={data.h2h_qualy}
-                  onChange={(e) => setData('h2h_qualy', e.target.value)}
+                  value={data.h2h_race}
+                  onChange={(e) => setData('h2h_race', e.target.value)}
                   required
                   >
                       <option value="" default>bai/ez</option>
@@ -120,6 +180,15 @@ const submit = (e) => {
               </>
             ) : (
                 <>
+                  <select name="" id="" onChange={aukeratutakoTaldea}>
+                    <option>--Aukeratu Taldea--</option>
+                  {
+                    taldeak.map((taldea, index) => 
+                      <option key={index} value={taldea.id}>{taldea.izena}</option>
+                    )
+                  }
+                </select>
+
                 <input
               className='login-input'
               type="number"
@@ -128,7 +197,6 @@ const submit = (e) => {
               placeholder='Klasifikazio posizioa'
               autoComplete="pos_qualy"
               value={data.pos_qualy}
-              isFocused={true}
               onChange={(e) => setData('pos_qualy', e.target.value)}
               required
             />
@@ -174,7 +242,7 @@ const submit = (e) => {
             )}
           
 
-            <button className='sartu' type='submit' disabled={processing}>Puntuak gehitu</button>
+            <button className='sartu' type='submit'>Puntuak gehitu</button>
           </form>
         </div>
       </div>
@@ -182,4 +250,4 @@ const submit = (e) => {
   );
 }
 
-export default Register;
+export default PuntuakGehitu;

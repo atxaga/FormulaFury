@@ -4,26 +4,34 @@ import '@/../css/klausula/klausula.css'
 import euro from '@/../images/euro.png';
 import { Inertia } from '@inertiajs/inertia';
 
-function Klausula({ gidaria, bezeroDirua }) {
+function Klausula({ gidaria, taldea, bezeroDirua }) {
+  const finalGidaria = gidaria ?? taldea;
   const [kantitatea, setKlausula] = useState('');
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const kantitateaNum = parseFloat(kantitatea);
-
+  
     if (isNaN(kantitateaNum) || kantitateaNum <= 0) {
       alert('Sartu balio egokia.');
       return;
     }
-
+  
     if (kantitateaNum > bezeroDirua) {
       alert('Ez daukazu nahikoa diru.');
       return;
     }
-
-    Inertia.post(`/klausulaigo/${gidaria.id}`, { kantitatea: kantitateaNum });
+  
+    const tipo = gidaria ? 'gidaria' : 'taldea'; 
+  
+    Inertia.post(`/klausulaigo/${finalGidaria.id}`, { 
+      kantitatea: kantitateaNum,
+      tipo: tipo 
+    });
   };
+  
 
   return (
     <div className="puja-container">
@@ -31,7 +39,12 @@ function Klausula({ gidaria, bezeroDirua }) {
         <div className="balorea">
           <img src={euro} alt="" />
           <p className="puja-value">KLAUSULA</p>
-          <p>{gidaria.gidaria_clausula}</p>
+          {finalGidaria.gidaria_clausula ? (
+            <p>{finalGidaria.gidaria_clausula}</p> 
+          ):(
+            <p>{finalGidaria.taldea_clausula}</p> 
+
+          )}
         </div>
 
         <div className="input-container">

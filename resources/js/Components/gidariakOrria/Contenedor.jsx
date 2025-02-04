@@ -10,10 +10,12 @@ import { usePage } from '@inertiajs/react';
 
 function Contenedor() {
   const { gidariak = [] } = usePage().props;
-  const { taldea = null } = usePage().props; 
+  const { taldea = [] } = usePage().props; 
   const { ekipoBalorea } = usePage().props;
   const { liga } = usePage().props;
   const { bezeroa } = usePage().props;
+  console.log(taldea);
+
 
   return (
     <>
@@ -52,15 +54,17 @@ function Contenedor() {
             <Gidaria gidaria={gidaria} />
           ))
         ) : (
-          <p>Ez duzu gidaririk</p>
+          null
         )}
+      {taldea ? (
+        taldea.map((talde) => (
+          <Taldea talde={talde} />
+        ))
+      ) : (
+      null
+          )}
 
-        {taldea ? (
-          <Taldea taldea={taldea} /> 
-        ) : (
-          <p>Ez duzu talderik</p>
-        )}
-
+        
       </div>
       <Footer />
     </>

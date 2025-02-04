@@ -15,17 +15,19 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('gidaria');
             $table->unsignedBigInteger('gp');
-            $table->integer('pos_qualy');
-            $table->integer('pos_race');
-            $table->boolean('h2h_qualy');
-            $table->boolean('h2h_race');
-            $table->boolean('buelta_azkarra');
-            $table->boolean('pole');
+            $table->integer('pos_qualy')->default(0); 
+            $table->integer('pos_race')->default(0);
+            $table->integer('h2h_qualy')->default(0);
+            $table->integer('h2h_race')->default(0);
+            $table->integer('buelta_azkarra')->default(0);
+            $table->integer('pole')->default(0);
+            $table->integer('puntuak_guztira')->default(0);
             $table->timestamps();
-
-            $table->foreign('gp')->references('id')->on('grand_prix_puntuak')->onDelete('cascade');
+        
             $table->foreign('gidaria')->references('id')->on('gidariak')->onDelete('cascade');
+            $table->foreign('gp')->references('id')->on('grand_prix')->onDelete('cascade');
         });
+        
     }
 
     /**

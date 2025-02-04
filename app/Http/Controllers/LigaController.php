@@ -135,16 +135,23 @@ public function store(Request $request)
         'bezeroa_id' => $bezeroa->id,
         'liga_id' => $liga->id,
         'gidaria_id' => $gidari->gidaria_id,
-        'taldea_id' => $taldea->taldea_id,
         'gidaria_clausula' => $gidariaClausula,
-        'taldea_clausula' => $taldeaClausula,
     ]);
+   
 
     DB::table('gidaria_liga')
         ->where('liga_id', $liga->id)
         ->where('gidaria_id', $gidari->gidaria_id)
         ->update(['erabilgarritasuna' => 0]);
     }
+
+    DB::table('bezeroa_liga_taldea')->insert([
+        'bezeroa_id' => $bezeroa->id,
+        'liga_id' => $liga->id,
+        'taldea_id' => $taldea->taldea_id,
+        'taldea_clausula' => $taldeaClausula,
+    ]);
+
     DB::table('liga_taldea')
         ->where('liga_id', $liga->id)
         ->where('taldea_id', $taldea->taldea_id)
@@ -215,16 +222,22 @@ public function sartu(Request $request)
         'bezeroa_id' => $bezeroa->id,
         'liga_id' => $liga->id,
         'gidaria_id' => $gidari->gidaria_id,
-        'taldea_id' => $taldea->taldea_id,
         'gidaria_clausula' => $gidariaClausula,
-        'taldea_clausula' => $taldeaClausula,
     ]);
+    
 
     DB::table('gidaria_liga')
         ->where('liga_id', $liga->id)
         ->where('gidaria_id', $gidari->gidaria_id)
         ->update(['erabilgarritasuna' => 0]);
     }
+    DB::table('bezeroa_liga_taldea')->insert([
+        'bezeroa_id' => $bezeroa->id,
+        'liga_id' => $liga->id,
+        'taldea_id' => $taldea->taldea_id,
+        'taldea_clausula' => $taldeaClausula,
+    ]);
+    
     DB::table('liga_taldea')
         ->where('liga_id', $liga->id)
         ->where('taldea_id', $taldea->taldea_id)        

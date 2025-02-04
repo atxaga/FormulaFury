@@ -16,16 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('bezeroa_id');
             $table->unsignedBigInteger('liga_id');
             $table->unsignedBigInteger('gidaria_id');
-            $table->unsignedBigInteger('taldea_id');
             $table->boolean('aukeratuta')->default(0);
             $table->integer('gidaria_clausula');
-            $table->integer('taldea_clausula');
             $table->timestamps();
 
             $table->foreign('bezeroa_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('liga_id')->references('id')->on('ligak')->onDelete('cascade');
             $table->foreign('gidaria_id')->references('id')->on('gidariak')->onDelete('cascade');
-            $table->foreign('taldea_id')->references('id')->on('taldeak')->onDelete('cascade');
 
          });
     }

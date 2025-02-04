@@ -9,11 +9,11 @@ import { usePage } from '@inertiajs/react';
 
 function Contenedor() {
   const { gidariak = [] } = usePage().props;  
-  const { taldea = null } = usePage().props; 
+  const { taldeak = [] } = usePage().props; 
   const { ekipoBalorea } = usePage().props;  
   const { bezeroaDirua } = usePage().props;  
   const { liga } = usePage().props;  
-  console.log('orri barrenean, PORFIN')
+  console.log(taldeak)
 
   return (
     <>
@@ -52,13 +52,15 @@ function Contenedor() {
             <Gidaria key={index} gidaria={gidaria} bezeroaDirua={bezeroaDirua} />
           ))
         ) : (
-          <p>Ez duzu gidaririk</p>  
+          null
         )}
 
-        {taldea ? (
-          <Taldea taldea={taldea} />
+{taldeak.length > 0 ? (
+          taldeak.map((taldea, index) => (
+            <Taldea key={index} taldea={taldea} bezeroaDirua={bezeroaDirua} />
+          ))
         ) : (
-          <p>Ez duzu talderik</p> 
+          <p>Ez duzu gidaririk</p>  
         )}
 
       </div>

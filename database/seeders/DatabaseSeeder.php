@@ -7,6 +7,7 @@ use App\Models\Bezeroa;
 use App\Models\BezeroLiga;
 use App\Models\Taldea;
 use App\Models\Gidaria;
+use App\Models\GrandPrix;
 use App\Models\Liga;
 use Illuminate\Database\Seeder;
 
@@ -94,9 +95,9 @@ class DatabaseSeeder extends Seeder
         Taldea::create([
             'izena' => 'Red Bull Racing',
             'kotxea' => 'RB20',
-            'puntuak' => 40000000,
+            'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0,
+            'balioa' => 40000000,
             'foto' => '/images/redbull.png'
 
         ]);
@@ -104,9 +105,9 @@ class DatabaseSeeder extends Seeder
         Taldea::create([
             'izena' => 'Mercedes-AMG PETRONAS',
             'kotxea' => 'W15',
-            'puntuak' => 35000000,
+            'puntuak' => 0,
             'jabea' => null,
-            'balioa' => 0,
+            'balioa' => 35000000,
             'foto' => '/images/mercedes.png'
 
         ]);
@@ -696,7 +697,149 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-      
+        GrandPrix::create([
+            'izena' => 'Australia',
+            'data' => '2025-03-14',
+            'zirkuitua' => 'Albert Park',
+        ]);
+        
+        GrandPrix::create([
+            'izena' => 'China',
+            'data' => '2025-03-21',
+            'zirkuitua' => 'Shanghai',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Japón',
+            'data' => '2025-04-04',
+            'zirkuitua' => 'Suzuka',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Bahréin',
+            'data' => '2025-04-11',
+            'zirkuitua' => 'Sakhir',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Arabia Saudí',
+            'data' => '2025-04-18',
+            'zirkuitua' => 'Jeddah',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Miami',
+            'data' => '2025-05-02',
+            'zirkuitua' => 'Miami',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Emilia Romaña',
+            'data' => '2025-05-16',
+            'zirkuitua' => 'Imola',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Mónaco',
+            'data' => '2025-05-23',
+            'zirkuitua' => 'Montecarlo',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'España',
+            'data' => '2025-05-30',
+            'zirkuitua' => 'Montmeló',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Canadá',
+            'data' => '2025-06-13',
+            'zirkuitua' => 'Montreal',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Austria',
+            'data' => '2025-06-27',
+            'zirkuitua' => 'Red Bull Ring',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Gran Bretaña',
+            'data' => '2025-07-05',
+            'zirkuitua' => 'Silverstone',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Bélgica',
+            'data' => '2025-07-25',
+            'zirkuitua' => 'Spa-Francorchamps',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Hungría',
+            'data' => '2025-08-01',
+            'zirkuitua' => 'Hungaroring',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Países Bajos',
+            'data' => '2025-08-29',
+            'zirkuitua' => 'Zandvoort',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Italia',
+            'data' => '2025-09-05',
+            'zirkuitua' => 'Monza',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Azerbaiyán',
+            'data' => '2025-09-19',
+            'zirkuitua' => 'Bakú',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Singapur',
+            'data' => '2025-10-03',
+            'zirkuitua' => 'Marina Bay',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Estados Unidos',
+            'data' => '2025-10-17',
+            'zirkuitua' => 'Circuito de las Américas',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'México',
+            'data' => '2025-10-24',
+            'zirkuitua' => 'Hermanos Rodríguez',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Sao Paulo',
+            'data' => '2025-11-07',
+            'zirkuitua' => 'Interlagos',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Las Vegas',
+            'data' => '2025-11-20',
+            'zirkuitua' => 'Las Vegas',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Qatar',
+            'data' => '2025-11-28',
+            'zirkuitua' => 'Losail',
+        ]);
+
+        GrandPrix::create([
+            'izena' => 'Abu Dhabi',
+            'data' => '2025-12-05',
+            'zirkuitua' => 'Yas Marina',
+        ]);
 
         $gidariak = Gidaria::all();
 
@@ -713,12 +856,6 @@ class DatabaseSeeder extends Seeder
         $liga = Liga::find(1);
 
         $liga->gidariak()->attach($pivotData);
-
-
-
-
-        
-
 
     }
 }

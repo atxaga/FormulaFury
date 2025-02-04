@@ -30,6 +30,50 @@ button.fitxatu {
     color: rgb(255, 0, 0); /* Texto blanco en hover */
   
   }
+  button.ezabatu {
+    background-color: #ff0019; /* Rojo Danger */
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    border: 2px solid #ff0019; /* Borde para consistencia */
+    border-radius: 0; /* Borde recto */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+    width: 200px; /* Ancho fijo de los botones */
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2%;
+    height: 50px;
+  }
+  
+  button.ezabatu:hover {
+    background-color: #000; /* Fondo negro en hover */
+    color: rgb(255, 0, 0); /* Texto blanco en hover */
+  
+  }
+  .botoiak{
+    width: 440px;
+  }
+  button.aldatu {
+    background-color: #ff0019; /* Rojo Danger */
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    border: 2px solid #ff0019; /* Borde para consistencia */
+    border-radius: 0; /* Borde recto */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición de color */
+    width: 200px; /* Ancho fijo de los botones */
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 2%;
+    margin-right: 2%;
+    height: 50px;
+  }
+  
+  button.aldatu:hover {
+    background-color: #000; /* Fondo negro en hover */
+    color: rgb(255, 0, 0); /* Texto blanco en hover */
+  
+  }
 .main-gidari{
     font-family: 'MiFuente2', sans-serif;
     margin: auto;

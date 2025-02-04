@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('grand_prix', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('gp')->unique();
             $table->string('izena');
             $table->date('data');
             $table->string('zirkuitua');

@@ -4,13 +4,17 @@ import Header from './Header';
 import flechaurdin from '@/../images/flechurdin.png';
 
 import { usePage } from '@inertiajs/react';
-import '@/../css/nireop/nagusia.css';
+import '@/../css/nireop/ofertak.css';
+import Taldea from '@/Components/gidariaBezero/Taldea';
+import TaldeaSaldu from './TaldeaSaldu';
 
 function Ofertak() {
     const { gidarias = [] } = usePage().props;
     const { puja = [] } = usePage().props; 
     const { liga } = usePage().props;
+    const { taldeak = []} = usePage().props;
     const { bezeroa } = usePage().props;
+    console.log(taldeak);
 
 
     return (
@@ -18,21 +22,26 @@ function Ofertak() {
             <div style={{marginBottom:'10%'}}>
             <Header liga={liga} bezeroa={bezeroa}/>
             <div className='menu' style={{display:'flex'}}>
-            <a href="/nireoperazioak">
             <div className="pujakDiv">
                 <img src={flechaurdin} alt="" />
-                <p>Erosketak</p>
+                <a href='/nireoperazioak'>Erosketak</a>
             </div>
-            </a>
-            <div className="pujakDiv">
+            <div className="salketaDiv">
                 <img src='/images/flecharoja.png' alt="" />
-                <p>Salketak</p>
+                <a href='/salketak'>Salketak</a>
             </div>
             </div>
 
             {gidarias.length > 0 ? (
                 gidarias.map((gidaria) => (
                     <Gidaria key={gidaria.id} pilot={gidaria} />
+                ))
+            ) : (
+                null
+            )}
+            {taldeak.length > 0 ? (
+                taldeak.map((taldea) => (
+                    <TaldeaSaldu key={taldea.id} pilot={taldea} />
                 ))
             ) : (
                 <h1>Ez duzu ofertarik</h1>

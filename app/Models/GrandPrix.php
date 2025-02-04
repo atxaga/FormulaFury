@@ -16,8 +16,13 @@ class GrandPrix extends Model
         'zirkuitua'
     ];
 
-    public function grandPrixPuntuak() {
+    public function puntuakGidaria() {
 
-        return $this->hasMany(GrandPrixPuntuak::class);
+        return $this->hasMany(PuntuakGidaria::class);
+    }
+
+    public function puntuakTaldea() {
+
+        return $this->hasMany(PuntuakTaldea::class);
     }
 }

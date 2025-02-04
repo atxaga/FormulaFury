@@ -17,6 +17,7 @@ import Klausula from './Klausula';
 
 
 function Gidaria({gidaria}) {
+  console.log(gidaria);
   const { bezeroa } = usePage().props;
   const [showModal, setShowModal] = useState(false);
   const [showModalKlausula, setShowModalKlausula] = useState(false);

@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class PuntuakGidaria extends Model
 {
-    protected $table = 'puntuak_gidari';
+    protected $table = 'puntuak_gidaria';
 
     protected $fillable = [
         'gidaria',
-        'puntuak_guztira',
         'gp',
         'pos_qualy',
         'pos_race',
@@ -18,17 +17,18 @@ class PuntuakGidaria extends Model
         'h2h_race',
         'buelta_azkarra',
         'pole',
-        'pos_txapelketa',
+        'sprint',
+        'puntuak_guztira'
     ];
 
-    public function gidariak() {
-
-        return $this->belongsTo(Gidaria::class);
-
+    public function gidaria()
+    {
+        return $this->belongsTo(Gidaria::class, 'gidaria');
     }
 
-    public function grandprix() {
-
-        return $this->belongsTo(GrandPrixPuntuak::class);
+    public function grandPrix()
+    {
+        return $this->belongsTo(GrandPrix::class, 'gp');
     }
 }
+

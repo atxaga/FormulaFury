@@ -5,33 +5,35 @@ import Gidaria from "./Gidaria";
 import Footer from "./Footer";
 import euro from '@/../images/euroMerkatua.png';
 import { Inertia } from '@inertiajs/inertia'; 
+import Taldea from "./Taldea";
 
 function Nagusia() {
-  const { pilots = [] } = usePage().props; 
+  const { pilots = [] } = usePage().props;
+  const { taldeak = null } = usePage().props;  
   const { guztiak = [] } = usePage().props;
+  const { pujaGuztiak = [] } = usePage().props;
+  const { pujaGuztiakTaldea = [] } = usePage().props;
   const { totalPuja } = usePage().props;
   const { bezeroa } = usePage().props;
   const { bezeroaDirua } = usePage().props;
   const { liga } = usePage().props;
 
-  // Obtener la fecha actual en formato YYYY-MM-DD
+  console.log(pilots);
+
   const getCurrentDate = () => {
     return new Date().toISOString().split("T")[0]; 
   };
 
-  // Revisar si hay una fecha guardada
   const lastSelectDate = localStorage.getItem("lastSelectDate");
   const currentDate = getCurrentDate();
 
   useEffect(() => {
     if (lastSelectDate !== currentDate) {
-      // Si la fecha cambió, reiniciar el mercado
       console.log("Reiniciando mercado...");
       localStorage.setItem("pilots", JSON.stringify(pilots));
       localStorage.setItem("lastSelectDate", currentDate);
       setPilotsList(pilots);
     } else {
-      // Si la fecha es la misma, usar los datos guardados
       const storedPilots = JSON.parse(localStorage.getItem("pilots") || "[]");
       setPilotsList(storedPilots.length > 0 ? storedPilots : pilots);
     }
@@ -87,9 +89,14 @@ function Nagusia() {
         </div>
         <div className="pilots-list">
           {pilots.length > 0 ? (
-            pilots.map((pilot) => <Gidaria key={pilot.id} pilot={pilot} bezeroaDirua = {bezeroaDirua} />)
+            pilots.map((pilot) => <Gidaria pujaGuztiak={pujaGuztiak} key={pilot.id} puja_count={pilot.puja_count} pilot={pilot} bezeroaDirua = {bezeroaDirua} />)
           ) : (
             <p>No hay pilotos disponibles</p>
+          )}
+          {taldeak ? (
+            <Taldea pujaGuztiak={pujaGuztiakTaldea} key={taldeak.id} taldea={taldeak} bezeroaDirua = {bezeroaDirua}  />
+          ):(
+            null
           )}
         </div>
         <div className="saldototala">

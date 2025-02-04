@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MerkatuaController;
 use App\Http\Controllers\PujaController;
 use App\Http\Controllers\TaldeaController;
+use App\Http\Controllers\AdminController;
 use App\Models\Gidaria;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -43,10 +44,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/gidariak', [TaldeaController::class, 'gidariak'])->name('gidariak');
 
     Route::post("/pujatu", [PujaController::class, 'store'])->name('puja.store');
+    Route::post("/pujatutaldea", [PujaController::class, 'storetaldea'])->name('taldea.store');
+
     Route::post("/oferta", [TaldeaController::class, 'oferta'])->name('gidaria.oferta');
-    
+    Route::post("/ofertataldea", [TaldeaController::class, 'ofertataldea'])->name('taldea.oferta');
+
     Route::get("/salketak", [MerkatuaController::class, 'salketak'])->name('merkatua.salketak');
-    Route::post('/onartu', [TaldeaController::class, 'onartu'])->name('onartu');
+    Route::post('/onartu', [TaldeaController::class, 'onartu'])->name('oferta.onartu');
+    Route::post('/onartutaldea', [TaldeaController::class, 'onartutaldea'])->name('taldea.onartu');
+
+    Route::post('/ezeztatu', [TaldeaController::class, 'ezeztatu'])->name('oferta.ezeztatu');
+    Route::post('/ezeztatutaldea', [TaldeaController::class, 'ezeztatutaldea'])->name('taldea.ezeztatu');
+    Route::post('/pujaezabatutaldea', [PujaController::class, 'destroytaldea'])->name('taldea.destroy');
 
     Route::post('/pujaezabatu', [PujaController::class, 'destroy'])->name('puja.destroy');
     Route::get('/nireoperazioak', [PujaController::class, 'pujatutakoGidari']);
@@ -54,14 +63,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/plantilla', [TaldeaController::class, 'update'])->name('taldea.update');
     Route::get('/puntuak', [TaldeaController::class, 'puntuatu'])->name('taldea.puntuatu');
     Route::get('/aktibitatea', [AktibitateaController::class, 'index'])->name('aktibitatea.index');
-    Route::get('/puntuakgehitu', function () {
-        return Inertia::render('mainOrriak/puntuakgehituMain', []);
-    });
+    Route::get('/puntuakgehitu', [AdminController::class, 'index'])->name('admin.index');
 
 });
 Route::post('/saldu/{id}', [TaldeaController::class, 'saldu'])->name('gidaria.saldu');
+Route::post('/saldutaldea/{id}', [TaldeaController::class, 'salduTaldea'])->name('taldea.saldu');
+
 Route::post('/klausulatu/{id}', [TaldeaController::class, 'klausulazo'])->name('gidaria.klausulazo');
+Route::post('/klausulatutaldea/{id}', [TaldeaController::class, 'klausulazotaldea'])->name('taldea.klausulazo');
+
 Route::post('/klausulaigo/{id}', [TaldeaController::class, 'klausula'])->name('gidaria.klausula');
+Route::post('/klausulaigotaldea/{id}', [TaldeaController::class, 'klausulataldea'])->name('gidaria.klausula');
+
 Route::get('/ikusitaldea', [TaldeaController::class, 'taldeaIkusi'])->name('gidaria.ikusi');
 Route::get('/setBezero/{id}', function ($id) {
     session(['aukeratutakoBezeroa' => $id]);
@@ -75,6 +88,8 @@ Route::get('/setLiga/{id}', function ($id) {
     session(['aukeratutakoLiga' => $id]);
     return redirect()->back();
 })->name('setLiga');
+
+Route::post('gehituPuntuak', [AdminController::class, 'gorde'])->name('admin.gorde');
 
 
 

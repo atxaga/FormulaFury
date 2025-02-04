@@ -8,7 +8,7 @@ import Puja from '../Puja';
 import { Inertia } from '@inertiajs/inertia';
 
 
-function Gidaria({ pilot }) {
+function Gidaria({  pilot }) {
   const [showModal, setShowModal] = useState(false);
   const [pujaRealizada, setPujaRealizada] = useState(null);
   const [actionOptionsVisible, setActionOptionsVisible] = useState(false);
@@ -88,16 +88,16 @@ function Gidaria({ pilot }) {
               {pilot.balioa}
             </p>
           </div>
-          <div>
+          <div className='botoiak'>
             
               <button
-                className="fitxatu"
+                className="aldatu"
                 onClick={() => handleActionOptionClick('aldatu')}
                 >
                 Aldatu
               </button>
               <button
-                className="fitxatu"
+                className="ezabatu"
                 onClick={() => handleActionOptionClick('ezabatu')}
               >
                 Ezabatu

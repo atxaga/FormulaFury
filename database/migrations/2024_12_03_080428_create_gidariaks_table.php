@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('izena');
             $table->unsignedBigInteger('taldea');
-            $table->integer('puntuak');
+            $table->unsignedBigInteger('puntuak');
             $table->unsignedBigInteger('jabea')->nullable();
             $table->string('kategoria');
             $table->string("disponibilitatea");
