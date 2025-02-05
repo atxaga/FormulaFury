@@ -14,6 +14,7 @@ function Operazioak() {
     const { puja = [] } = usePage().props; 
     const { liga } = usePage().props;
     const { bezeroa } = usePage().props;
+    const { erabiltzailea } = usePage().props;
     console.log(taldeakOferta);
     const gidariakConPuja = gidariak.filter((gidaria) =>
         puja.some((p) => p.gidaria_id === gidaria.id)
@@ -21,7 +22,7 @@ function Operazioak() {
 
     return (
         <>
-            <Header liga={liga} bezeroa={bezeroa}/>
+            <Header liga={liga} bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
             <div className='menu' style={{display:'flex'}}>
             <div className="salketaDiv">
                 <img src={flechaurdin} alt="" />

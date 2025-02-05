@@ -58,7 +58,7 @@ function Taldea({  taldea }) {
           <img src={taldea.foto} alt="" />
           <div className="gidariDatuak">
             <div className="usuario">
-              <div className="mota">
+              <div className="taldeamota">
                 <p>EQU</p>
               </div>
               <div className="usuarioIzena">

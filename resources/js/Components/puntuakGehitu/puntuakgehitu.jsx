@@ -2,6 +2,7 @@ import { useForm, usePage } from '@inertiajs/react';
 import InputError from '@/Components/InputError';
 import { useState } from 'react';
 import { Inertia } from '@inertiajs/inertia'; 
+import '../../../css/gehituPuntuak/gehituPuntuak.css';
 
 
 function PuntuakGehitu() {
@@ -240,9 +241,8 @@ function PuntuakGehitu() {
             </select></label>
             </>
             )}
-          
-
-            <button className='sartu' type='submit'>Puntuak gehitu</button>
+            <br/><br/>
+            <button className='gehitu-sartu' type='submit'>Puntuak gehitu</button>
           </form>
         </div>
       </div>

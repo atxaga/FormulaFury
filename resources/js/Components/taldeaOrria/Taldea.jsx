@@ -19,7 +19,7 @@ import plus from '../../../images/plusTaldea.png';
 import { Inertia } from '@inertiajs/inertia'; 
 
 const Taldea = () => {
-  const { translations, bezeroa, ligaIzena, taldeaOsoa, gidariaF1 = [], gidariaF2 = [], taldeaIzena, ligaId, ekipoBalorea } = usePage().props;
+  const { translations, bezeroa, ligaIzena, taldeaOsoa, gidariaF1 = [], gidariaF2 = [], taldeaIzena, ligaId, ekipoBalorea, erabiltzailea } = usePage().props;
 
   console.log(gidariaF1, gidariaF2);
 
@@ -94,7 +94,7 @@ const Taldea = () => {
   return (
     <>
       <div className="main-container">
-        <Header bezeroa={bezeroa} liga={ligaIzena} />
+        <Header bezeroa={bezeroa} liga={ligaIzena} erabiltzailea={erabiltzailea}/>
         <div className="talde">
           <div className="plantilla">
             <div className="plantillaLetra">

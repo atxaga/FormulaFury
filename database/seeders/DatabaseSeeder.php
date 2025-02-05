@@ -27,6 +27,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
+            'izena' => 'Ramiro santos',
+            'email' => 'ramirosantos@gmail.com',
+            'password' => 'ramirosantos',
+            'mota' => 'admin',
+        ]);
+
+        User::create([
             'izena' => 'Bittor',
             'email' => 'btellecheael22wg@ikzubirimanteo.com',
             'password' => 'btellecheael22wg',

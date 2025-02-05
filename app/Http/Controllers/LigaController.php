@@ -11,23 +11,33 @@ use App\Models\Taldea;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use \Illuminate\Support\Facades\DB;
+use App\Models\GrandPrix;
 
 class LigaController extends Controller
 {
     public function index(Request $request)
 {
     $bezeroa = $request->user()->bezeroa;
+    $erabiltzailea = $request->user();
 
 
     $bezeroaIzena = $request->user()->izena;
 
     $ligak = $bezeroa->ligak;
 
+    $gidariak = Gidaria::all();
+    $taldeak = Taldea::all();
+    $lasterketak = GrandPrix::all();
+
     
     return Inertia::render('mainOrriak/nagusiaMain', [
         'ligak' => $ligak,
         'bezeroa' => $bezeroaIzena,
-        'bezeroaDirua' => $bezeroa
+        'bezeroaDirua' => $bezeroa,
+        'erabiltzailea' => $erabiltzailea,
+        'gidariak' => $gidariak,
+        'taldeak' => $taldeak,
+        'lasterketak' => $lasterketak
     ]);
         
 }

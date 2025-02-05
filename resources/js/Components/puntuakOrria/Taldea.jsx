@@ -10,12 +10,12 @@ import euroTaldeaImg from '../../../images/euroTaldea.png';
 import { usePage } from '@inertiajs/react';
 
 const Taldea = () => {
-  const { translations, bezeroa, ligaIzena, taldeaOsoa, gidariaF1 = [], gidariaF2 = [], taldeaIzena, ligaId, ekipoBalorea} = usePage().props;
+  const { translations, bezeroa, ligaIzena, taldeaOsoa, gidariaF1 = [], gidariaF2 = [], taldeaIzena, ligaId, ekipoBalorea, erabiltzailea} = usePage().props;
   console.log( bezeroa, ligaIzena, taldeaOsoa, gidariaF1, gidariaF2, taldeaIzena, ligaId, ekipoBalorea);
   return (
     <>
       <div className="main-container">
-        <Header bezeroa={bezeroa} liga={ligaIzena} />
+        <Header bezeroa={bezeroa} liga={ligaIzena} erabiltzailea={erabiltzailea}/>
         <div className="talde">
           <div className="plantilla">
             <div className="plantillaLetra">

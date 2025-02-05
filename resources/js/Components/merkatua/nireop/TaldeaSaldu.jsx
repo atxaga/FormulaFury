@@ -59,8 +59,8 @@ function TaldeaSaldu({ pilot }) {
           <img src={pilot.foto} alt="" />
           <div className="gidariDatuak">
             <div className="usuario">
-              <div className="mota">
-                <p>PIL</p>
+              <div className="taldeamota">
+                <p>EQU</p>
               </div>
               <div className="usuarioIzena">
                 <p className="text-white">{pilot.izena}</p>

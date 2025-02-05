@@ -24,7 +24,7 @@ return [
     'header' => [
         'sesioaitxi' => 'CERRAR SESION',
         'nireligak' => 'Mis Ligas',
-        'ranking' => 'Ranking',
+        'gehitu' => 'Añadir puntos',
         'lasterketak' => 'Carreras',
         'albisteak' => 'Noticias',
         'merkatua' => 'Merkado',

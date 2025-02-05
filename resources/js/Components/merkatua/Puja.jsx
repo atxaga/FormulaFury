@@ -57,7 +57,7 @@ function Puja({ pilot, pujaInicial, bezeroDirua, onPujaUpdate }) {
         </button>
       </form>
 
-      <p className="saldo">Zure saldoa: -</p>
+      <p className="saldo">Zure saldoa: {bezeroDirua}</p>
     </div>
   );
 }

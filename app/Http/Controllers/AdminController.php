@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bezeroa;
 use Illuminate\Http\Request;
 use App\Models\Gidaria;
+use App\Models\User;
 use App\Models\GrandPrix;
+use App\Models\Liga;
 use App\Models\Taldea;
 use App\Models\PuntuakGidaria;
 use App\Models\PuntuakTaldea;
@@ -205,5 +208,189 @@ private function puntuazioaLasterketaGidariF2($pos_race)
         '9' => 2,
         '10' => 1, 
     };
+}
+public function ligak()
+{
+    $ligak = Liga::all();
+
+    return Inertia::render('mainOrriak/adminMain', [
+        'ligak' => $ligak,
+        
+    ]);
+
+}
+public function destroyliga(Request $request){
+    $ligaId = $request->id;
+
+    $ligaSelected = Liga::where('id', $ligaId)->first();
+
+    $ligaSelected->delete();
+
+    return redirect()->back();
+}
+public function editliga(Request $request)
+{
+    $request->validate([
+        'id' => 'required|numeric',
+        'izena' => 'required|min:5|max:30',
+        'deskribapena' => 'nullable|max:255',
+    ]);
+
+    $updateData = [
+        'izena' => $request->input('izena'),
+        'deskribapena' => $request->input('deskribapena'),
+    ];
+
+    if (!$request->has('deskribapena')) {
+        unset($updateData['deskribapena']);
+    }
+
+    if (!$request->has('izena')) {
+        unset($updateData['izena']);
+    }
+
+    Liga::where('id', $request->id)->update($updateData);
+
+    return redirect()->back();
+}
+public function gidariak(Request $request){
+    
+    $gidariaId = $request->id;
+
+    $gidariak = Gidaria::all();
+
+
+    return Inertia::render('mainOrriak/adminGidaria', [
+        'gidariak' => $gidariak,
+        
+    ]); 
+
+}
+public function deletegidaria(Request $request){
+    
+    $gidariaId = $request->id;
+
+    $gidaria = Gidaria::where('id', $gidariaId)->first();
+
+    $gidaria->delete();
+
+    return redirect()->back();
+
+
+}
+
+
+public function editgidaria(Request $request){
+    
+    $request->validate([
+        'id' => 'required|numeric',
+        'izena' => 'required|min:5|max:30',
+        'balioa' => 'required|numeric',
+        'disponibilitatea' => 'required',
+        'kategoria' => 'required',
+    ]);
+    $disponibilitatea = $request->disponibilitatea ? 'Disponible' : 'No Disponible';
+
+    Gidaria::where('id', $request->id)
+    ->update([
+        'izena' => $request->izena,
+        'balioa' => $request->balioa,
+        'disponibilitatea' => $disponibilitatea,
+        'kategoria' => $request->kategoria
+    ]);
+
+
+    return redirect()->back();
+}
+
+
+
+public function bezeroak() {
+
+    $erabiltzaileak = User::all();
+
+    $bezeroak = [];
+    foreach ($erabiltzaileak as $erabiltzailea) {
+        if ($erabiltzailea->mota === 'bezero') {
+            array_push($bezeroak, $erabiltzailea);
+        }
+    }
+
+    return Inertia::render('mainOrriak/adminBezeroa', [
+        'bezeroak' => $bezeroak
+    ]);
+}
+
+public function deletebezeroa(Request $request){
+    
+    $bezeroaId = $request->id;
+
+    $bezeroa = User::where('id', $bezeroaId)->first();
+
+    $bezeroa->delete();
+
+    return redirect()->back();
+
+
+}
+
+
+public function editbezeroa(Request $request){
+    
+    $request->validate([
+        'id' => 'required|numeric',
+        'izena' => 'required|min:2|max:30',
+        'email' => 'required',
+    ]);
+
+    User::where('id', $request->id)
+    ->update([
+        'izena' => $request->izena,
+        'email' => $request->email
+    ]);
+
+    return redirect()->back();
+}
+
+
+
+public function taldeak() {
+
+    $taldeak = Taldea::all();
+
+    return Inertia::render('mainOrriak/adminTaldea', [
+        'taldeak' => $taldeak
+    ]);
+}
+public function deletetaldea(Request $request){
+    
+    $taldeaId = $request->id;
+
+    $taldea = Taldea::where('id', $taldeaId)->first();
+
+    $taldea->delete();
+
+    return redirect()->back();
+
+
+}
+
+
+public function editaldea(Request $request){
+    
+    $request->validate([
+        'id' => 'required|numeric',
+        'izena' => 'required|min:5|max:30',
+        'balioa' => 'required|numeric',
+    ]);
+
+    Taldea::where('id', $request->id)
+    ->update([
+        'izena' => $request->izena,
+        'balioa' => $request->balioa,    
+    ]);
+
+
+    return redirect()->back();
 }
 }

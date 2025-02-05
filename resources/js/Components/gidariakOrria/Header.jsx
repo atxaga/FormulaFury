@@ -4,7 +4,7 @@ import '../../../css/header.css';
 import Menua from '../../Components/basikoak/MenuDeplegablea';
 
 
-function Header({liga, bezeroa}) {
+function Header({liga, bezeroa, erabiltzailea}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -26,7 +26,7 @@ function Header({liga, bezeroa}) {
           <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua bezeroa={bezeroa}/>
+          <Menua bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
         </div>
         </div>
         <div className='sekzioak'>

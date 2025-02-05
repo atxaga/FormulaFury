@@ -10,13 +10,12 @@ function Historikoa() {
     const {mugimenduak = []} = usePage().props;
     const { liga } = usePage().props;
     const { bezeroa } = usePage().props;
-    console.log(mugimenduak);
-
+    const { erabiltzailea } = usePage().props;
     
 
     return (
         <>
-            <Header liga={liga} bezeroa={bezeroa}/>
+            <Header liga={liga} bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
             
 
             {mugimenduak.length > 0 ? (

@@ -26,7 +26,7 @@ return [
     'header' => [
         'sesioaitxi' => 'Sesioa itxi',
         'nireligak' => 'Nire Ligak',
-        'ranking' => 'Ranking',
+        'gehitu' => 'Gehitu puntuak',
         'lasterketak' => 'Lasterketak',
         'albisteak' => 'Albisteak',
         'merkatua' => 'Merkatua',

@@ -14,13 +14,15 @@ function Ofertak() {
     const { liga } = usePage().props;
     const { taldeak = []} = usePage().props;
     const { bezeroa } = usePage().props;
+    const { erabiltzailea } = usePage().props;
+   
     console.log(taldeak);
 
 
     return (
         <>  
             <div style={{marginBottom:'10%'}}>
-            <Header liga={liga} bezeroa={bezeroa}/>
+            <Header liga={liga} bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
             <div className='menu' style={{display:'flex'}}>
             <div className="pujakDiv">
                 <img src={flechaurdin} alt="" />

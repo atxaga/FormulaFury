@@ -3,9 +3,10 @@ import '@/../css/nireop/header.css';
 import Menua from '@/Components/basikoak/MenuDeplegablea';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
-function Header({liga, bezeroa}) {
+function Header({liga, bezeroa, erabiltzailea}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  console.log(erabiltzailea);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -42,7 +43,7 @@ function Header({liga, bezeroa}) {
               <button className="close-btn" onClick={toggleMenu}>
                 ×
               </button>
-              <Menua bezeroa={bezeroa}/>
+              <Menua bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
             </div>
             <div className="lupa" onClick={toggleSearch}>
               <i className="bi bi-search"></i>

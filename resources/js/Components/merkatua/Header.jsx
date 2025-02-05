@@ -4,8 +4,9 @@ import '../../../css/header.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Gidaria from '../bilatzailea/Gidaria';
 import Menua from '@/Components/basikoak/MenuDeplegablea'
+import { usePage } from '@inertiajs/inertia-react';
 
-function Header({ guztiak, bezeroa, liga  }) {
+function Header({ guztiak, bezeroa, liga, erabiltzailea  }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,7 +45,7 @@ function Header({ guztiak, bezeroa, liga  }) {
          <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua bezeroa={bezeroa}/>
+          <Menua bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
         </div>
         {showSearchModal && (
   <>

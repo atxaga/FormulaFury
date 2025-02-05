@@ -9,7 +9,7 @@ function Aktibitatea() {
     const {mugimenduak = []} = usePage().props;
     const { liga } = usePage().props;
     const { bezeroa } = usePage().props;
-    console.log(mugimenduak);
+    console.log('Mugi'+mugimenduak);
 
     
 

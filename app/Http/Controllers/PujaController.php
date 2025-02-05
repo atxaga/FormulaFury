@@ -253,7 +253,8 @@ public function storetaldea(Request $request)
             'gidariakOferta' => $gidariakOferta,
             'taldeakOferta' => $taldeakOferta,
             'bezeroa' => $bezeroa->user->izena,
-            'liga' => $liga
+            'liga' => $liga,
+            'erabiltzailea' => $request->user()
         ]);
 
     }
@@ -298,6 +299,14 @@ public function storetaldea(Request $request)
     
                     LigaGidari::where('gidaria_id', $maxPuja->gidaria_id)
                         ->update(['erabilgarritasuna' => 0]);
+
+                    Aktibitatea::insert([
+                            'bezeroa_id' => $maxPuja->bezeroa_id,
+                            'liga_id' => $maxPuja->liga_id,
+                            'gidaria_id' => $maxPuja->gidaria_id,
+                            'mota' => 'erosi',
+                            'prezioa' => $maxPuja->puja,
+                    ]);
                 }
             }
     
@@ -336,6 +345,15 @@ public function storetaldea(Request $request)
     
                     LigaTaldea::where('taldea_id', $maxPujaTaldea->taldea_id)
                         ->update(['erabilgarritasuna' => 0]);
+                    
+                    Aktibitatea::insert([
+                        'bezeroa_id' => $maxPujaTaldea->bezeroa_id,
+                        'liga_id' => $maxPujaTaldea->liga_id,
+                        'taldea_id' => $maxPujaTaldea->taldea_id,
+                        'mota' => 'erosi',
+                        'prezioa' => $maxPujaTaldea->puja,
+
+                    ]);
                 }
             }
     

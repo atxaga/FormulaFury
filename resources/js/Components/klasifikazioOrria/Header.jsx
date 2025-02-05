@@ -10,7 +10,7 @@ import { usePage } from '@inertiajs/react';
 function Header({ liga }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const { bezeroak } = usePage().props;
+  const { bezeroak, bezeroa } = usePage().props;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -38,7 +38,7 @@ function Header({ liga }) {
           <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua bezeroa={bezeroak[0].izena} />
+          <Menua bezeroa={bezeroak[0].izena} erabiltzailea={bezeroa} />
         </div>
         <Modal show={showModal} onClose={CloseModal} closeable={true}>
           <div className="modal-content">

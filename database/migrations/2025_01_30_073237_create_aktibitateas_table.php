@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('bezeroa_id');
             $table->unsignedBigInteger('liga_id');
-            $table->unsignedBigInteger('gidaria_id');
+            $table->unsignedBigInteger('gidaria_id')->nullable();
+            $table->unsignedBigInteger('taldea_id')->nullable();
             $table->string('mota');
             $table->integer('prezioa');
             $table->timestamps();
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->foreign('bezeroa_id')->references('id')->on('bezeroak')->onDelete('cascade');
             $table->foreign('liga_id')->references('id')->on('ligak')->onDelete('cascade');
             $table->foreign('gidaria_id')->references('id')->on('gidariak')->onDelete('cascade');
+            $table->foreign('taldea_id')->references('id')->on('taldeak')->onDelete('cascade');
 
             
         });

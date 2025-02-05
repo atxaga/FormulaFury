@@ -90,6 +90,18 @@ Route::get('/setLiga/{id}', function ($id) {
 })->name('setLiga');
 
 Route::post('gehituPuntuak', [AdminController::class, 'gorde'])->name('admin.gorde');
+Route::get('/adminpanel', [AdminController::class, 'ligak'] )->name('ligak.admin');
+Route::post('/destroyliga/{id}', [AdminController::class, 'destroyliga'] )->name('ligak.destroy');
+Route::post('/ligaeditatu', [AdminController::class, 'editliga'])->name('ligas.edit');
+Route::get('/admingidariak', [AdminController::class, 'gidariak'] )->name('gidariak.admin');
+Route::post('/deletegidaria/{id}', [AdminController::class, 'deletegidaria'] )->name('gidaria.destroy');
+Route::get('/adminbezeroak', [AdminController::class, 'bezeroak'])->name('admin.bezeroak');
+Route::post('/bezeroaeditatu', [AdminController::class, 'editbezeroa'])->name('bezeroa.edit');
+Route::post('/deletebezeroa/{id}', [AdminController::class, 'deletebezeroa'] )->name('bezeroa.destroy');
+Route::post('/gidariaeditatu', [AdminController::class, 'editgidaria'])->name('gidaria.edit');
+Route::get('/admintaldeak', [AdminController::class, 'taldeak'])->name('admin.taldeak');
+Route::post('/deletetaldea/{id}', [AdminController::class, 'deletetaldea'] )->name('taldea.destroy');
+Route::post('/taldeaeditatu', [AdminController::class, 'editaldea'])->name('taldea.edit');
 
 
 

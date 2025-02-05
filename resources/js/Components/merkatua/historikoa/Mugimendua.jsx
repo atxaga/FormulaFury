@@ -41,7 +41,37 @@ function Mugimendua({ mugimendua }) {
                 )
                 
             ) : (
-                <p>Ez daude mugimendurik</p> 
+                null
+            )}
+             {mugimendua.taldea ? (
+                mugimendua.mota == 'erosi' ? (
+                    <div className="gidaria-info">
+                    <img 
+                        src={mugimendua.taldea.foto} 
+                        alt={mugimendua.taldea.izena} 
+                        className="gidaria-img"
+                        style={{
+                            width: '10%'
+                        }}
+                    />
+                    <p style={{display: 'flex', textAlign:'center'}}> <p style={{color: 'green', marginRight: '10px'}}>{mugimendua.taldea.izena}</p> {mugimendua.mota} duzu <p style={{color: 'green', marginLeft:'16px'}}>{mugimendua.prezioa}</p>  € -rengatik</p>
+                </div>
+                ):(
+                    <div className="gidaria-info">
+                    <img 
+                        src={mugimendua.taldea.foto} 
+                        alt={mugimendua.taldea.izena} 
+                        className="gidaria-img"
+                        style={{
+                            width: '10%'
+                        }}
+                    />
+                    <p style={{display: 'flex', textAlign:'center'}}> <p style={{color: 'red', marginRight: '10px'}}>{mugimendua.taldea.izena}</p> {mugimendua.mota} duzu <p style={{color: 'red', marginLeft:'16px'}}>{mugimendua.prezioa}</p>  € -rengatik</p>
+                </div>
+                )
+                
+            ) : (
+                null
             )}
         </div>
     );

@@ -15,7 +15,7 @@ class AktibitateaController extends Controller
     $ligaId = session('aukeratutakoLiga');
     $mugimenduak = Aktibitatea::where('liga_id', $ligaId)
     ->with('bezeroa') 
-    ->with('gidaria')
+    ->with('gidaria', 'taldea')
     ->orderBy('created_at', 'desc') 
     ->get();
 
@@ -25,7 +25,8 @@ class AktibitateaController extends Controller
     return Inertia::render('mainOrriak/aktibitateaMain', [
         'mugimenduak' => $mugimenduak,
         'liga' => $liga,
-        'bezeroa' => $bezeroa->id
+        'bezeroa' => $bezeroa->id,
+       
     ]);
     }
 
@@ -36,7 +37,7 @@ class AktibitateaController extends Controller
 
     $mugimenduak = Aktibitatea::where('liga_id', $ligaId)
         ->where('bezeroa_id', $bezeroa->id)
-        ->with('gidaria') 
+        ->with('gidaria','taldea') 
         ->orderBy('created_at', 'desc') 
         ->get();
     $liga = Liga::findOrFail($ligaId);
@@ -44,7 +45,8 @@ class AktibitateaController extends Controller
     return Inertia::render('mainOrriak/historikoaMain', [
         'mugimenduak' => $mugimenduak,
         'liga' => $liga,
-        'bezeroa' => $bezeroa->id
+        'bezeroa' => $bezeroa->izena,
+        'erabiltzailea' => $bezeroa
     ]);
 }
 

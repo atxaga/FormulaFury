@@ -4,7 +4,7 @@ import Menua from '../basikoak/MenuDeplegablea';
 import { useState } from 'react';
 import { usePage } from '@inertiajs/react';
 
-function Header({bezeroa, liga}) {
+function Header({bezeroa, liga, erabiltzailea}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [locale, setLocale] = useState(document.documentElement.lang);
   const { translations } = usePage().props;
@@ -75,7 +75,7 @@ function Header({bezeroa, liga}) {
             ×
           </button>
           
-          <Menua bezeroa={bezeroa}/>
+          <Menua bezeroa={bezeroa} erabiltzailea={erabiltzailea}/>
         </div>
         </div>
         <div className='sekzioak'>

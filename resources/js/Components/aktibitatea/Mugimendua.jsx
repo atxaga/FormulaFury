@@ -9,16 +9,22 @@ function Mugimendua({ mugimendua }) {
     
     return (
         <div className="mugimendua-cart">
-            {mugimendua.gidaria ? (
+            {mugimendua ? (
                                         
 
                     <div className="gidaria-infor">
                     <h3 className='text-bold'>Merkatu mugimendua</h3><br />
+                    {mugimendua.gidaria ? (
                     <p>{mugimendua.bezeroa.izena} jokalariak {mugimendua.gidaria.izena} {mugimendua.mota} du {mugimendua.prezioa} €-rengatik</p>
+
+                    ):(
+                        <p>{mugimendua.bezeroa.izena} jokalariak {mugimendua.taldea.izena} {mugimendua.mota} du {mugimendua.prezioa} €-rengatik</p>
+
+                    )}
                 </div>
                 
             ) : (
-                <p>Ez daude mugimendurik</p> 
+                null
             )}
         </div>
     );

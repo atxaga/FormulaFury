@@ -12,13 +12,13 @@ function Contenedor() {
   const { taldeak = [] } = usePage().props; 
   const { ekipoBalorea } = usePage().props;  
   const { bezeroaDirua } = usePage().props;  
-  const { liga } = usePage().props;  
+  const { liga, erabiltzailea } = usePage().props;  
   console.log(taldeak)
 
   return (
     <>
       <div className="main-gidaria">
-        <Header liga={liga}/>
+        <Header liga={liga} erabiltzailea={erabiltzailea}/>
         <div className='info'>
           <div className="plantilla">
             <div className="plantillaLetra">

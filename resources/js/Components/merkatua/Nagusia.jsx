@@ -17,6 +17,7 @@ function Nagusia() {
   const { bezeroa } = usePage().props;
   const { bezeroaDirua } = usePage().props;
   const { liga } = usePage().props;
+  const { erabiltzailea } = usePage().props;
 
   console.log(pilots);
 
@@ -81,7 +82,7 @@ function Nagusia() {
   return (
     <>
       <div className="main-merkatua">
-        <Header guztiak={guztiak} bezeroa={bezeroa} liga={liga} />
+        <Header guztiak={guztiak} bezeroa={bezeroa} liga={liga} erabiltzailea={erabiltzailea} />
         <div className="countdown">
           <p className="countdown-text">
             Merkatu bukaera: {formatTime(timeLeft)}

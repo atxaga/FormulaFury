@@ -56,7 +56,6 @@ class TaldeaController extends Controller
         
 
         $gidariBezero = Gidaria::whereIn('id', $gidariaIds)
-
         ->get()
         ->map(function ($gidaria) use ($gidariak, $ligaId) {
             $gidariaData = $gidariak->where('gidaria_id', $gidaria->id)
@@ -73,8 +72,10 @@ class TaldeaController extends Controller
             $taldeaData = $taldeak->where('taldea_id', $taldea->id)
                                     ->where('liga_id', $ligaId)
                                     ->first();
-            $taldeaData->taldea_clausula = $taldeaData ? $taldeaData->taldea_clausula : null;
+            $taldea->taldea_clausula = $taldeaData ? $taldeaData->taldea_clausula : null;
+
             return $taldea;
+            
         });
 }
 
@@ -97,7 +98,7 @@ class TaldeaController extends Controller
             'bezeroa' => $bezeroIzena,
             'liga' => $liga,
             'ekipoBalorea' => $ekipoBalorea,
-
+            'erabiltzailea' => $request->user()
         ]);  
         
 
@@ -180,6 +181,7 @@ class TaldeaController extends Controller
             'taldeaIzena' => $taldeaIzena ?? null,
             'ligaId' => $liga->id,
             'ekipoBalorea' => $ekipoBalorea,
+            'erabiltzailea' => $request->user()
         ]);
     }
 
@@ -219,12 +221,14 @@ class TaldeaController extends Controller
             }
         }
         
-        $taldeaId = BezeroLigaGidari::where('liga_id', $ligaId)
+        $taldeaId = BezeroLigaTalde::where('liga_id', $ligaId)
                                     ->where('bezeroa_id', $bezero->id)
                                     ->first();
         $taldea = Taldea::where('id', $taldeaId->taldea_id)
                             ->first();
+        if($taldea){
         $taldeaIzena = $taldea->izena;
+        }
 
         $gidariBezero = Gidaria::whereIn('id', $gidariaIds)->get();
         $ekipoBalor = $gidariBezero->sum('balioa');
@@ -239,6 +243,7 @@ class TaldeaController extends Controller
             'taldeaIzena' => $taldeaIzena,
             'ligaId' => $liga->id,
             'ekipoBalorea' => $ekipoBalorea,
+            'erabiltzailea' => $request->user()
         ]);
         
     }
@@ -517,6 +522,7 @@ public function taldeaIkusi(Request $request)
         'ekipoBalorea' => $ekipoBalorea,
         'liga' => $liga,
         'bezeroa' => $bezeroa,
+        'erabiltzailea' => $request->user()
     ]);
 }
 
@@ -671,6 +677,8 @@ public function oferta(Request $request){
 
     
 
+    
+
     return redirect()->back();;
 }
 public function ofertataldea(Request $request){
@@ -766,6 +774,21 @@ public function onartu(Request $request)
         ->where('bezeroa_manda', $bezeroaMandaId)
         ->where('liga_id', $ligaId)
         ->delete();
+    
+        Aktibitatea::insert([
+            'bezeroa_id' => $bezeroaCurrent->id,
+            'liga_id' => $ligaId,
+            'gidaria_id' => $gidariaId,
+            'mota' => 'saldu',
+            'prezioa' => $oferta,
+    ]);
+    Aktibitatea::insert([
+        'bezeroa_id' => $bezeroaMandaId,
+        'liga_id' => $ligaId,
+        'gidaria_id' => $gidariaId,
+        'mota' => 'erosi',
+        'prezioa' => $oferta,
+]);
 
     return back()->with('success', 'Eskaintza onartu da!');
 }
@@ -817,6 +840,21 @@ public function onartutaldea(Request $request)
         ->where('bezeroa_manda', $bezeroaMandaId)
         ->where('liga_id', $ligaId)
         ->delete();
+
+        Aktibitatea::insert([
+            'bezeroa_id' => $bezeroaCurrent->id,
+            'liga_id' => $ligaId,
+            'taldea_id' => $taldeaId,
+            'mota' => 'saldu',
+            'prezioa' => $oferta,
+    ]);
+    Aktibitatea::insert([
+        'bezeroa_id' => $bezeroaMandaId,
+        'liga_id' => $ligaId,
+        'taldea_id' => $taldeaId,
+        'mota' => 'erosi',
+        'prezioa' => $oferta,
+]);
 
     return back()->with('success', 'Eskaintza onartu da!');
 }

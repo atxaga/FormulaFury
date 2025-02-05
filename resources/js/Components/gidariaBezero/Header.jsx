@@ -4,7 +4,7 @@ import '../../../css/header.css';
 import Menua from '../../Components/basikoak/MenuDeplegablea';
 
 
-function Header({liga, bezeroa}) {
+function Header({liga, erabiltzailea}) {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {

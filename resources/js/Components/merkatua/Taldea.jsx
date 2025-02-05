@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import '../../../css/merkatuaOrria/gidaria.css';
+import '@/../css/gidariaOrria/gidaria.css';
+
 import dispo from '../../../images/tick.png';
 import f1 from '../../../images/f1.png';
 import f2 from '../../../images/f2.png';
@@ -58,7 +60,7 @@ function Taldea({ pujaGuztiak, taldea, bezeroaDirua }) {
           <img src={taldea.foto} alt="" />
           <div className="gidariDatuak">
             <div className="usuario">
-              <div className="mota">
+              <div className="taldeamota">
                 <p>EQU</p>
               </div>
               <div className="usuarioIzena">

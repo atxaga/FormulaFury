@@ -25,6 +25,7 @@ class MerkatuaController extends Controller
 {
     $ligaId = session('aukeratutakoLiga');
     $liga = Liga::find($ligaId);
+    $erabiltzailea = $request->user();
 
     $cacheKey = "liga_{$ligaId}_pilots";
     $cacheKey2 = "liga_{$ligaId}_taldea";
@@ -82,6 +83,7 @@ class MerkatuaController extends Controller
         'bezeroaDirua' => $bezeroaDirua->dirua ?? 0,
         'liga' => $liga,
         'totalPuja' => $totalPuja,
+        'erabiltzailea' => $erabiltzailea
     ]);
 }
 public function salketak(Request $request)
@@ -141,10 +143,12 @@ public function salketak(Request $request)
         return $taldea;
     });
 
+    $erabiltzailea = $request->user();
     return Inertia::render('mainOrriak/ofertakMain', [
         'gidarias' => $gidarias,
         'taldeak' => $taldeak,
         'liga' => $liga,
+        'erabiltzailea' => $erabiltzailea
     ]);
 }
 
