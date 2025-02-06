@@ -3,7 +3,7 @@ import Liga from './Ligak';
 import LigaSortu from '../LigaSortu/LigaSortu';
 import LigaSartu from '../LigaSortu/LigaSartu';
 import { usePage } from '@inertiajs/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '@/Components/Modal';
 import Footer from '../basikoak/Footer';
 import aston from '@/../images/astonLiga.png'
@@ -23,6 +23,19 @@ function Nagusia() {
     setIsModalOpen(false);
     setModalContent(null); 
   };
+
+  useEffect(() => {
+  const hasReloaded = localStorage.getItem('hasReloaded');
+
+  if (!hasReloaded) {
+    localStorage.setItem('hasReloaded', 'true');
+    window.location.reload();
+  }
+
+  return () => {
+    localStorage.removeItem('hasReloaded');
+  };
+}, []);
 
   const handleOptionClick = (option) => {
     setModalContent(option);
@@ -78,7 +91,7 @@ function Nagusia() {
             </div>
           ) : modalContent === 'create' ? (
             <div className="create-content">
-              <LigaSortu />
+              <LigaSortu closeModal= {closeModal} />
               <button className="text-white back-button" onClick={() => setModalContent(null)}>Atzera</button>
               <button className="close-modal" onClick={closeModal}>X</button>
             </div>

@@ -3,7 +3,7 @@ import '../../../css/ligasortu/ligasortu.css';
 import { Inertia } from '@inertiajs/inertia'; 
 
 
-function LigaSortu() {
+function LigaSortu({closeModal}) {
   const [ligaIzena, setLigaIzena] = useState('');
   const [deskribapena, setDeskribapena] = useState('');
   const [klasulazo, setKlasulazo] = useState(false);
@@ -17,7 +17,11 @@ function LigaSortu() {
       klasulazo, 
     };
 
-    Inertia.post('/ligas', newLiga);
+    Inertia.post('/ligas', newLiga, {
+      onSuccess: () => {
+        closeModal(); 
+      },
+    });
 
     setLigaIzena('');
     setDeskribapena('');

@@ -167,7 +167,8 @@ public function store(Request $request)
         ->where('taldea_id', $taldea->taldea_id)
         ->update(['erabilgarritasuna' => 0]);
         
-    return redirect()->route('ligak.index')->with('success', 'Liga sortu da! Kodedea: ' . $kodea);
+    return Inertia::location(route('setLiga', ['id' => $liga->id]));
+
 }
 
 public function sartu(Request $request) 
@@ -253,7 +254,7 @@ public function sartu(Request $request)
         ->where('taldea_id', $taldea->taldea_id)        
         ->update(['erabilgarritasuna' => 0]);
 
-    return redirect()->route('ligak.index')->with('success', 'Liga-ra arrakastaz batu zara!');
+    return Inertia::location(route('setLiga', ['id' => $liga->id]));
 }
 
 }

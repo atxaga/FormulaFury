@@ -13,7 +13,11 @@ function LigaSartu() {
       kodea: ligaKodea,
     };
 
-    Inertia.post('/ligaSartu', newLiga);
+    Inertia.post('/ligaSartu', newLiga, {
+      onSuccess: () => {
+        closeModal(); 
+      },
+    });
 
     setLigaKodea('');
   };
