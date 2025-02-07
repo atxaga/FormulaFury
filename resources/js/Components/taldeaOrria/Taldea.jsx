@@ -242,7 +242,7 @@ const Taldea = () => {
             )}
           </Modal>
 
-          <div>
+          <div className='f1taldea'>
             {taldeaIzena ? (
               <div className="gidariaDiv" style={{ width: '20%' }}>
                 <div className="escuderia" style={{ padding: '5%' }}>

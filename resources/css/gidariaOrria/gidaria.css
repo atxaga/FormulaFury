@@ -297,102 +297,24 @@ body {
   }
   
   /* En pantallas pequeñas (menos de 600px), se cambia a UNA columna */
-  @media (max-width: 600px) {
-    .bezeroa-container {
-      grid-template-columns: repeat(1, 1fr);
+  @media (max-width: 768px) {
+    .datuak img{
+      max-width: 100px;
+      height: 100px;
     }
-  }
-  
-  .bezeroa-card {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 1000px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    transition: transform 0.2s;
-    margin: auto;
-    justify-content: center;
-  }
-  
-  .bezeroa-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .bezeroa-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .bezeroa-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-  }
-  
-  .bezeroa-name {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .bezeroa-info {
-    margin-top: 10px;
-  }
-  
-  .bezeroa-info p {
-    font-size: 14px;
-    margin: 5px 0;
-  }
-  
-  .bezeroa-info i {
-    margin-right: 5px;
-    color: #bbb;
-  }
-  
-  .bezeroa-actions {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-  }
-  
-  .delete-icon, .edit-icon {
-    font-size: 18px;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-  }
-  
-  .delete-icon {
-    color: #ff4d4d;
-  }
-  
-  .delete-icon:hover {
-    background: rgba(255, 77, 77, 0.2);
-  }
-  
-  .edit-icon {
-    color: #4da6ff;
-  }
-  
-  .edit-icon:hover {
-    background: rgba(77, 166, 255, 0.2);
-  }
-  
-  .close-modal {
-    background: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .close-modal:hover {
-    background: #ff1a1a;
+    .mota{
+      max-width: 50px;
+      height: 20px;
+    }
+    .usuario p{
+      font-size: 20px;
+    }
+    .usuarioIzena{
+      font-size: 10px;
+    }
+
+    
+
+    
   }
   

@@ -4,7 +4,7 @@ import '../../../css/header.css';
 import Menua from '../../Components/basikoak/MenuDeplegablea';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { usePage } from '@inertiajs/react';
-import Gidaria from './nireop/Gidaria';
+import Gidaria from '../merkatua/nireop/Gidaria';
 
 function Header() {
   const { pilots = [] } = usePage().props;

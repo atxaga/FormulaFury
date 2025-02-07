@@ -48,3 +48,26 @@
 
 .taldea img{
 }
+@media (max-width: 968px) {
+    .gidariaDiv{
+        width: 100%;
+    }
+    .escuderia{
+        max-width: 1000px;
+        height: 150px;
+        
+    }
+    .escuderia img{
+        width: 400px;
+    }
+    .datof1 p{
+        font-size: 15px;
+    }
+    .gidariaDiv img{
+        max-height: 140px;
+    }
+.gidariaDiv p{
+        font-size: 15px;
+    }
+}
+

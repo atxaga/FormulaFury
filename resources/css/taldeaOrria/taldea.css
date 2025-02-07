@@ -92,7 +92,7 @@ img.f2{
 
 }
 .f1taldea{
-    width: 33%;
+    width: 100%;
 }
 .f1gidariak{
 }
@@ -117,3 +117,76 @@ button.gorde {
     color: rgb(255, 0, 0); /* Texto blanco en hover */
   
   }
+  @media (max-width: 968px) {
+ 
+    
+    .talde {
+        width: 80%;
+    }
+    .logoak {
+        display: flex;
+        padding-right: 20px;
+
+         /* Dos columnas para los logos */
+        gap: 10px;
+    }
+    .f1Class, .f2Class{
+        width: 33%; /* Los divs ocupan el 90% del ancho disponible */
+        margin: 0px 0; /* Añadimos margen entre los divs */
+    }
+    .f1taldea{
+        margin-top: 15%;
+    }
+
+
+    img.f1, img.f2 {
+        width: 30%; /* Las imágenes ocupan el 80% de su contenedor */
+        margin: auto;
+        margin-left: 45%;
+    }
+    img.f2{
+        height: 17%;
+    }
+
+    button.gorde {
+        width: 100%;
+        margin: 41px;
+        padding-left: 40px;
+        padding-right: 40px; /* El botón ocupa todo el ancho disponible */
+    }
+    .balorea{
+        margin-left: 10%;
+    }
+    .balorea img{
+        height: 70px;
+    }
+    
+    
+
+}
+
+@media (max-width: 480px) {
+    .logoak {
+        display: flex;
+        flex-direction: column; /* Los logos se apilan verticalmente */
+        align-items: center;
+        gap: 15px;
+    }
+
+    .f1Class, .f2Class, .f1taldea {
+        width: 95%; /* Los divs ocupan el 95% del ancho disponible */
+    }
+
+    img.f1, img.f2 {
+        width: 70%; /* Las imágenes ocupan el 70% del ancho de su contenedor */
+    }
+
+    button.gorde {
+        font-size: 20px; /* Reducir el tamaño de la fuente en pantallas más pequeñas */
+        height: 60px; /* Reducir la altura del botón */
+    }
+
+    .totala, .eguna, .totalaBalorea {
+        font-size: 28px; /* Ajustar el tamaño de las fuentes */
+    }
+}

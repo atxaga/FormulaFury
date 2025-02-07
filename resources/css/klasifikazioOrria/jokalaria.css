@@ -22,14 +22,13 @@ body {
     height: 150px;
     border-radius: 5px;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 0.5%;
 }
 .blanco-liga {
     background-color: white;
     color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
-    margin-bottom: 1px;
 
   }
   .blanco-liga img{
@@ -170,15 +169,23 @@ body {
 }
 
 @media (max-width: 768px) {
+  .blanco2-liga{
+    max-height: 120px;
+  }
   /* 🔹 Ajustar la imagen en contenedor blanco */
   .blanco-liga img {
     width: 50%; /* Reducir el tamaño de la imagen */
-    height: auto;
   }
-
+  .totalDiv{
+    justify-content: space-evenly;
+  }
+ 
+  .datuak{
+    width: 80%;
+  }
   /* 🔹 Ajustar texto en contenedores */
   p.usuarioIzena {
-    font-size: 32px; /* Reducir el tamaño del nombre */
+    font-size: 22px; /* Reducir el tamaño del nombre */
     margin-left: 10%; /* Ajustar márgenes */
   }
 
@@ -202,6 +209,7 @@ body {
     font-size: 45px; /* Reducir tamaño de posición */
     margin-right: 10%; /* Ajustar márgenes */
   }
+  
 
   /* 🔹 Ajustes para total */
   .total {
@@ -214,7 +222,6 @@ body {
 
   .totalDiv {
     font-size: 14px; /* Reducir tamaño de texto */
-    margin-right: 5%;
   }
 
   .total p {
@@ -223,7 +230,8 @@ body {
   }
 
   .total img {
-    width: 12%; /* Reducir tamaño de la imagen */
+    width: 22%; /* Reducir tamaño de la imagen */
+    margin-top: -20%;
   }
   .posizioa img{
     max-width: 100px;

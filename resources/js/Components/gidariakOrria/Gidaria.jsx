@@ -16,7 +16,7 @@ import Klausula from './Klausula';
 
 
 
-function Gidaria({gidaria}) {
+function Gidaria({gidaria, puntuakGidariak, posizioakGidariak}) {
   console.log(gidaria);
   const { bezeroa } = usePage().props;
   const [showModal, setShowModal] = useState(false);
@@ -48,7 +48,7 @@ const handleModalCloseKlausula = ()=>{
         <img src={gidaria.foto} alt="" />
         <div className='gidariDatuak'>
         <div className='usuario'>
-        <div className='mota'>
+        <div className='mota md:text-sm'>
             <p>PIL</p>
         </div>
         <div className='usuarioIzena'>
@@ -97,6 +97,8 @@ const handleModalCloseKlausula = ()=>{
           
             <GidariaComponent
               gidaria={gidaria}
+              posizioak={posizioakGidariak}
+              puntuak={puntuakGidariak}
             />
         </Modal>
         ):(

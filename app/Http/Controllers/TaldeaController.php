@@ -10,6 +10,7 @@ use App\Models\BezeroLigaGidari;
 use App\Models\Bezero;
 use App\Models\BezeroLigaTalde;
 use App\Models\Gidaria;
+use App\Models\LasterketaGidaria;
 use App\Models\Taldea;
 use App\Models\Liga;
 use App\Models\LigaGidari;
@@ -18,6 +19,7 @@ use App\Models\Ofertak;
 use App\Models\OfertaTaldea;
 use App\Models\Plantilla;
 use App\Models\Puja;
+use App\Models\PuntuakGidaria;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -91,14 +93,37 @@ class TaldeaController extends Controller
 
         }
 
+        $puntuak = PuntuakGidaria::all();
 
+        $puntuakGidaria = [];
+        foreach ($puntuak as $puntua) {
+            foreach ($gidariBezero as $gidaria) {
+                if ($gidaria->id === $puntua->gidaria) {
+                    array_push($puntuakGidaria, $puntua);
+                }
+            }
+        }
+
+        $posizioak = LasterketaGidaria::all();
+        
+        $posizioakGidaria = [];
+        foreach ($posizioak as $posizioa) {
+            foreach ($gidariBezero as $gidaria) {
+                if ($gidaria->id === $posizioa->gidaria) {
+                    array_push($posizioakGidaria, $posizioa);
+                }
+            }
+        }
+        
         return Inertia::render('mainOrriak/gidariakMain', [
             'gidariak' => $gidariBezero,
             'taldea' => $taldeaBezero,
             'bezeroa' => $bezeroIzena,
             'liga' => $liga,
             'ekipoBalorea' => $ekipoBalorea,
-            'erabiltzailea' => $request->user()
+            'erabiltzailea' => $request->user(),
+            'puntuakGidariak' => $puntuakGidaria,
+            'posizioakGidariak' => $posizioakGidaria
         ]);  
         
 

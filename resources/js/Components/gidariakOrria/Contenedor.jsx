@@ -13,8 +13,8 @@ function Contenedor() {
   const { taldea = [] } = usePage().props; 
   const { ekipoBalorea } = usePage().props;
   const { liga } = usePage().props;
-  const { bezeroa, erabiltzailea } = usePage().props;
-  console.log(taldea);
+  const { bezeroa, erabiltzailea, puntuakGidariak, posizioakGidariak } = usePage().props;
+  console.log(puntuakGidariak, posizioakGidariak);
 
 
   return (
@@ -51,7 +51,7 @@ function Contenedor() {
 
         {gidariak.length > 0 ? (
           gidariak.map((gidaria) => (
-            <Gidaria gidaria={gidaria} />
+            <Gidaria gidaria={gidaria} puntuakGidariak={puntuakGidariak} posizioakGidariak={posizioakGidariak} />
           ))
         ) : (
           null
