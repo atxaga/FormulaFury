@@ -15,7 +15,7 @@ class KlasifikazioaController extends Controller
     $bezeroa = $request->user();
 
     if (!$ligaId) {
-        return redirect()->route('eligeLiga')->with('error', 'Aukeratu liga');
+        return redirect()->back();
     }
 
     $liga = Liga::find($ligaId);

@@ -292,6 +292,8 @@ body {
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    justify-content: center;
+    margin: auto;
   }
   
   /* En pantallas pequeñas (menos de 600px), se cambia a UNA columna */
@@ -306,10 +308,12 @@ body {
     color: #ffffff;
     padding: 20px;
     border-radius: 10px;
-    width: 100%;
+    width: 1000px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
     transition: transform 0.2s;
+    margin: auto;
+    justify-content: center;
   }
   
   .bezeroa-card:hover {

@@ -28,13 +28,11 @@ function Bezeroa({ bezeroa }) {
             <p className="bezeroa-name">{bezeroa.izena}</p>
           </div>
 
-          {/* Datos adicionales */}
           <div className="bezeroa-info">
             <p className="bezeroa-email"><i className="bi bi-envelope"></i> {bezeroa.email}</p>
             <p className="bezeroa-mota"><i className="bi bi-person-badge"></i> {bezeroa.mota}</p>
           </div>
 
-          {/* Botones */}
           <div className="bezeroa-actions">
             <i onClick={() => handleDelete(bezeroa.id)} className="bi bi-trash delete-icon"></i>
             <i onClick={openModal} className="bi bi-pencil edit-icon"></i>
@@ -42,7 +40,6 @@ function Bezeroa({ bezeroa }) {
         </div>
       </div>
 
-      {/* Modal para editar */}
       <Modal show={isModalOpen} onClose={closeModal} maxWidth="wider" closeable={true}>
         <div className="modal-content">
           <div className="create-content">

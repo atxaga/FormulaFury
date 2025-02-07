@@ -49,7 +49,11 @@ class MerkatuaController extends Controller
     $gidariaIds = $pilotsList->pluck('gidaria_id');
     
     $pilots = Gidaria::whereIn('id', $gidariaIds)->get();
+    if($taldeaList){
     $taldeak = Taldea::where('id', $taldeaList->taldea_id)->first();
+    }else{
+        return redirect()->back();
+    }
 
     $pujaGuztiak = Puja::where('liga_id', $ligaId)->get();
     $pujaGuztiakTaldea = PujaTaldea::where('liga_id', $ligaId)->get();

@@ -24,18 +24,20 @@ function Nagusia() {
     setModalContent(null); 
   };
 
+
   useEffect(() => {
-  const hasReloaded = localStorage.getItem('hasReloaded');
+    const hasReloaded = sessionStorage.getItem('hasReloaded');
 
-  if (!hasReloaded) {
-    localStorage.setItem('hasReloaded', 'true');
-    window.location.reload();
-  }
-
-  return () => {
-    localStorage.removeItem('hasReloaded');
-  };
-}, []);
+    if (!hasReloaded) {
+      sessionStorage.setItem('hasReloaded', 'true');
+      Inertia.visit(window.location.pathname, {
+        preserveScroll: false,
+        preserveState: false,
+      });
+    }
+  }, []);
+  
+  
 
   const handleOptionClick = (option) => {
     setModalContent(option);

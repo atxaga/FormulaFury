@@ -111,7 +111,11 @@ class TaldeaController extends Controller
         $bezeroa = $request->user()->izena;
 
         $ligaId = session('aukeratutakoLiga');
+        if($ligaId){
         $liga = Liga::find($ligaId);
+        }else{
+            return redirect()->back();
+        }
 
       
 
@@ -176,7 +180,8 @@ class TaldeaController extends Controller
             'bezeroa' =>$bezeroa,
             'gidariaF1'=> $gidariaF1,
             'gidariaF2' => $gidariaF2,
-            'ligaIzena' => $liga->izena,
+            'ligaIzena' => $liga->izena ?? null,
+            
             'taldeaOsoa' => $taldea,
             'taldeaIzena' => $taldeaIzena ?? null,
             'ligaId' => $liga->id,

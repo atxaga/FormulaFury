@@ -12,13 +12,28 @@ function BezeroaAdmin(){
         <>  
         <div className='dena bg-black'>
             <HeaderAdmin />
+            <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center', 
+                }}>
+                    <div style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(2, 1fr)', 
+                        gap: '20px', 
+                        justifyContent: 'center',
+                        marginLeft:'4%'                   
+                         }}>
             {bezeroak.length > 0 ? 
+
                 bezeroak.map((bezeroa) =>(
                     <Bezeroa bezeroa={bezeroa} />
                 )):(
                     <p>Ez daude bezerorik</p>
                 )   
             }
+            </div>
+            </div>
             </div>
         </>
     )

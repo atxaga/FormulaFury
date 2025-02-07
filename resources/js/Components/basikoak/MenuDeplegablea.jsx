@@ -133,21 +133,19 @@ function Menua({bezeroa, erabiltzailea}) {
               <li>
               <img src={rankingImg} alt="Ranking" />
               <a href="#" onClick={() => setShowModal(true)}>
-                <p>{translations.header.gehitu}</p>
+                <p style={{color: 'gray'}}>{translations.header.gehitu}</p>
               </a>
               </li>
               <li>
               <img src={admin} alt="Ranking" />
               <a href="/adminpanel">
-                <p>Admin panela</p>
+                <p style={{color: 'gray'}}>Admin panela</p>
               </a>
               </li>
 
             </>
           ) : (
-            <>
               null
-            </>
           )}
         <div className="logout-section">
           <form onSubmit={logOut}>
