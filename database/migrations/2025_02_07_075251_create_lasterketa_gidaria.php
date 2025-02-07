@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lasterketa_gidaria', function (Blueprint $table) {
+            
             $table->id();
             $table->unsignedBigInteger('gidaria');
             $table->unsignedBigInteger('gp');
             $table->integer('pos_qualy')->default(0); 
             $table->integer('pos_race')->default(0);
-            $table->integer('h2h_qualy')->default(0);
-            $table->integer('h2h_race')->default(0);
-            $table->integer('buelta_azkarra')->default(0);
-            $table->integer('pole')->default(0);
-            $table->integer('puntuak_guztira')->default(0);
+            $table->string('h2h_qualy')->default("ez");
+            $table->string('h2h_race')->default("ez");
+            $table->string('buelta_azkarra')->default("ez");
+            $table->string('pole')->default("ez");
+            $table->integer('sprint')->default(0);
             
             $table->foreign('gidaria')->references('id')->on('gidariak')->onDelete('cascade');
             $table->foreign('gp')->references('id')->on('grand_prix')->onDelete('cascade');

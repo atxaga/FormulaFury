@@ -33,6 +33,11 @@ class Taldea extends Model
         return $this->hasMany(PuntuakTaldea::class);
     }
 
+    public function lasterketakTaldeak() {
+
+        return $this->hasMany(LasterketaTaldea::class);
+    }
+
     public function ligak() {
 
         return $this->belongsToMany(Liga::class)

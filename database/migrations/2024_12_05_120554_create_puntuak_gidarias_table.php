@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('h2h_race')->default(0);
             $table->integer('buelta_azkarra')->default(0);
             $table->integer('pole')->default(0);
+            $table->integer('sprint')->default(0);
             $table->integer('puntuak_guztira')->default(0);
             $table->timestamps();
         

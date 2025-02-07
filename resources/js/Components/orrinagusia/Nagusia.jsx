@@ -69,7 +69,7 @@ function Nagusia() {
               <div onClick={()=>handleOptionClick('create')} className='create bg-white'>
               <div className='createText'>
               <div className='h3'>
-              <h3 className='sortu'>Sortu </h3><h3>liga bat zure lagunekin jokatzeko</h3> 
+              <h3 className='sortuDiv'>Sortu</h3><h3>liga bat zure lagunekin jokatzeko</h3> 
               </div>
                <p className='text-sm'>Zure lagunak gonbidatu eta zuen artean lehiatu</p>
               </div>

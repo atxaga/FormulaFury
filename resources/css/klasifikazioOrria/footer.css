@@ -1,100 +1,149 @@
 .container1 {
   background-color: black;
   position: fixed;
-  width: 100%; /* Ocupa toda la parte inferior */
-  bottom: 0; /* Fijo en la parte inferior */
-  display: flex; /* Flexbox para estructurar */
-  justify-content: space-around; /* Espaciado uniforme entre elementos */
-  align-items: center; /* Centrar verticalmente */
-  padding: 10px 0; /* Espaciado interno */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
-  z-index: 100; /* Asegurar que esté sobre otros elementos */
-  font-family: 'MiFuente'; /* Fuente personalizada */
-  z-index: 50;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  font-family: 'MiFuente';
 }
 
 .argazkiak {
-  display: flex; /* Flexbox para organizar elementos */
-  justify-content: space-around; /* Espaciado uniforme entre elementos */
-  align-items: center; /* Centrar verticalmente */
-  gap: 20px; /* Espaciado entre bloques */
-  width: 100%; /* Usar todo el ancho disponible */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .argazkiak > div {
-  text-align: center; /* Centrar texto y contenido */
-  flex: 1; /* Asegurar que cada bloque ocupe el mismo espacio */
-  display: flex; /* Flexbox dentro de cada bloque */
-  flex-direction: column; /* Organizar en columna (imagen arriba, texto abajo) */
-  align-items: center; /* Centrar horizontalmente */
-}
-
-.argazkiak img {
-  max-width: 60px; /* Tamaño uniforme para todas las imágenes */
-  height: auto; /* Mantener proporción */
-  margin-bottom: 5px; /* Espacio entre la imagen y el texto */
-}
-
-.klasifikazioa {
-  display: flex; /* Hacer que klasifikazioa también use flexbox */
-  flex-direction: column; /* Imagen arriba, texto abajo */
-  align-items: center; /* Centrar horizontalmente */
-  text-align: center; /* Centrar texto */
-}
-.klasifikazioa img{
-
-  margin: auto;
-}
-
-.taldeaInput {
-  position: relative; /* Permite que la imagen se posicione sin afectar a otros elementos */
+  text-align: center;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-.taldeaInput img {
+.argazkiak img {
+  max-width: 60px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.klasifikazioa,
+.aktibitatea,
+.taldeaInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.taldeaInput img,
+.aktibitatea img {
   margin: auto;
- /* Ajusta horizontalmente */
 }
-
 
 .taldeaInput a {
-  margin-top: 80px; /* Asegura el espacio del texto */
   font-size: 14px;
   text-decoration: none;
   text-align: center;
-  top: 10px; /* Ajusta verticalmente */
-  left: 10%;
 }
+
 .argazkiak p,
 .argazkiak a {
-  font-size: 14px; /* Tamaño uniforme para los textos */
-  color: gray; /* Color inicial */
-  margin: 0; /* Sin márgenes extra */
+  font-size: 14px;
+  color: gray;
+  margin: 0;
 }
 
 .argazkiak div:hover p,
 .argazkiak div:hover a {
-  color: red; /* Cambiar color al pasar el cursor */
+  color: red;
 }
 
 .klasifikazioa a,
 .taldeaInput a,
-.ligak a {
-  text-decoration: none; /* Eliminar subrayado */
+.ligak a, .aktibitatea a {
+  text-decoration: none;
+}
+.klasifikazioa img{
+  margin: auto;
 }
 
 .klasifikazioa a {
-  color: rgb(255, 0, 0); /* Color uniforme */
+  color: rgb(255, 0, 0);
 }
-.aktibitatea a{
-  text-decoration: none;
-}
-.aktibitatea img{
-  margin: auto;
-}
+
 .ligak:hover a {
-  color: red; /* Cambiar color al pasar el cursor */
+  color: red;
+}
+
+/* 🔹 SOLO REDUCE ELEMENTOS EN MÓVILES 📱 */
+@media screen and (max-width: 768px) {
+  
+  .container1 {
+    padding: 10px ;
+    margin-right: 100px;
+    width: 80%;
+
+  }
+
+  .argazkiak {
+    gap: 10px;
+    margin-right: 5px;
+  }
+
+  .argazkiak > div {
+    width: 80px; /* Compacto */
+  }
+
+  .argazkiak img {
+    max-width: 40px; /* Más pequeño */
+  }
+
+  .argazkiak p,
+  .argazkiak a {
+    font-size:7px;
+  }
+
+  .taldeaInput a {
+    font-size: 7px;
+  }
+  .merkatua img{
+    max-width: 34px;
+  }
+  .ligak img{
+    max-width: 34px;
+  }
+ 
+ 
+}
+
+@media screen and (max-width: 480px) {
+  .container1 {
+    padding: 5px 0;
+  }
+
+  .argazkiak {
+    gap: 5px;
+  }
+
+  .argazkiak img {
+    max-width: 35px;
+  }
+
+  .argazkiak p,
+  .argazkiak a {
+    font-size: 7px;
+  }
+  .taldeaInput a {
+    font-size: 7px;
+  }
+
+ 
 }

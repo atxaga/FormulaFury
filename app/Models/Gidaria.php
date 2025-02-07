@@ -35,6 +35,11 @@ class Gidaria extends Model
         return $this->hasMany(PuntuakGidaria::class);
     }
 
+    public function lasterketakGidariak() {
+
+        return $this->hasMany(LasterketaGidaria::class);
+    }
+
     public function puja() {
 
         return $this->belongsToMany(Bezeroa::class)

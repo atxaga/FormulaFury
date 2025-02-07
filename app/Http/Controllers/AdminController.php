@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Gidaria;
 use App\Models\User;
 use App\Models\GrandPrix;
+use App\Models\LasterketaGidaria;
+use App\Models\LasterketaTaldea;
 use App\Models\Liga;
 use App\Models\Taldea;
 use App\Models\PuntuakGidaria;
@@ -38,6 +40,24 @@ class AdminController extends Controller
     }
 
     public function puntuakGidaria($request, $kategoria) {
+
+        $posizioa_h2h_qualy = $request->data['h2h_qualy'] ?? false ? "bai" : "ez";
+        $posizioa_h2h_race = $request->data['h2h_race'] ?? false ? "bai" : "ez";
+        $posizioa_buelta_azkarra = $request->data['buelta_azkarra'] ?? false ? "bai" : "ez";
+        $posizioa_pole = $request->data['pole'] ?? false ? "bai" : "ez";
+        $posizioa_sprint = $request->data['sprint'] ?? 0;
+
+        LasterketaGidaria::create([
+            'gidaria' => $request->aukeratutakoa,
+            'gp' => $request->gp,
+            'pos_qualy' => $request->data['pos_qualy'],
+            'pos_race' => $request->data['pos_race'],
+            'h2h_qualy' => $posizioa_h2h_qualy,
+            'h2h_race' => $posizioa_h2h_race,
+            'buelta_azkarra' => $posizioa_buelta_azkarra,
+            'pole' => $posizioa_pole,
+            'sprint' => $posizioa_sprint
+        ]);
     
         $data = [
             'gidaria' => $request->aukeratutakoa,
@@ -52,6 +72,7 @@ class AdminController extends Controller
         ];
 
         if ($kategoria == 'F1') {
+
             $puntuak_qualy = $this->calcularPuntuacionQualy($data['pos_qualy'] ?? 0);
             $puntuak_race = $this->puntuazioaLasterketaGidari($data['pos_race'] ?? 0);
             $puntuak_h2h_qualy = $data['h2h_qualy'] ?? false ? 3 : 0;
@@ -61,6 +82,7 @@ class AdminController extends Controller
             $puntuak_sprint = $this->puntuazioaSprint($data['sprint']) ?? 0;
 
             $puntuak_guztira = $puntuak_qualy + $puntuak_race + $puntuak_h2h_qualy + $puntuak_h2h_race + $puntuak_buelta_azkarra + $puntuak_pole + $puntuak_sprint;
+
         } else {
             $puntuak_qualy = $this->puntuakQualyF2($data['pos_qualy'] ?? 0);
             $puntuak_race = $this->puntuazioaLasterketaGidariF2($data['pos_race'] ?? 0);
@@ -84,6 +106,7 @@ class AdminController extends Controller
             'h2h_race' => $puntuak_h2h_race,
             'buelta_azkarra' => $puntuak_buelta_azkarra,
             'pole' => $puntuak_pole,
+            'sprint' => $puntuak_sprint,
             'puntuak_guztira' => $puntuak_guztira
         ]);
 
@@ -95,6 +118,19 @@ class AdminController extends Controller
     }
 
     public function procesarPuntuakTaldea(Request $request) {
+
+        
+        $posizioa_buelta_azkarra = $request->data['buelta_azkarra'] ?? false ? "bai" : "ez";
+        $posizioa_pole = $request->data['pole'] ?? false ? "bai" : "ez";
+
+        LasterketaTaldea::create([
+            'taldea' => $request->aukeratutakoa,
+            'gp' => $request->gp,
+            'pos_qualy' => $request->data['pos_qualy'],
+            'pos_race' => $request->data['pos_race'],
+            'buelta_azkarra' => $posizioa_buelta_azkarra,
+            'pole' => $posizioa_pole,
+        ]);
         
         $data = [
             'taldea' => $request->aukeratutakoa,

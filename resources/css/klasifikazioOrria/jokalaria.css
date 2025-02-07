@@ -168,9 +168,146 @@ body {
   width: 9%;
   flex-direction: column;
 }
-/*<div className='ikusi'>
-          <a href="/ikusitaldea">
-            <img src='/images/ojo.png' alt="" />
-          </a>
-          </div>*/
-          
+
+@media (max-width: 768px) {
+  /* 🔹 Ajustar la imagen en contenedor blanco */
+  .blanco-liga img {
+    width: 50%; /* Reducir el tamaño de la imagen */
+    height: auto;
+  }
+
+  /* 🔹 Ajustar texto en contenedores */
+  p.usuarioIzena {
+    font-size: 32px; /* Reducir el tamaño del nombre */
+    margin-left: 10%; /* Ajustar márgenes */
+  }
+
+  p.usuarioDirua {
+    font-size: 16px; /* Reducir el tamaño del texto */
+    margin-left: 10%;
+  }
+
+  /* 🔹 Flexbox adaptado para puntajes */
+  .puntuak {
+    margin-right: 100%;
+   
+  }
+
+  p.punto {
+    font-size: 22px; /* Reducir tamaño de puntos */
+    margin-right: 0;
+  }
+
+  .posizioa p {
+    font-size: 45px; /* Reducir tamaño de posición */
+    margin-right: 10%; /* Ajustar márgenes */
+  }
+
+  /* 🔹 Ajustes para total */
+  .total {
+    width: 20%; /* Ajustar el tamaño del contenedor total */
+    height: auto; /* Ajustar la altura automáticamente */
+    margin-top: 3%;
+    margin-left: 0;
+    justify-content: center; /* Centrar elementos */
+  }
+
+  .totalDiv {
+    font-size: 14px; /* Reducir tamaño de texto */
+    margin-right: 5%;
+  }
+
+  .total p {
+    font-size: 12px; /* Reducir tamaño del texto */
+    margin-top: 5%;
+  }
+
+  .total img {
+    width: 12%; /* Reducir tamaño de la imagen */
+  }
+  .posizioa img{
+    max-width: 100px;
+    height: 70px;
+  }
+
+  /* 🔹 Estilos de búsqueda */
+  
+
+  .formula {
+    font-size: 14px; /* Reducir tamaño del texto */
+  }
+
+  .ikusi img {
+    width: 15%; /* Ajustar tamaño de la imagen */
+  }
+}
+
+@media (max-width: 480px) {
+  /* 🔹 Ajustar el contenedor blanco */
+  .blanco-liga {
+    flex-direction: column; /* Cambiar el layout de flex para apilar los elementos */
+    width: 90%; /* Hacer el contenedor más pequeño */
+    height: auto;
+    padding: 15px;
+  }
+  .posizioa img{
+    height: 200px;
+  }
+
+  .blanco-liga img {
+    width: 80%; /* Reducir el tamaño de la imagen */
+    margin-top: 0;
+  }
+
+  /* 🔹 Ajustar texto en contenedor */
+  p.usuarioIzena {
+    font-size: 24px; /* Ajustar tamaño de fuente */
+    margin-left: 5%; /* Alinear mejor el texto */
+  }
+
+  p.usuarioDirua {
+    font-size: 14px; /* Reducir el tamaño de la fuente */
+    margin-left: 5%;
+  }
+
+  .puntuak {
+    flex-direction: column; /* Apilar los puntos de forma vertical */
+    align-items: center; /* Centrar el contenido */
+  }
+
+  p.punto {
+    font-size: 18px; /* Reducir tamaño de texto */
+    margin-right: 0;
+  }
+
+  .posizioa p {
+    font-size: 35px; /* Reducir tamaño de la posición */
+    margin-right: 5%;
+  }
+
+  /* 🔹 Ajustes para total */
+  .total {
+    width: 40%; /* Hacer el contenedor total más pequeño */
+    margin-top: 3%;
+    justify-content: center;
+  }
+
+  .totalDiv {
+    font-size: 12px; /* Reducir tamaño de texto */
+  }
+
+  .total img {
+    width: 18%; /* Reducir tamaño de la imagen */
+  }
+
+  /* 🔹 Estilo de búsqueda */
+  
+  .formula {
+    font-size: 12px; /* Reducir tamaño de texto */
+  }
+
+  .ikusi img {
+    width: 20%; /* Ajustar imagen */
+  }
+}
+
