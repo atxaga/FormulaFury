@@ -23,7 +23,7 @@ function Aktibitatea() {
                     <Mugimendua key={mugimendua.id} mugimendua={mugimendua} />
                 ))
             ) : (
-                <h1>Ez duzu mugimendurik</h1>
+                <h1  style={{textAlign:'center', marginTop: '4%'}}>Ez daude mugimendurik</h1>
             )}
 
             <Footer />

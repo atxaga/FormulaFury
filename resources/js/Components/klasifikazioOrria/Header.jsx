@@ -41,7 +41,7 @@ function Header({ liga }) {
           <Menua bezeroa={bezeroak[0].izena} erabiltzailea={bezeroa} />
         </div>
         <Modal show={showModal} onClose={CloseModal} closeable={true}>
-          <div className="modal-content">
+          <div className="modal-content" style={{backgroundColor:'black', margin:'auto'}}>
             <button onClick={CloseModal} className="close-modal text-white">
               X
             </button>

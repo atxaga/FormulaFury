@@ -95,23 +95,15 @@ function Menua({bezeroa, erabiltzailea}) {
           <img src={casco2Img} alt="Nire ligak" />
           <a href="nagusia"><p>{translations.header.nireligak}</p></a>
         </li>
+       
         
         <li>
-          <img src={lasterketaImg} alt="Lasterketak" />
-          <p>{translations.header.lasterketak}</p>
-        </li>
-        <li>
-          <img src={megafonoImg} alt="Albisteak" />
-          <p>{translations.header.albisteak}</p>
-        </li>
-        <li>
           <img src={maletinImg} alt="Merkatua" />
-          <p>{translations.header.merkatua}</p>
+          <a  href='/merkatua'>
+          <p style={{color:'gray'}}>{translations.header.merkatua}</p>
+          </a>
         </li>
-        <li>
-          <img src={bajakImg} alt="Bajak" />
-          <p>{translations.header.bajak}</p>
-        </li>
+        
         <a href="/profile">
           <li>
             <img src={perfilaImg} alt="Profila" />
@@ -127,26 +119,23 @@ function Menua({bezeroa, erabiltzailea}) {
           <img src={terminosImg} alt="Termino eta Kondizioak" />
           <p>{translations.header.terminoak}</p>
         </li>
+        {erabiltzailea && erabiltzailea.mota === "admin" ? (
+  <>
+    <li>
+      <img src={rankingImg} alt="Ranking" />
+      <a href="#" onClick={() => setShowModal(true)}>
+        <p style={{ color: "gray" }}>{translations.header.gehitu}</p>
+      </a>
+    </li>
+    <li>
+      <img src={admin} alt="Admin" />
+      <a href="/adminpanel">
+        <p style={{ color: "gray" }}>Admin panela</p>
+      </a>
+    </li>
+  </>
+) : null}
 
-          {erabiltzailea.mota === "admin" ? (
-            <>
-              <li>
-              <img src={rankingImg} alt="Ranking" />
-              <a href="#" onClick={() => setShowModal(true)}>
-                <p style={{color: 'gray'}}>{translations.header.gehitu}</p>
-              </a>
-              </li>
-              <li>
-              <img src={admin} alt="Ranking" />
-              <a href="/adminpanel">
-                <p style={{color: 'gray'}}>Admin panela</p>
-              </a>
-              </li>
-
-            </>
-          ) : (
-              null
-          )}
         <div className="logout-section">
           <form onSubmit={logOut}>
             <button type="submit" className="logout-button">

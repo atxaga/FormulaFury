@@ -33,7 +33,7 @@ function Header() {
          <button className="close-btn" onClick={toggleMenu}>
             ×
           </button>
-          <Menua/>
+          <Menua />
         </div>
         
       </div>

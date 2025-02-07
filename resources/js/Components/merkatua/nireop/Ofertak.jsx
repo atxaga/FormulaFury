@@ -46,7 +46,7 @@ function Ofertak() {
                     <TaldeaSaldu key={taldea.id} pilot={taldea} />
                 ))
             ) : (
-                <h1>Ez duzu ofertarik</h1>
+                null
             )}
 </div>
             <Footer />

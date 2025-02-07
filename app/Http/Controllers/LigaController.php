@@ -19,19 +19,40 @@ class LigaController extends Controller
 {
     $bezeroa = $request->user()->bezeroa;
     $erabiltzailea = $request->user();
-
-
     $bezeroaIzena = $request->user()->izena;
-
+    
     $ligak = $bezeroa->ligak;
-
+    
+    if (!$ligak || $ligak->isEmpty()) {
+        $ligak = collect([]);
+    } else {
+        $ligak = $ligak->map(function ($liga) use ($bezeroa) { 
+            $bezeroakCount = DB::table('bezeroa_liga')
+                ->where('liga_id', $liga->id)
+                ->count(); 
+    
+            $totalDirua = DB::table('bezeroa_liga')
+                ->where('liga_id', $liga->id)
+                ->where('bezeroa_id', $bezeroa->id)  
+                ->sum('dirua'); 
+    
+            return [
+                'id' => $liga->id,
+                'izena' => $liga->izena,
+                'bezeroak_count' => $bezeroakCount,
+                'total_dirua' => $totalDirua,
+            ];
+        });
+    }
+    
+    
     $gidariak = Gidaria::all();
     $taldeak = Taldea::all();
     $lasterketak = GrandPrix::all();
 
     
     return Inertia::render('mainOrriak/nagusiaMain', [
-        'ligak' => $ligak,
+        'ligak' => $ligak ?? null,
         'bezeroa' => $bezeroaIzena,
         'bezeroaDirua' => $bezeroa,
         'erabiltzailea' => $erabiltzailea,

@@ -35,6 +35,8 @@ function Ligak({ ligak, bezeroa }) {
                 <img src={cascorojo} alt="Cascorrojo" />
                 <h3>{liga.izena}</h3> 
               </div>
+              <p style={{color:'gray', marginLeft:'10%'}}>Partaideak: {liga.bezeroak_count}/10</p>
+
             </div>
             
           </div>
@@ -49,7 +51,7 @@ function Ligak({ ligak, bezeroa }) {
                   onClick={() => handleThreeDotsClick(liga.id)} 
                 />
                 <div className="dirua">
-                  <h3>{bezeroa.dirua}</h3>
+                  <h3>{liga.total_dirua}</h3>
                   <img src={euro} alt="Euro" />
                 </div>
               </div>
