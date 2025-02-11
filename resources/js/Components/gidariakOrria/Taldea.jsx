@@ -48,8 +48,8 @@ const handleModalCloseKlausula = ()=>{
         <img src={taldea.foto} alt="" />
         <div className='gidariDatuak'>
         <div className='usuario'>
-        <div className='mota'>
-            <p>PIL</p>
+        <div className='taldeamota'>
+            <p>EQU</p>
         </div>
         <div className='usuarioIzena'>
         <p className='text-white'>{taldea.izena}</p>

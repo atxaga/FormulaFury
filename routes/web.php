@@ -88,9 +88,11 @@ Route::get('/setLiga/{id}', function ($id) {
     session(['aukeratutakoLiga' => $id]);
     return redirect()->back();
 })->name('setLiga');
-
+Route::post('/abandonarliga/{id}', [LigaController::class, 'abandonarliga'] )->name('ligak.abandonar');
 Route::post('gehituPuntuak', [AdminController::class, 'gorde'])->name('admin.gorde');
-Route::get('/adminpanel', [AdminController::class, 'ligak'] )->name('ligak.admin');
+Route::get('/adminpanel',  function () {
+    return Inertia::render('mainOrriak/adminMain', []);
+});
 Route::post('/destroyliga/{id}', [AdminController::class, 'destroyliga'] )->name('ligak.destroy');
 Route::post('/ligaeditatu', [AdminController::class, 'editliga'])->name('ligas.edit');
 Route::get('/admingidariak', [AdminController::class, 'gidariak'] )->name('gidariak.admin');
@@ -102,6 +104,7 @@ Route::post('/gidariaeditatu', [AdminController::class, 'editgidaria'])->name('g
 Route::get('/admintaldeak', [AdminController::class, 'taldeak'])->name('admin.taldeak');
 Route::post('/deletetaldea/{id}', [AdminController::class, 'deletetaldea'] )->name('taldea.destroy');
 Route::post('/taldeaeditatu', [AdminController::class, 'editaldea'])->name('taldea.edit');
+Route::get('/api/ligak', [AdminController::class, 'ligak'] )->name('ligak.admin');
 
 
 

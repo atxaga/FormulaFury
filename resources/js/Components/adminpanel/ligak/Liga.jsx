@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@/../css/adminpanel/ligak/nagusia.css';
 import cascorojo from '@/../images/cascorojo.png';
 import trespuntos from '@/../images/trespuntos.png';
@@ -17,6 +17,8 @@ function Liga({ liga, bezeroa }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
+  
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => {
     setIsModalOpen(false);
@@ -27,7 +29,8 @@ function Liga({ liga, bezeroa }) {
     setModalContent(option);
   };
   const handledelete = (id) => {
-      Inertia.post(`/destroyliga/${id}`)
+      Inertia.post(`/destroyliga/${id}`);
+      window.location.reload();
   }
 
   return (

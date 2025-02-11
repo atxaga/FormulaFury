@@ -17,6 +17,7 @@ function BezeroaEditatu({ bezeroaId, izena, email }) {
     };
 
     Inertia.post('/bezeroaeditatu', newbezero);
+    window.location.reload();
 
     setBezeroIzena('');
     setBezeroEmail('');

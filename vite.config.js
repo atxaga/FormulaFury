@@ -15,16 +15,16 @@ export default defineConfig({
     react(),
   ],
   server: {
-    host: '0.0.0.0', // Permite acceso desde otros dispositivos
-    port: 5173,      // Puerto para Vite
+    host: '0.0.0.0', 
+    port: 5173,      
     hmr: {
-      host: '192.168.1.44', // Reemplaza con la IP local de tu máquina
+      host: '10.14.0.235', 
       port: 5173,
     },
   },
   resolve: {
     alias: {
-      '@': '/resources/js', // Define el alias @ para tu proyecto
+      '@': '/resources/js', 
     },
   },
 });

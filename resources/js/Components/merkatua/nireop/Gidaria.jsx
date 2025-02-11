@@ -46,6 +46,8 @@ function Gidaria({  pilot }) {
         setPujaRealizada(null);
         localStorage.removeItem(`puja_${pilot?.id}`);
         Inertia.post("/pujaezabatu", { id: pilot.id });
+        window.location.reload();
+
       }
 };
 

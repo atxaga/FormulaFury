@@ -6,39 +6,40 @@
     font-family: 'MiFuente2';
     src: url('../../js/fonts/Questrial/Questrial-Regular.ttf') format('truetype');
   }
-.blanco-liga{
+  .blanco-liga{
     display: flex;
-    background-color: white;
+    background-color: #242323;
     height: 150px;
     border-radius: 5px;
     padding: 20px;
     justify-content: space-between;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 a{
   text-decoration: none;
 }
 .blanco-liga {
-    background-color: white;
-    color: black;
+    background-color: #242323;
+    color: rgb(255, 255, 255);
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .blanco-liga:hover {
-    background-color: #242323; /* Gris oscuro */
-    color: white; /* Cambia el color del texto a blanco */
+  .blanco-liga.selected {
+    background-color: #ffffff;
+    color: black;
   }
   
-  .blanco-liga:hover .dirua h3, 
-  .blanco-liga:hover p,
-  .blanco-liga:hover h3 {
-    color: white; /* Asegúrate de que todos los textos cambien a blanco */
+  .blanco-liga.selected .dirua h3, 
+  .blanco-liga.selected p,
+  .blanco-liga.selected h3 {
+    color: black;
   }
-  
-  .blanco-liga:hover img {
-    filter: brightness(0.8); /* Opcional: oscurece las imágenes ligeramente */
+  i{
+    font-size: 35px;
+    margin-left: 60%;
   }
+
   
 .hurrengo{
     color: gray;

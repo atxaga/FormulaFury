@@ -10,21 +10,22 @@ function Gidaria({gidaria, puntuak, posizioak}){
     const [puntuakGidaria, setPuntuakGidaria] = useState([]);
     const [posizioakGidaria, setPosizioaGidaria] = useState([]);
     console.log(puntuakGidaria, posizioakGidaria);
+
     useEffect(() => {
+        console.log(puntuak, posizioak);
         if (puntuak) {
+            console.log('sartu da');
             puntuak.map((puntua) => {
-                if (puntua.id === gidaria.id) {
+                if (puntua.gidaria === gidaria.id) {
                     setPuntuakGidaria(puntua);
                 }
             })
         }
         
         if (posizioak) {
-            
             posizioak.map((posizioa) => {
                 
-                if (posizioa.id === gidaria.id) {
-                    
+                if (posizioa.gidaria === gidaria.id) {
                     setPosizioaGidaria(posizioa);
                 }
             })

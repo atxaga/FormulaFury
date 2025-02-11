@@ -48,6 +48,7 @@ function Taldea({ pujaGuztiak, taldea, bezeroaDirua }) {
       setPujaRealizada(null);
       localStorage.removeItem(`puja_${taldea?.id}`);
       Inertia.post("/pujaezabatutaldea", { id: taldea.id });
+      window.location.reload();
     }
   };
 

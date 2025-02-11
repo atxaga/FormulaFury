@@ -226,6 +226,7 @@ class TaldeaController extends Controller
                             ->where('bezeroa_id', $bezero->id)
                             ->where('liga_id', $ligaId)
                             ->where('aukeratuta', 1);
+    
         $gidariaIds = $gidariak->pluck('gidaria_id')->toArray();
         
         $gidariaF1 = [];
@@ -263,6 +264,8 @@ class TaldeaController extends Controller
         $gidariBezero = Gidaria::whereIn('id', $gidariaIds)->get();
         $ekipoBalor = $gidariBezero->sum('balioa');
         $ekipoBalorea = $ekipoBalor+$taldea->balioa;
+
+    
         
         return Inertia::render('mainOrriak/puntuakMain',[
             'bezeroa' =>$bezeroa,
@@ -273,7 +276,7 @@ class TaldeaController extends Controller
             'taldeaIzena' => $taldeaIzena,
             'ligaId' => $liga->id,
             'ekipoBalorea' => $ekipoBalorea,
-            'erabiltzailea' => $request->user()
+            'erabiltzailea' => $request->user() 
         ]);
         
     }
@@ -298,6 +301,12 @@ class TaldeaController extends Controller
                 $request->input('gidaria2F2'),
             ];
 
+            DB::table('bezeroa_liga_taldea')
+                    ->where('liga_id', $liga)
+                    ->where('bezeroa_id', $bezeroId)
+                    ->where('taldea_id', $request->input('taldea'))
+                    ->update(['aukeratuta' => 1]);
+
         
             foreach ($aukeratutakoGidariak as $gidariaId) {
                 if ($gidariaId) {
@@ -311,7 +320,6 @@ class TaldeaController extends Controller
         
             return redirect()->back();
     }
-
 
     public function saldu(Request $request){
         $bezeroa = $request->user();
@@ -501,7 +509,6 @@ public function taldeaIkusi(Request $request)
         ->where('bezeroa_id', $bezeroaCurrent->id)
         ->first();
 
-    // Obtener todos los gidariak asociados al bezeroa
     $gidariakIds = BezeroLigaGidari::where('bezeroa_id', $bezeroaId)
         ->where('liga_id', $ligaId)
         ->pluck('gidaria_id'); 
@@ -511,12 +518,10 @@ public function taldeaIkusi(Request $request)
         ['bezeroa_id', '=', $bezeroaId],
     ])->get();
 
-    // Obtener todos los taldeak asociados al bezeroa
     $taldeaIds = BezeroLigaTalde::where('bezeroa_id', $bezeroaId)
         ->where('liga_id', $ligaId)
         ->pluck('taldea_id');
 
-    // Obtener datos de gidariak con sus cláusulas
     $gidariBezero = Gidaria::whereIn('id', $gidariakIds)
         ->get()
         ->map(function ($gidaria) use ($gidariak, $ligaId) {
@@ -542,9 +547,8 @@ public function taldeaIkusi(Request $request)
         });
 
 
-    $ekipoBalor = $gidariak->sum('balioa');
+    $ekipoBalor = $gidariBezero->sum('balioa');
     $ekipoBalorea = $taldeak ? $ekipoBalor + $taldeak->sum('balioa'): $ekipoBalor;
-
     return Inertia::render('mainOrriak/gidariakBezero', [
         'gidariak' => $gidariBezero,
         'taldeak' => $taldeak, 
@@ -580,7 +584,7 @@ public function klausulazo(Request $request)
     }
 
     if ($klausula->gidaria_clausula > $bezeroaAukera->dirua) {
-        return response()->json(['message' => 'Fondos insuficientes'], 400);  
+        return redirect()->back();  
     }
 
     $bezeroaAukera->dirua -= $klausula->gidaria_clausula;

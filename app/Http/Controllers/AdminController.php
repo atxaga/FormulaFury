@@ -249,10 +249,7 @@ public function ligak()
 {
     $ligak = Liga::all();
 
-    return Inertia::render('mainOrriak/adminMain', [
-        'ligak' => $ligak,
-        
-    ]);
+    return response()->json($ligak);
 
 }
 public function destroyliga(Request $request){

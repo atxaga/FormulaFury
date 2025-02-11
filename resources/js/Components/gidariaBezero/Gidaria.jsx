@@ -24,6 +24,7 @@ function Gidaria({gidaria, bezeroaDirua}) {
 
   const klausulatu = (id) => {
     Inertia.post(`/klausulatu/${id}`);
+    window.location.reload();
   };
   
   const modalShow = ()=>{

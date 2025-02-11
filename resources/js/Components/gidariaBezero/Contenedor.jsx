@@ -25,7 +25,7 @@ function Contenedor() {
               <p>PLANTILLA</p>
             </div>
             <div className="totala">
-              <p className="text-white">{gidariak.length + 1}/10</p>
+              <p className="text-white">{gidariak.length + taldeak.length }/10</p>
             </div>
           </div>
           <div className="lasterketa">
@@ -60,7 +60,7 @@ function Contenedor() {
             <Taldea key={index} taldea={taldea} bezeroaDirua={bezeroaDirua} />
           ))
         ) : (
-          <p>Ez duzu gidaririk</p>  
+          null
         )}
 
       </div>

@@ -295,6 +295,9 @@ body {
     justify-content: center;
     margin: auto;
   }
+  .bezeroa-card{
+    width: 900px;
+  }
   
   /* En pantallas pequeñas (menos de 600px), se cambia a UNA columna */
   @media (max-width: 768px) {

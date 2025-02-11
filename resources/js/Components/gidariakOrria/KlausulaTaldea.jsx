@@ -28,6 +28,8 @@ function Klausula({ gidaria, taldea, bezeroDirua }) {
     Inertia.post(`/klausulaigotaldea/${finalGidaria.id}`, { 
       kantitatea: kantitateaNum,
     });
+    window.location.reload();
+
   };
   
 

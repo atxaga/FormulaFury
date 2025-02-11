@@ -277,6 +277,18 @@ public function sartu(Request $request)
 
     return Inertia::location(route('setLiga', ['id' => $liga->id]));
 }
+public function abandonarLiga(Request $request){
+    $ligaId = $request->id;
+    $bezeroa = $request->user()->id;
+
+
+    BezeroLiga::where('liga_id', $ligaId)
+    ->where('bezeroa_id', $bezeroa)
+    ->delete();
+
+
+    return redirect()->back();
+}
 
 }
     

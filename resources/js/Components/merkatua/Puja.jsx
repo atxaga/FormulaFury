@@ -24,6 +24,8 @@ function Puja({ pilot, pujaInicial, bezeroDirua, onPujaUpdate }) {
     }else{
       Inertia.post('/pujatu', pujaBerria);
       onPujaUpdate(puja);
+      window.location.reload();
+
 
     }
 

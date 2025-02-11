@@ -9,7 +9,9 @@ import Footer from '../basikoak/Footer';
 import aston from '@/../images/astonLiga.png'
 import ferrari from '@/../images/ferrariLiga.png';
 import Header from '../basikoak/Header';
-import { Inertia } from '@inertiajs/inertia'; 
+import { Inertia } from '@inertiajs/inertia';
+
+
 
 
 function Nagusia() {
@@ -18,15 +20,19 @@ function Nagusia() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => {
     setIsModalOpen(false);
-    setModalContent(null); 
+    setModalContent(null);
   };
+
+
 
 
   useEffect(() => {
     const hasReloaded = sessionStorage.getItem('hasReloaded');
+
 
     if (!hasReloaded) {
       sessionStorage.setItem('hasReloaded', 'true');
@@ -36,12 +42,14 @@ function Nagusia() {
       });
     }
   }, []);
-  
-  
+ 
+ 
+
 
   const handleOptionClick = (option) => {
     setModalContent(option);
   };
+
 
   return (
     <>
@@ -61,6 +69,7 @@ function Nagusia() {
         </div>
       </div>
 
+
       <Modal show={isModalOpen} onClose={closeModal}  maxWidth="wider" closeable={true}>
         <div className="modal-content">
           {!modalContent ? (
@@ -69,7 +78,7 @@ function Nagusia() {
               <div onClick={()=>handleOptionClick('create')} className='create bg-white'>
               <div className='createText'>
               <div className='h3'>
-              <h3 className='sortuDiv'>Sortu</h3><h3>liga bat zure lagunekin jokatzeko</h3> 
+              <h3 className='sortuDiv'>Sortu</h3><h3>liga bat zure lagunekin jokatzeko</h3>
               </div>
                <p className='text-sm'>Zure lagunak gonbidatu eta zuen artean lehiatu</p>
               </div>
@@ -80,7 +89,7 @@ function Nagusia() {
               <div onClick={()=>handleOptionClick('join')} className='join bg-white'>
               <div className='joinText'>
               <div className='h3'>
-              <h3 className='sartu'>Sartu</h3><h3>lagun baten liga batean</h3> 
+              <h3 className='sartu'>Sartu</h3><h3>lagun baten liga batean</h3>
               </div>
                <p className='text-sm'>Sartu zure lagun baten liga batean kode baten bitartez</p>
                </div>
@@ -88,7 +97,7 @@ function Nagusia() {
                 <img src={ferrari} alt="" />
               </div>
               </div>
-              
+             
               <button className="close-modal" onClick={closeModal}>X</button>
             </div>
           ) : modalContent === 'create' ? (
@@ -109,5 +118,6 @@ function Nagusia() {
     </>
   );
 }
+
 
 export default Nagusia;

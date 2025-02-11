@@ -18,6 +18,7 @@ import Klausula from './Klausula';
 
 function Gidaria({gidaria, puntuakGidariak, posizioakGidariak}) {
   console.log(gidaria);
+  console.log(posizioakGidariak, puntuakGidariak);
   const { bezeroa } = usePage().props;
   const [showModal, setShowModal] = useState(false);
   const [showModalKlausula, setShowModalKlausula] = useState(false);
@@ -48,7 +49,7 @@ const handleModalCloseKlausula = ()=>{
         <img src={gidaria.foto} alt="" />
         <div className='gidariDatuak'>
         <div className='usuario'>
-        <div className='mota md:text-sm'>
+        <div className='mota md:text-sm' style={{paddingTop:'1%'}}>
             <p>PIL</p>
         </div>
         <div className='usuarioIzena'>

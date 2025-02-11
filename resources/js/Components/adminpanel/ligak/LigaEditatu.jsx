@@ -17,6 +17,7 @@ function LigaEditatu({ ligaid, deskribapen}) {
     };
 
     Inertia.post('/ligaeditatu', newLiga);
+    window.location.reload();
 
     setLigaIzena('');
     setDeskribapena('');
